@@ -1,0 +1,7 @@
+@use "../abstracts" as *;
+
+    nav {
+      @include position($p: fixed, $t: 0, $l: 0, $z: 999);
+        width: 100%;
+    }
+
