@@ -16,3 +16,8 @@ document.addEventListener("click", function () {
   navbarAccountArrow.classList.remove("active");
   navbarAccount.classList.remove("active");
 });
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 992) {
+    navbarAccount.classList.remove("active");
+  }
+});
