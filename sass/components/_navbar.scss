@@ -1,7 +1,501 @@
 @use "../abstracts" as *;
 
-    nav {
-      @include position($p: fixed, $t: 0, $l: 0, $z: 999);
-        width: 100%;
+nav {
+  @include position($p: fixed, $t: 0, $l: 0, $z: 999);
+  width: 100%;
+  color: #fff;
+  background: rgba(3, 8, 18, 0.48);
+  backdrop-filter: blur(4px);
+  border-bottom: 1px solid rgba(150, 180, 255, 0.38);
+  @include responsive(350) {
+    & {
+      height: 100px;
+    }
+    .container-fluid {
+      display: none;
+    }
+  }
+  @include responsive(1050) {
+    & {
+      height: initial;
+    }
+    .container-fluid {
+      display: block;
+    }
+  }
+  .logo {
+    @include flex();
+  }
+  .links {
+    width: 100%;
+    margin: auto;
+    @include flex($jc: start);
+    padding: 20px;
+    column-gap: 30px;
+
+    .link {
+      .nav-link {
+        @include flex();
+        color: #fff;
+        text-decoration: none;
+        position: relative;
+        transition-duration: 1s;
+        @include responsive(350) {
+          font-size: 11px;
+          scale: 1.2;
+        }
+        i {
+          color: $main-Color;
+          margin-right: 10px;
+        }
+        &::before {
+          content: "";
+          @include position($b: -11px, $l: 50%);
+          @include dimensions(0%, 70%);
+          transform: translateX(-50%);
+          background: radial-gradient(
+            ellipse,
+            rgba(255, 255, 255, 0.8) 0%,
+            rgba(255, 255, 255, 0.35) 30%,
+            rgba(255, 255, 255, 0.1) 55%,
+            transparent 75%
+          );
+          filter: blur(6px);
+          transition-delay: 0.3s;
+          transition-duration: 0.6s;
+        }
+
+        &::after {
+          content: "";
+          border-radius: 20px;
+          @include position($b: -10px, $l: 50%);
+          transform: translateX(-50%);
+          @include dimensions(0%, 3px);
+          background: linear-gradient(180deg, #ffffff 0%, #f4f8fb 25%, #dce5eb 50%, #f8fbfd 75%, #ffffff 100%);
+          transition-duration: 1s;
+        }
+
+        &.active,
+        &:hover {
+          &::before,
+          &::after {
+            width: 100%;
+          }
+        }
+      }
     }
 
+    .search-container {
+      .input-group {
+        @include flex();
+        background: rgba(12, 22, 36, 0.72);
+        border: 1px solid rgba(112, 137, 165, 0.45);
+        border-radius: 999px;
+        box-shadow:
+          inset 0 1px 1px rgba(255, 255, 255, 0.06),
+          0 0 20px rgba(20, 80, 140, 0.12);
+        border-radius: 30px;
+        .input-group-text {
+          border: none;
+          background-color: transparent;
+          color: #fff;
+        }
+        input {
+          background-color: transparent;
+          border: none;
+          outline: none;
+          padding: 10px;
+          &::placeholder {
+            color: #7a7a7a;
+          }
+        }
+      }
+    }
+  }
+
+  .account-icon {
+    @include flex();
+    position: relative;
+    .img {
+      width: 70px;
+      height: 70px;
+      @include bg-img("../images/Profile.jpg");
+      cursor: pointer;
+      border-radius: 50%;
+    }
+    i {
+      cursor: pointer;
+      @include position($t: 50%, $r: 25%);
+      transform: translateY(-50%) rotate(0deg);
+      transition: right 0.5s;
+
+      @include responsive(1050) {
+        right: 10%;
+      }
+      &.active {
+        transform: translateY(-50%) rotate(180deg);
+        right: -90%;
+      }
+    }
+  }
+
+  .account-detailes {
+    border-radius: 10px;
+    padding: 10px;
+    background: linear-gradient(135deg, rgba(4, 10, 20, 0.98) 0%, rgba(7, 15, 30, 0.98) 35%, rgba(17, 14, 42, 0.92) 70%, rgba(28, 12, 48, 0.98) 100%);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(142, 182, 255, 0.28);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.28),
+      inset 0 -20px 50px rgba(73, 70, 160, 0.28),
+      0 10px 35px rgba(0, 0, 0, 0.75),
+      0 0 35px rgba(80, 120, 255, 0.42);
+
+    @include position($r: -100%, $t: 110%);
+    text-align: center;
+    @include flex($dir: column);
+    row-gap: 10px;
+    transition-duration: 1s;
+    &.active {
+      right: 0.5%;
+    }
+    .group {
+      border-radius: 10px;
+      @include flex($dir: column);
+      row-gap: 10px;
+      width: 100%;
+      padding: 20px 5px;
+      .account-details-item {
+        cursor: pointer;
+        border-radius: 10px;
+        width: 100%;
+        position: relative;
+        padding: 10px 40px;
+        border: $main-Color 2px solid;
+        color: #e7fcff;
+        background: rgba(5, 10, 25, 0.85);
+        transition-duration: 0.5s;
+        overflow: hidden;
+        &::before {
+          content: "";
+          @include position($t: 0, $l: -120%);
+          width: 80%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(17, 217, 239, 0.15), rgba(17, 217, 239, 0.45), rgba(17, 217, 239, 0.15), transparent);
+          transform: skewX(-20deg);
+          transition-duration: 0.5s;
+        }
+        &.logout::before {
+          background: linear-gradient(90deg, transparent, rgba(255, 53, 79, 0.15), rgba(255, 53, 79, 0.45), rgba(255, 53, 79, 0.15), transparent);
+        }
+        &:hover {
+          transform: translateX(4px);
+          border-color: #7df4ff;
+          box-shadow:
+            0 0 8px rgba(17, 217, 239, 0.8),
+            0 0 25px rgba(17, 217, 239, 0.3),
+            inset 0 0 20px rgba(17, 217, 239, 0.08);
+          &.logout {
+            border-color: #ff5368;
+
+            box-shadow:
+              0 0 8px rgba(255, 53, 79, 0.8),
+              0 0 25px rgba(255, 53, 79, 0.3),
+              inset 0 0 20px rgba(255, 53, 79, 0.08);
+          }
+          &::before {
+            left: 140%;
+          }
+        }
+
+        &.logout {
+          background: linear-gradient(
+            135deg,
+            rgba(20, 4, 7, 0.98) 0%,
+            rgba(35, 7, 14, 0.98) 35%,
+            rgba(42, 8, 20, 0.92) 70%,
+            rgba(48, 6, 12, 0.98) 100%
+          );
+
+          backdrop-filter: blur(8px);
+
+          border: 1px solid rgba(255, 70, 85, 0.3);
+
+          box-shadow:
+            inset 0 1px 0 rgba(255, 220, 220, 0.12),
+            inset 0 -20px 50px rgba(160, 20, 40, 0.25),
+            0 10px 35px rgba(0, 0, 0, 0.75),
+            0 0 35px rgba(255, 35, 55, 0.25);
+        }
+      }
+    }
+  }
+}
+
+.account-detailes-popup {
+  @include position($p: fixed, $t: 50%, $l: -140%, $z: 999);
+  &.active {
+    left: 0;
+  }
+  transform: translateY(-50%);
+  @include dimensions(300px, 100%);
+  padding: 20px;
+  background: linear-gradient(145deg, rgba(5, 12, 25, 0.97) 0%, rgba(7, 15, 32, 0.97) 40%, rgba(18, 12, 42, 0.96) 75%, rgba(30, 12, 50, 0.97) 100%);
+  clip-path: polygon(0% 0%, 84% 0%, 100% 7%, 100% 47%, 94% 54%, 100% 61%, 100% 93%, 91% 100%, 62% 100%, 54% 95%, 8% 100%, 0% 93%, 0% 8%);
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.75),
+    0 0 30px rgba(17, 217, 239, 0.15),
+    0 0 50px rgba(110, 70, 255, 0.12);
+  transition-duration: 1s;
+  row-gap: 10px;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #11d9ef 0%, #11d9ef 35%, #6f9cff 58%, #a86cff 78%, #d276ff 100%);
+    clip-path: inherit;
+    z-index: -2;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 3px;
+    background: linear-gradient(145deg, rgba(5, 12, 25, 0.98), rgba(8, 15, 32, 0.97) 45%, rgba(20, 13, 43, 0.96));
+    clip-path: polygon(0% 0%, 84% 0%, 100% 7%, 100% 47%, 94% 54%, 100% 61%, 100% 93%, 91% 100%, 62% 100%, 54% 95%, 8% 100%, 0% 93%, 0% 8%);
+    z-index: -1;
+    @include bg-img("../images/navbarbg.png");
+  }
+
+  color: #fff;
+  .content {
+    @include flex($dir: column, $ai: start, $jc: space-evenly);
+    height: 100%;
+    .close {
+      @include position($t: 20px, $r: 20px);
+      @include flex();
+      color: $main-Color;
+      background: linear-gradient(135deg, #061535 0%, #0a1d4a 18%, #0b1738 35%, #070f27 52%, #0a1233 68%, #17154a 84%, #25205f 100%);
+
+      border-radius: 20%;
+      font-size: 12px;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      transition-duration: 0.5s;
+    }
+    position: relative;
+    .logo {
+      width: 80%;
+      align-content: start;
+    }
+
+    .links {
+      border-radius: 10px;
+      @include flex($dir: column, $ai: start);
+      row-gap: 10px;
+      width: 100%;
+
+      .account-details-item {
+        @include flex($jc: start);
+        position: relative;
+        width: 80%;
+        padding: 15px;
+        color: #e7fcff;
+
+        background:
+          linear-gradient(135deg, rgba(8, 25, 48, 0.95), rgba(4, 13, 28, 0.96) 55%, rgba(10, 15, 38, 0.96)) padding-box,
+          linear-gradient(135deg, #11d9ef 0%, #11d9ef 35%, #4b9cff 65%, #8d6cff 100%) border-box;
+        border: 2px solid transparent;
+        border-top-right-radius: 15%;
+        border-bottom-right-radius: 15%;
+        cursor: pointer;
+        overflow: hidden;
+        transition-duration: 0.5s;
+        &::before {
+          content: "";
+          @include position($t: 0, $l: -120%);
+          @include dimensions(70%, 100%);
+
+          background: linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(17, 217, 239, 0.05) 25%,
+            rgba(17, 217, 239, 0.22) 50%,
+            rgba(17, 217, 239, 0.05) 75%,
+            transparent 100%
+          );
+          transform: skewX(-20deg);
+          transition: left 0.55s ease;
+        }
+
+        &::after {
+          content: "";
+          @include position($t: -45px, $l: -45px);
+          @include dimensions(100px, 100px);
+          background: rgba(17, 217, 239, 0.25);
+          filter: blur(25px);
+        }
+        &:hover {
+          transform: translateX(10px);
+          &::before {
+            left: 140%;
+          }
+        }
+        i {
+          color: $main-Color;
+        }
+      }
+    }
+    .account-details-search {
+      margin-top: 20px;
+      @include flex();
+      background: rgba(12, 22, 36, 0.72);
+      border: 2px solid rgba(70, 140, 220, 0.45);
+      border-radius: 999px;
+      box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.06),
+        0 0 20px rgba(20, 80, 140, 0.12);
+      border-radius: 30px;
+      .input-group-text {
+        border: none;
+        background-color: transparent;
+        color: #fff;
+      }
+      input {
+        color: #fff;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        padding: 10px;
+        &::placeholder {
+          color: #7a7a7a;
+        }
+      }
+    }
+
+    .account-icon {
+      padding: 20px 10px;
+      background: rgba(3, 8, 18, 0.88);
+      backdrop-filter: blur(4px);
+      border-radius: 20px;
+      width: 100%;
+      @include flex($jc: start);
+      column-gap: 20px;
+      position: relative;
+      .img {
+        width: 90px;
+        height: 90px;
+        @include bg-img("../images/Profile.jpg");
+        cursor: pointer;
+        border-radius: 50%;
+      }
+      i {
+        cursor: pointer;
+        @include position($t: 50%, $r: 5%);
+        transform: translateY(-50%) rotate(180deg);
+        transition: right 0.5s;
+        &.active {
+          transform: translateY(-50%) rotate(180deg);
+          right: -90%;
+        }
+      }
+      .settings {
+        h4 {
+          font-size: 14px;
+        }
+        p {
+          font-size: 12px;
+          color: #949494;
+        }
+      }
+    }
+  }
+}
+
+.navbar-button {
+  display: none;
+  .account-icon {
+    width: 100px;
+    height: 100px;
+    @include position($p: fixed, $t: 15px, $r: 0, $z: 999);
+    .img {
+      width: 70px;
+      height: 70px;
+      @include bg-img("../images/Profile.jpg");
+      cursor: pointer;
+      border-radius: 50%;
+    }
+  }
+  @include responsive(350) {
+    display: block;
+  }
+  @include responsive(1050) {
+    display: none;
+  }
+}
+
+.topbar {
+  display: none;
+  padding: 0 30px;
+  @include dimensions(70%, 100px);
+  @include responsive(350) {
+    @include flex($jc: space-between);
+    padding: 0;
+  }
+  @include responsive(1050) {
+    display: none;
+  }
+  @include responsive(650) {
+    width: 80%;
+  }
+  @include responsive(650) {
+    width: 70%;
+  }
+  @include position($p: fixed, $t: 0, $l: 0, $z: 999);
+  background: rgba(2, 6, 16, 0.82);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(17, 217, 239, 0.18);
+  &::after {
+    content: "";
+    @include position($b: -1px, $l: 0, $z: 999);
+    @include dimensions(100%, 2px);
+    background: linear-gradient(90deg, transparent, #11d9ef 25%, #485fe0 70%, #a86cff, transparent);
+    opacity: 0.7;
+  }
+  .topbar-logo {
+    width: 30%;
+
+    @include responsive(350) {
+      width: 60%;
+    }
+    @include responsive(650) {
+      width: 40%;
+    }
+  }
+  .topbar-brand {
+    text-align: center;
+    span {
+      color: #ccefff;
+      font-size: 16px;
+      letter-spacing: 3px;
+      @include responsive(350) {
+        display: none;
+      }
+      @include responsive(650) {
+        display: block;
+      }
+    }
+    p {
+      margin: 7px 0px;
+      color: #647997;
+      font-size: 12px;
+      letter-spacing: 2px;
+      @include responsive(350) {
+        display: none;
+      }
+      @include responsive(650) {
+        display: block;
+      }
+    }
+  }
+}

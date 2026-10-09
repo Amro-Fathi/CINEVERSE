@@ -1,6 +1,10 @@
 @use "../abstracts" as *;
 
-
+body{
+   @include bg-img("../images/space-background1.png");
+   background-attachment: fixed;
+   height: 100vh;
+}
 @keyframes shipEnergy {
   0% {
     background-position: 0% 50%;
@@ -14,3 +18,8 @@
     background-position: 0% 50%;
   }
 }
+
+
+
+
+
