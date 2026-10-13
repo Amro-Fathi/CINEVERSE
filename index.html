@@ -11,16 +11,16 @@
     <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/font.css" />
     <link rel="stylesheet" href="css/index.css" />
-    <link rel="icon" type="image/x-icon" href="" />
+    <link rel="icon" type="image/x-icon" href="./images/Icon.png" />
   </head>
   <body>
-    <nav class="py-3">
+    <nav>
       <div class="container-fluid">
         <div class="row">
           <div class="col-2 logo">
             <img src="./images/Logo.png" alt="Logo" class="img-fluid" />
           </div>
-          <div class="col-8">
+          <div class="col-9 d-flex justify-content-center align-items-center">
             <div class="links list-unstyled">
               <div class="link">
                 <a class="nav-link active" href="#"><i class="fa-solid fa-house-user"></i> Home</a>
@@ -34,15 +34,21 @@
               <div class="link">
                 <a class="nav-link" href="./pages/"><i class="fa-solid fa-bookmark"></i> Watch List</a>
               </div>
-              <div class="flex-grow-1 search-container">
+              <div class="search-container ms-auto" id="SearchContainer">
                 <div class="input-group">
-                  <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
-                  <input type="text" class="form-control" placeholder="Search your movie..." aria-label="Username" aria-describedby="basic-addon1" />
+                  <span class="input-group-text" id="HomeSearch" onclick="toggleSearchActive()"><i class="fa-solid fa-magnifying-glass"></i></span>
+                  <input
+                    type="text"
+                    id="SearchInput"
+                    class="form-control"
+                    placeholder="Search your movie..."
+                    aria-label="Username"
+                    aria-describedby="basic-addon1" />
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-2 account-icon" onclick="stopPropagation(event)">
+          <div class="col-1 account-icon" onclick="stopPropagation(event)">
             <div class="img" onclick="OpenAccountPopup()"></div>
             <i class="fa-solid fa-chevron-left account-arrow" onclick="OpenAccountPopup()"></i>
           </div>
@@ -53,8 +59,6 @@
             <div class="account-details-item">My profile</div>
             <div class="account-details-item">Watch History</div>
             <div class="account-details-item">Settings</div>
-            <div class="account-details-item">Language</div>
-            <div class="account-details-item">Appearance</div>
           </div>
           <div class="group">
             <div class="account-details-item logout">Log Out</div>
@@ -76,7 +80,6 @@
         <p>EXPLORE • DISCOVER • BELONG</p>
       </div>
     </div>
-
     <div class="account-detailes-popup" onclick="stopPropagation(event)">
       <div class="content">
         <i class="fa-solid fa-xmark close" onclick="OpenAccountPopupRight()"></i>
@@ -104,15 +107,86 @@
         </div>
         <div class="account-icon">
           <div class="img"></div>
-          <i class="fa-solid fa-chevron-left account-arrow"></i>
+          <p class="muted">
+            <a href="#" data-bs-toggle="tooltip" data-bs-title="Log Out"><i class="fa-solid fa-right-from-bracket"></i></a>
+          </p>
           <div class="settings">
             <h4>CINEVERSE</h4>
-            <p class="mb-0">View Profile</p>
+            <p class="mb-0 profile">View Profile</p>
           </div>
         </div>
       </div>
     </div>
+    <header>
+      <div class="container-fluid header px-5">
+        <div class="content">
+          <div class="content-top mb-4">
+            <h1>CINEVERSE</h1>
+            <h4>A UNIVERSE OF STORIES</h4>
+            <p>
+              Explore Galaxies of movies. <br />
+              From Epic Adventure to HeartFull stories ,<br />
+              find your next world.
+            </p>
+            <a class="home-link" href="">Start Exploring<i class="fa-solid fa-caret-right"></i></a>
+          </div>
+          <div class="content-card">
+            <div class="head">
+              <div class="right">
+                <i class="fa-solid fa-crosshairs me-2"></i>
+                <span>TODAYS'S DESTINATION</span>
+              </div>
+              <div class="left">
+                <i class="fa-solid fa-angle-right"></i>
+              </div>
+            </div>
+            <div class="body">
+              <div class="left">
+                <img src="./images/test.pnh.jpg" class="img-fluid" alt="Space" />
+              </div>
+              <div class="right">
+                <h4 class="title">Interstellar</h4>
+                <div class="info">
+                  <span>2014</span>
+                  <span class="dot">•</span>
+                  <span>Sci-Fi</span>
+                  <span class="dot">•</span>
+                  <span class="rate"><i class="fa-solid fa-star"></i>8.6</span>
+                </div>
+                <div class="desc">A team of explorers travel through a wormhole in space in an attempt to ensure humanitiy's survival</div>
+                <div class="icons">
+                  <i class="fa-solid fa-play active"></i>
+                  <i class="fa-solid fa-bookmark"></i>
+                  <i class="fa-solid fa-plus"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="top-rated">
+          <div class="content">
+            <div class="top-rated-head">
 
+            </div>
+            <div class="top-rated-body">
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="random">
+      <i class="fa-solid fa-dice dice"></i>
+      <span>
+        <h4>Random World</h4>
+        <h6>Let fate decide</h6>
+      </span>
+      <i class="fa-solid fa-angle-right right"></i>
+    </div>
+
+    <video class="bg-video" autoplay muted loop playsinline>
+      <source src="./videos/cineverse_animated_space_background.mp4" type="video/mp4" />
+    </video>
     <script src="js/plugins/jquery.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/components/navbar.js"></script>
