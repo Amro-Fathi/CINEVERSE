@@ -1,25 +1,97 @@
 @use "../abstracts" as *;
 
-body{
-   @include bg-img("../images/space-background1.png");
-   background-attachment: fixed;
-   height: 100vh;
-}
-@keyframes shipEnergy {
-  0% {
-    background-position: 0% 50%;
+@keyframes cosmic-Title {
+  from {
+    background-position: 0% center;
+    filter: drop-shadow(0 0 3px rgba(180, 240, 255, 0.45)) drop-shadow(0 0 10px rgba(35, 190, 255, 0.3)) drop-shadow(0 0 22px rgba(75, 105, 255, 0.2));
   }
 
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
+  to {
+    background-position: 100% center;
+    filter: drop-shadow(0 0 5px rgba(200, 245, 255, 0.7)) drop-shadow(0 0 16px rgba(35, 190, 255, 0.55))
+      drop-shadow(0 0 30px rgba(110, 80, 255, 0.35)) drop-shadow(0 0 40px rgba(190, 80, 255, 0.15));
   }
 }
 
+@keyframes cosmic-subtitle {
+  from {
+    background-position: 0% center;
+    filter: drop-shadow(0 0 3px rgba(53, 190, 255, 0.2));
+  }
+
+  to {
+    background-position: 100% center;
+    filter: drop-shadow(0 0 6px rgba(120, 104, 255, 0.3));
+  }
+}
+
+
+.bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: -1;
+}
 
 
 
+  .random {
+    @include flex();
+    @include position($r: 40px, $b:5%);
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: #f1f1f1;
+    background: linear-gradient(110deg, rgba(45, 95, 170, 0.38) 0%, rgba(22, 57, 120, 0.32) 45%, rgba(5, 20, 55, 0.38) 100%);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(155, 205, 255, 0.45);
+    box-shadow:
+      0 0 12px rgba(76, 157, 255, 0.2),
+      inset 0 1px 3px rgba(220, 240, 255, 0.15);
+    column-gap: 20px;
+    transition-duration: 1s;
+    cursor: pointer;
+    h4 {
+      font-size: 20px;
+      color: #96dbdf;
+      transition-duration: 1s;
+    }
+    h6 {
+      color: #959dbaa6;
+      font-size: 16px;
+      transition-duration: 1s;
+    }
+    i {
+      font-size: 30px;
+      transition-duration: 1s;
+    }
+    &:hover {
+      transform: translateY(-5px) scale(1.02);
 
+      background: linear-gradient(110deg, rgba(65, 135, 220, 0.48) 0%, rgba(30, 78, 160, 0.42) 45%, rgba(8, 30, 75, 0.48) 100%);
+
+      border-color: rgba(170, 220, 255, 0.8);
+
+      box-shadow:
+        0 0 10px rgba(100, 185, 255, 0.4),
+        0 0 28px rgba(45, 125, 255, 0.3),
+        inset 0 1px 4px rgba(235, 248, 255, 0.25);
+
+      h4 {
+        color: #c7f7ff;
+        text-shadow: 0 0 12px rgba(80, 210, 255, 0.55);
+      }
+
+      h6 {
+        color: rgba(210, 230, 255, 0.85);
+      }
+
+      i {
+        color: #b6eaff;
+        transform: translateX(5px);
+        filter: drop-shadow(0 0 8px rgba(70, 180, 255, 0.8));
+      }
+    }
+  }
