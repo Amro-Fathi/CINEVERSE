@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Amr Fathi Mohammed" />
+    <meta name="keywords" content="HTML CSS JavaScript" />
+    <title>CINEVERSE</title>
+
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/font.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="icon" type="image/x-icon" href="./images/Icon.png" />
+  </head>
+  <body>
+    <nav class="main-nav">
+      <div class="container-fluid">
+        <div class="row justify-content-between">
+          <div class="col-2 logo">
+            <img src="./images/Logo.png" alt="Logo" class="img-fluid" />
+          </div>
+          <div class="col-9 d-flex justify-content-center align-items-center">
+            <div class="links list-unstyled">
+              <div class="link">
+                <a class="nav-link active" href="#"><i class="fa-solid fa-house-user"></i> Home</a>
+              </div>
+              <div class="link">
+                <a class="nav-link" href="./pages/"><i class="fa-solid fa-rocket"></i> Explore</a>
+              </div>
+              <div class="link">
+                <a class="nav-link" href="./pages/"><i class="fa-solid fa-heart"></i> Favourite</a>
+              </div>
+              <div class="link">
+                <a class="nav-link" href="./pages/"><i class="fa-solid fa-bookmark"></i> Watch List</a>
+              </div>
+              <div class="search-container ms-auto" id="SearchContainer">
+                <div class="input-group">
+                  <span class="input-group-text" id="HomeSearch" onclick="toggleSearchActive()"><i class="fa-solid fa-magnifying-glass"></i></span>
+                  <input
+                    type="text"
+                    id="SearchInput"
+                    class="form-control"
+                    placeholder="Search your movie..."
+                    aria-label="Username"
+                    aria-describedby="basic-addon1" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-1 account-icon" onclick="stopPropagation(event)">
+            <div class="img" onclick="OpenAccountPopup()"></div>
+            <i class="fa-solid fa-chevron-left account-arrow" onclick="OpenAccountPopup()"></i>
+          </div>
+        </div>
+
+        <div class="account-detailes" onclick="stopPropagation(event)">
+          <div class="group">
+            <div class="account-details-item">My profile</div>
+            <div class="account-details-item">Watch History</div>
+            <div class="account-details-item">Settings</div>
+          </div>
+          <div class="group">
+            <div class="account-details-item logout">Log Out</div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="topbar">
+      <a href="./index.html" class="topbar-logo">
+        <img src="./images/Logo.png" class="img-fluid" alt="CINEVERSE" />
+      </a>
+      <div class="topbar-brand">
+        <span>YOUR CINEMATIC UNIVERSE</span>
+        <p>EXPLORE • DISCOVER • BELONG</p>
+      </div>
+      <div class="navbar-button" onclick="stopPropagation(event)">
+        <div class="account-icon" onclick="OpenAccountPopupRight()">
+          <div class="img"></div>
+        </div>
+      </div>
+    </div>
+    <div class="account-detailes-popup" onclick="stopPropagation(event)">
+      <div class="content">
+        <i class="fa-solid fa-xmark close" onclick="OpenAccountPopupRight()"></i>
+        <div class="logo">
+          <img src="./images/Logo.png" alt="Logo" class="img-fluid" />
+        </div>
+        <div class="links">
+          <div class="account-details-item">
+            <a class="nav-link active" href="#"><i class="fa-solid fa-house-user"></i> Home</a>
+          </div>
+
+          <div class="account-details-item">
+            <a class="nav-link" href="./pages/"><i class="fa-solid fa-rocket"></i> Explore</a>
+          </div>
+          <div class="account-details-item">
+            <a class="nav-link" href="./pages/"><i class="fa-solid fa-heart"></i> Favourite</a>
+          </div>
+          <div class="account-details-item">
+            <a class="nav-link" href="./pages/"><i class="fa-solid fa-bookmark"></i> Watch List</a>
+          </div>
+        </div>
+        <div class="account-details-search">
+          <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
+          <input type="text" class="search-input" placeholder="Search your movie..." aria-label="Username" aria-describedby="basic-addon1" />
+        </div>
+        <div class="account-icon">
+          <div class="img"></div>
+          <p class="muted">
+            <a href="#" data-bs-toggle="tooltip" data-bs-title="Log Out"><i class="fa-solid fa-right-from-bracket"></i></a>
+          </p>
+          <div class="settings">
+            <h4>CINEVERSE</h4>
+            <p class="mb-0 profile">View Profile</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <header>
+      <div class="img">
+        <img src="./images/mainHeader.png" alt="Cineverse" class="img-fluid" />
+      </div>
+      <div class="container-fluid h-100 px-5">
+        <div class="content h-100">
+          <div class="top mb-4">
+            <h1>CINEVERSE</h1>
+            <h4>A UNIVERSE OF STORIES</h4>
+            <p>Explore Galaxies of movies. From Epic Adventure to HeartFull stories , find your next world.</p>
+            <a class="home-link" href="">Start Exploring<i class="fa-solid fa-caret-right"></i></a>
+          </div>
+          <div class="card js-header-destination">
+            
+          </div>
+        </div>
+      </div>
+      <div class="random">
+        <i class="fa-solid fa-dice dice"></i>
+        <span>
+          <h4>Random World</h4>
+          <h6>Let fate decide</h6>
+        </span>
+        <i class="fa-solid fa-angle-right right"></i>
+      </div>
+    </header>
+    <div class="destination">
+      <div class="destination">
+  <div class="card js-mobile-destination">
+
+  </div>
+</div>
+    </div>
+
+    <section id="Top_Rated">
+      <div class="head">
+        <div class="row">
+          <div class="col-7 left">
+            <div class="img" onclick="showTop()">
+              <img src="./images/TopRatedIcon.png" class="img-fluid" alt="Top" />
+            </div>
+            <div class="title">
+              <h2>TOP <span>MOVIES</span></h2>
+              <p class="mb-0">The most loved movies in Cineverse right now</p>
+            </div>
+          </div>
+          <div class="col-5 right">
+            <a class="go-to-top" href=""> See All<i class="fa-solid fa-angle-right"></i> </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="body">
+        <div class="container m-auto">
+          <div class="row" id="Top_Rated_Container">
+            <!-- <div class="col-12 col-lg-4 order-2 order-lg-1">
+              <div class="top top-two">
+                <img src="./images/genres/sci-fi.png" class="planet" alt="" />
+                <span class="rank">2</span>
+                <div class="img">
+                  <img src="./images/test.pnh.jpg" alt="Dune" />
+                </div>
+                <div class="content">
+                  <h4 class="title">Dune</h4>
+                  <div class="info">
+                    <span>2021</span><span class="dot">•</span> <span>Sci-Fi</span><span class="dot">•</span>
+                    <span class="rate"><i class="fa-solid fa-star"></i>8.0</span>
+                  </div>
+                  <div class="desc">
+                    A brilliant young man journeys to the most dangerous planet in the universe to secure the future of his people.
+                  </div>
+                  <div class="actions">
+                    <div class="view-details"><i class="fa-solid fa-play"></i><span>View Details</span></div>
+                    <div class="bookmark"><i class="fa-regular fa-bookmark"></i></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4 order-1 order-lg-2">
+              <div class="top top-one">
+                <img src="./images/genres/adventure.png" class="planet" alt="" />
+                <span class="rank">1</span>
+                <div class="img">
+                  <img src="./images/test.pnh.jpg" alt="Interstellar" />
+                </div>
+                <div class="content">
+                  <h4 class="title">Interstellar</h4>
+                  <div class="info">
+                    <span>2014</span><span class="dot">•</span> <span>Sci-Fi</span><span class="dot">•</span>
+                    <span class="rate"><i class="fa-solid fa-star"></i>8.6</span>
+                  </div>
+                  <div class="desc">A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.</div>
+                  <div class="actions">
+                    <div class="view-details"><i class="fa-solid fa-play"></i><span>View Details</span></div>
+                    <div class="bookmark"><i class="fa-regular fa-bookmark"></i></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4 order-3 order-lg-3">
+              <div class="top top-three">
+                <img src="./images/genres/action.png" class="planet" alt="" />
+                <span class="rank">3</span>
+                <div class="img">
+                  <img src="./images/test.pnh.jpg" alt="The Dark Knight" />
+                </div>
+                <div class="content">
+                  <h4 class="title">The Dark Knight</h4>
+                  <div class="info">
+                    <span>2008</span><span class="dot">•</span> <span>Action</span><span class="dot">•</span>
+                    <span class="rate"><i class="fa-solid fa-star"></i>9.0</span>
+                  </div>
+                  <div class="desc">Batman faces his greatest challenge yet as the Joker unleashes chaos on Gotham City.</div>
+                  <div class="actions">
+                    <div class="view-details"><i class="fa-solid fa-play"></i><span>View Details</span></div>
+                    <div class="bookmark"><i class="fa-regular fa-bookmark"></i></div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- <script src="js/plugins/jquery.js"></script> -->
+    <script src="js/bootstrap.js"></script>
+    <script src="js/components/navbar.js"></script>
+    <script src="js/api/fetch.js"></script>
+    <script src="js/pages/home.js"></script>
+  </body>
+</html>

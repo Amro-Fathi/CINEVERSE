@@ -1,0 +1,198 @@
+        <div class="top-rated">
+          <div class="content">
+            <div class="top-rated-head mb-4">
+              <div class="row">
+                <div class="col-9 left">
+                  <i class="fa-solid fa-ranking-star"></i>
+                  <span>
+                    <h3>TOP RATED <span class="special">MOVIES</span></h3>
+                    <p class="mb-0">The highest-rated cinematic experiences across the universe.</p>
+                  </span>
+                </div>
+                <div class="col-3 right">
+                  <button><i class="fa-solid fa-crown"></i>BEST OF THE UNIVERSE</button>
+                </div>
+              </div>
+            </div>
+            <div class="top-rated-body">
+              <div class="top-movie">
+                <div class="img">
+                  <img src="./images/test.pnh.jpg" alt="Tpp" class="img-fluid" />
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-play"></i>
+                </div>
+                <h5 class="movie-title">Interstellar</h5>
+                <div class="info">
+                  <span>2014</span>
+                  <span class="dot">•</span>
+                  <span>Sci-Fi</span>
+                  <span class="dot">•</span>
+                  <span>Action</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <style>
+            
+
+
+            .top-rated {
+      clip-path: polygon(
+        4.3% 0%,
+        23.1% 0%,
+        24.2% 1.4%,
+        26% 1.4%,
+        27.1% 2.7%,
+
+        72.9% 2.7%,
+        74% 1.4%,
+        75.8% 1.4%,
+        76.9% 0%,
+        95.7% 0%,
+
+        98.8% 7.5%,
+        98.8% 35.2%,
+        100% 38.5%,
+
+        100% 53.2%,
+        99% 55.8%,
+        99% 94.5%,
+
+        96.9% 99.5%,
+        59.5% 99.5%,
+
+        58% 97.8%,
+        42% 97.8%,
+        40.5% 99.5%,
+
+        3.1% 99.5%,
+        1% 94.5%,
+
+        1% 55.8%,
+        0% 53.2%,
+        0% 38.5%,
+        1.2% 35.2%,
+        1.2% 7.5%
+      );
+      
+      background: linear-gradient(135deg, rgba(5, 15, 39, 0.48) 0%, rgba(12, 22, 55, 0.32) 45%, rgba(29, 15, 58, 0.42) 100%);
+      backdrop-filter: blur(12px) saturate(135%);
+      // border: 1px solid rgba(105, 175, 255, 0.4);
+      border-radius: 28px;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.12),
+        0 10px 35px rgba(0, 0, 0, 0.25),
+        0 0 18px rgba(61, 126, 255, 0.08);
+      flex-grow: 1;
+      height: 100%;
+      padding: 20px;
+      color: #fff;
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(110deg, #16e6ff 0%, #168bff 25%, #416bff 48%, #7655ff 72%, #b78aff 100%);
+        clip-path: inherit;
+        filter: drop-shadow(0 0 4px rgba(22, 230, 255, 0.55)) drop-shadow(0 0 8px rgba(65, 107, 255, 0.3))
+          drop-shadow(0 0 7px rgba(183, 138, 255, 0.3));
+        z-index: -2;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 3px;
+        background: linear-gradient(115deg, rgba(3, 13, 34, 0.78) 0%, rgba(6, 18, 48, 0.62) 45%, rgba(18, 13, 48, 0.74) 100%);
+        clip-path: inherit;
+        backdrop-filter: blur(12px);
+        z-index: -1;
+        // @include bg-img("../images/top.png");
+      }
+      .top-rated-head {
+        .left {
+          @include flex($jc: start);
+          column-gap: 20px;
+          i {
+            font-size: 50px;
+            color: $main-Color;
+          }
+          span.special {
+            background: linear-gradient(100deg, #28e0f5 0%, #38bdf8 35%, #568bff 65%, #9565f5 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+        }
+        .right {
+          @include flex($jc: end);
+          button {
+            position: relative;
+            @include flex();
+            display: inline-flex;
+            gap: 14px;
+            padding: 16px 25px;
+            border: 1px solid transparent;
+            border-radius: 100px;
+            background:
+              linear-gradient(110deg, rgba(36, 31, 104, 0.96), rgba(19, 24, 75, 0.94) 55%, rgba(39, 25, 100, 0.96)) padding-box,
+              linear-gradient(110deg, #d7c8ff 0%, #9575ff 30%, #6545ff 65%, #c9aaff 100%) border-box;
+            color: #dcd5ff;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            cursor: pointer;
+            box-shadow:
+              0 0 7px rgba(151, 112, 255, 0.65),
+              0 0 18px rgba(106, 70, 255, 0.35),
+              0 0 35px rgba(106, 70, 255, 0.18),
+              inset 0 1px 2px rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(14px);
+            transition-duration: 0.7s;
+            &::before {
+              content: "";
+              @include position($z: -1);
+              width: 100%;
+              height: 100%;
+              border-radius: 100px;
+              background: linear-gradient(180deg, rgba(255, 255, 255, 0.09), transparent 45%, rgba(106, 70, 255, 0.07));
+            }
+
+            i {
+              font-size: 25px;
+              color: #ded4ff;
+              filter: drop-shadow(0 0 6px rgba(180, 155, 255, 0.65));
+              transition-duration: 0.5s;
+            }
+            span {
+              text-shadow: 0 0 10px rgba(174, 151, 255, 0.2);
+            }
+            &:hover {
+              transform: translateY(-4px);
+              box-shadow:
+                0 0 10px rgba(174, 145, 255, 0.8),
+                0 0 24px rgba(106, 70, 255, 0.5),
+                0 0 42px rgba(106, 70, 255, 0.25),
+                inset 0 1px 4px rgba(255, 255, 255, 0.3);
+              filter: brightness(1.12);
+              i {
+                color: #fff;
+                transform: scale(1.08);
+                filter: drop-shadow(0 0 9px rgba(210, 190, 255, 0.9));
+              }
+            }
+          }
+        }
+      }
+      .top-rated-body {
+        padding: 20px;
+        .top-movie {
+          width: 20%;
+        }
+      }
+    }
+        </style>
