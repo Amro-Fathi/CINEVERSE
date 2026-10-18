@@ -103,7 +103,7 @@ async function showTop() {
     Top_Rated_Container.innerHTML += `
             <div class="col-12 col-lg-4 order-2 ${order}">
               <div class="top  ${rank}">
-                <img src="./images/genres/${movie.genres[0]}.png" class="planet" alt="${movie.genres[index]}" />
+                <img src="./images/genres/${movie.genres[0].toLowerCase()}.png" class="planet" alt="${movie.genres[index]}" />
                 <span class="rank">${index + 1}</span>
                 <div class="img">
                   <img src="${baseImgUrl}${movie.poster_path}" alt="${movie.title}" />
