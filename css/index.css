@@ -1318,7 +1318,6 @@ header .content .card:hover .body .right .info {
   border: 1px solid rgba(104, 183, 255, 0.16);
   border-radius: 50%;
   backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
   transition-duration: 0.4s;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
@@ -1359,12 +1358,12 @@ header .content .card:hover .body .right .info {
 }
 @media (max-width: 1300px) {
   .destination .card .dest-body .dest-top .left {
-    width: 96px;
+    width: 95px;
   }
 }
 @media (min-width: 371px) and (max-width: 1300px) {
   .destination .card .dest-body .dest-top .left {
-    width: 112px;
+    width: 110px;
   }
 }
 @media (min-width: 577px) and (max-width: 1300px) {
@@ -1408,7 +1407,6 @@ header .content .card:hover .body .right .info {
   margin: 0;
   color: #f3f9ff;
   font-size: 22px;
-  overflow-wrap: anywhere;
   transition-duration: 0.35s;
 }
 @media (max-width: 1300px) {
@@ -1479,10 +1477,6 @@ header .content .card:hover .body .right .info {
 }
 @media (max-width: 1300px) {
   .destination .card .dest-body .dest-top .right .desc {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4;
-    overflow: hidden;
     font-size: 13px;
     line-height: 1.55;
   }
@@ -1496,7 +1490,6 @@ header .content .card:hover .body .right .info {
 @media (min-width: 577px) and (max-width: 1300px) {
   .destination .card .dest-body .dest-top .right .desc {
     display: block;
-    overflow: visible;
     font-size: 15px;
     line-height: 1.6;
   }
@@ -1557,10 +1550,6 @@ header .content .card:hover .body .right .info {
 }
 .destination .card .dest-body .icons i:active {
   background-color: rgba(26, 117, 180, 0.7);
-}
-.destination .card .dest-body .icons i:focus-visible {
-  outline: 2px solid rgba(113, 225, 255, 0.85);
-  outline-offset: 2px;
 }
 .destination .card:hover {
   border-color: rgba(100, 200, 255, 0.65);
@@ -2183,6 +2172,11 @@ header .content .card:hover .body .right .info {
   background-image: linear-gradient(180deg, #fff1b8 0%, #ffb43c 55%, #c8700f 100%);
   filter: drop-shadow(0 0 14px rgba(255, 160, 40, 0.6));
 }
+@media (max-width: 1300px) {
+  #Top_Rated .body .top-one .rank {
+    left: -20px;
+  }
+}
 #Top_Rated .body .top-one .img {
   width: 225px;
   height: 315px;
@@ -2280,6 +2274,11 @@ header .content .card:hover .body .right .info {
   left: 8px;
   background-image: linear-gradient(180deg, #ffd1d9 0%, #ff4d6d 55%, #a30f2d 100%);
   filter: drop-shadow(0 0 14px rgba(255, 60, 90, 0.55));
+}
+@media (max-width: 1300px) {
+  #Top_Rated .body .top-three .rank {
+    left: -20px;
+  }
 }
 #Top_Rated .body .top-three .img {
   transform: translateZ(60px) rotate(-2deg);
