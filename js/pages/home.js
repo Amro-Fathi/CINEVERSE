@@ -1,6 +1,8 @@
 let Top_Rated_Container = document.querySelector("#Top_Rated_Container"),
   header_Destination = document.querySelector(".js-header-destination"),
-  mobile_Destination = document.querySelector(".js-mobile-destination");
+  mobile_Destination = document.querySelector(".js-mobile-destination"),
+  holo = document.querySelector(".checkbox-container label"),
+  topLoading = document.querySelector("#Top_Rated .loadingPage");
 
 async function destination() {
   let data = await getAllMovies(),
@@ -69,7 +71,7 @@ async function destination() {
               <span class="dot">•</span>
               <span class="rate"><i class="fa-solid fa-star" aria-hidden="true"></i>${movie.vote_average}</span>
             </div>
-            <div class="desc">${movie.overview}</div>
+            <div class="desc">${movie.overview.slice(0, 10)}</div>
           </div>
         </div>
  
@@ -105,7 +107,7 @@ async function showTop() {
               <div class="top  ${rank}">
                 <img src="./images/genres/${movie.genres[0].toLowerCase()}.png" class="planet" alt="${movie.genres[index]}" />
                 <span class="rank">${index + 1}</span>
-                <div class="img">
+                <div class="img ">
                   <img src="${baseImgUrl}${movie.poster_path}" alt="${movie.title}" />
                 </div>
                 <div class="content">
@@ -131,7 +133,20 @@ async function showTop() {
     
     `;
   });
+  setTimeout(() => {
+    topLoading.classList.remove("active");
+  }, 1000);
 }
+
+holo.onclick = function () {
+  topLoading.classList.add("active");
+  setTimeout(() => {
+    showTop();
+  }, 200);
+  setTimeout(() => {
+    this.parentElement.querySelector('input[type="checkbox"]').checked = false;
+  }, 800);
+};
 
 showTop();
 destination();

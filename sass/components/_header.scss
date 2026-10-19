@@ -116,7 +116,7 @@ header {
         filter: drop-shadow(0 0 3px rgba(53, 190, 255, 0.2)) drop-shadow(0 0 8px rgba(120, 104, 255, 0.12));
       }
       p{
-        width: 50%;
+        width: 85%;
         @include responsive(850){
           width:80%;
         }

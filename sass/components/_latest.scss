@@ -1,1 +1,15 @@
 @use "../abstracts" as *;
+
+
+#Latest{
+    height: 100vh;
+    @include bg-img("../images/latest-bg.svg");
+    .container{
+        height: 100%;
+        @include flex();
+    }
+    .content{
+        height: 500px;
+        width: 100%;
+    }
+}
