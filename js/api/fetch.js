@@ -5,6 +5,11 @@ async function getAllMovies() {
   let data = await response.json();
   return data;
 }
+async function getReviews(id) {
+  let response = await fetch(`${baseURL}reviews.json`);
+  let data = await response.json();
+  return data[id];
+}
 async function getData(category) {
   let response = await fetch(`${baseURL}categories/${category}.json`);
   let data = await response.json();

@@ -71,7 +71,7 @@ async function destination() {
               <span class="dot">•</span>
               <span class="rate"><i class="fa-solid fa-star" aria-hidden="true"></i>${movie.vote_average}</span>
             </div>
-            <div class="desc">${movie.overview.slice(0, 10)}</div>
+            <div class="desc">${movie.overview.slice(0, 110)}...</div>
           </div>
         </div>
  
@@ -145,7 +145,7 @@ holo.onclick = function () {
   }, 200);
   setTimeout(() => {
     this.parentElement.querySelector('input[type="checkbox"]').checked = false;
-  }, 800);
+  }, 1500);
 };
 
 showTop();
