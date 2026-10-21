@@ -2,7 +2,8 @@ let Top_Rated_Container = document.querySelector("#Top_Rated_Container"),
   header_Destination = document.querySelector(".js-header-destination"),
   mobile_Destination = document.querySelector(".js-mobile-destination"),
   holo = document.querySelector(".checkbox-container label"),
-  topLoading = document.querySelector("#Top_Rated .loadingPage");
+  topLoading = document.querySelector("#Top_Rated .loadingPage"),
+  movieCards = document.querySelector("#Movie_Cards");
 
 async function destination() {
   let data = await getAllMovies(),
@@ -148,5 +149,32 @@ holo.onclick = function () {
   }, 1500);
 };
 
+async function showLatest() {
+  let data = await getAllMovies();
+  data.sort((a, b) => new Date(b.release_date) - new Date(a.release_date));
+  movieCards.innerHTML = "";
+  for (let i = 0; i < 10; i++) {
+    let movie = data[i];
+    movieCards.innerHTML += `
+    
+            <div class="movie-card" >
+                <div class="poster-box">
+                  <img
+                    class="poster" src="https://image.tmdb.org/t/p/original${movie.poster_path}" alt="${movie.title}" loading="lazy" />
+                  <span class="card-number">${i+1}</span>
+                  <span class="card-new">NEW</span>
+                  <span class="card-rating">★ ${movie.vote_average}</span>
+                  <span class="shine"></span>
+                </div>
+                <div class="card-text">
+                  <h3>${movie.title}</h3>
+                  <p>${movie.year} · ${movie.genres[0]}</p>
+                </div>
+              </div>
+    
+    `;
+  }
+}
 showTop();
 destination();
+showLatest();

@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" fill="none">
+  <defs>
+    <radialGradient id="halo" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(610 400) rotate(90) scale(300 490)">
+      <stop offset="0" stop-color="#FF963E" stop-opacity=".28"/>
+      <stop offset=".43" stop-color="#FF7A2B" stop-opacity=".1"/>
+      <stop offset=".72" stop-color="#2E8DFF" stop-opacity=".065"/>
+      <stop offset="1" stop-color="#07101D" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="disk" x1="190" y1="400" x2="1050" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#178CFF" stop-opacity=".12"/>
+      <stop offset=".16" stop-color="#40C9FF"/>
+      <stop offset=".31" stop-color="#A4ECFF"/>
+      <stop offset=".45" stop-color="#F8D9B5"/>
+      <stop offset=".56" stop-color="#FFF0CF"/>
+      <stop offset=".7" stop-color="#FFB15C"/>
+      <stop offset=".83" stop-color="#FF7836"/>
+      <stop offset="1" stop-color="#FF9E4E" stop-opacity=".05"/>
+    </linearGradient>
+    <linearGradient id="diskSoft" x1="230" y1="350" x2="1030" y2="450" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#168CFF" stop-opacity="0"/>
+      <stop offset=".23" stop-color="#35BFFF" stop-opacity=".9"/>
+      <stop offset=".46" stop-color="#FFEAD0"/>
+      <stop offset=".68" stop-color="#FFB86D"/>
+      <stop offset=".91" stop-color="#FF5D2C" stop-opacity=".7"/>
+      <stop offset="1" stop-color="#FF5D2C" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="outerBlue" x1="190" y1="430" x2="1000" y2="330" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1885FF" stop-opacity="0"/>
+      <stop offset=".2" stop-color="#2EAFFF" stop-opacity=".65"/>
+      <stop offset=".48" stop-color="#7DDFFF" stop-opacity=".08"/>
+      <stop offset=".8" stop-color="#FFB56D" stop-opacity=".48"/>
+      <stop offset="1" stop-color="#FF7436" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="void" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(610 400) rotate(90) scale(145)">
+      <stop offset=".69" stop-color="#000103"/>
+      <stop offset=".83" stop-color="#01040A"/>
+      <stop offset=".91" stop-color="#050911"/>
+      <stop offset=".96" stop-color="#0D1420"/>
+      <stop offset="1" stop-color="#FFBA79" stop-opacity=".85"/>
+    </radialGradient>
+    <filter id="blurLarge" x="-50%" y="-100%" width="200%" height="300%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="28"/>
+    </filter>
+    <filter id="blurSmall" x="-50%" y="-100%" width="200%" height="300%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+    <clipPath id="backHalf"><rect x="0" y="0" width="1200" height="395"/></clipPath>
+    <clipPath id="frontHalf"><rect x="0" y="396" width="1200" height="404"/></clipPath>
+  </defs>
+
+  <!-- Transparent space around a luminous, tilted accretion disk. -->
+  <ellipse cx="610" cy="400" rx="475" ry="275" fill="url(#halo)"/>
+  <ellipse cx="610" cy="400" rx="410" ry="116" fill="#FF983E" fill-opacity=".16" filter="url(#blurLarge)" transform="rotate(-13 610 400)"/>
+
+  <g transform="rotate(-13 610 400)">
+    <g clip-path="url(#backHalf)">
+      <ellipse cx="610" cy="400" rx="438" ry="110" stroke="url(#outerBlue)" stroke-width="37" opacity=".56" filter="url(#blurLarge)"/>
+      <ellipse cx="610" cy="400" rx="438" ry="110" stroke="url(#diskSoft)" stroke-width="19" opacity=".85" filter="url(#blurSmall)"/>
+      <ellipse cx="610" cy="400" rx="438" ry="110" stroke="url(#disk)" stroke-width="7" opacity=".92"/>
+      <ellipse cx="610" cy="400" rx="386" ry="91" stroke="url(#outerBlue)" stroke-width="2" opacity=".8" stroke-dasharray="20 9 68 14"/>
+      <ellipse cx="610" cy="400" rx="330" ry="72" stroke="url(#disk)" stroke-width="2" opacity=".78" stroke-dasharray="85 17 13 24"/>
+      <ellipse cx="610" cy="400" rx="285" ry="60" stroke="#D3EFFF" stroke-width="1.3" stroke-opacity=".25" stroke-dasharray="3 13 39 17"/>
+      <path d="M181 404C313 335 421 330 532 365C635 397 777 429 965 370" stroke="#39AFFF" stroke-width="13" stroke-opacity=".4" filter="url(#blurSmall)"/>
+      <path d="M181 404C313 335 421 330 532 365C635 397 777 429 965 370" stroke="#A4E8FF" stroke-width="2.4" stroke-opacity=".75"/>
+    </g>
+  </g>
+
+  <!-- A few suspended particles, deliberately sparse. -->
+  <g fill="#D5F1FF">
+    <circle cx="257" cy="318" r="2.2" opacity=".65"/>
+    <circle cx="343" cy="483" r="1.5" opacity=".55"/>
+    <circle cx="420" cy="264" r="1.4" opacity=".75"/>
+    <circle cx="875" cy="291" r="1.8" opacity=".62"/>
+    <circle cx="949" cy="461" r="1.4" opacity=".48"/>
+    <circle cx="1003" cy="349" r="2" opacity=".5"/>
+  </g>
+  <g fill="#FFB66E">
+    <circle cx="358" cy="376" r="1.8" opacity=".8"/>
+    <circle cx="777" cy="284" r="1.5" opacity=".78"/>
+    <circle cx="926" cy="401" r="2.1" opacity=".7"/>
+  </g>
+
+  <!-- Dark event horizon. -->
+  <circle cx="610" cy="400" r="147" fill="#02050A" fill-opacity=".72" filter="url(#blurSmall)"/>
+  <circle cx="610" cy="400" r="129" fill="url(#void)"/>
+  <circle cx="610" cy="400" r="130" stroke="#FFE7C4" stroke-opacity=".68" stroke-width="2.5"/>
+  <circle cx="610" cy="400" r="136" stroke="#FF9A48" stroke-opacity=".44" stroke-width="6" filter="url(#blurSmall)"/>
+  <path d="M503 321C530 284 570 269 610 269C653 269 692 288 716 319" stroke="#FFF0D6" stroke-opacity=".63" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M521 494C548 515 577 527 610 527C646 527 678 512 701 491" stroke="#FF8D44" stroke-opacity=".42" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Foreground side of the disk crosses in front of the horizon. -->
+  <g transform="rotate(-13 610 400)">
+    <g clip-path="url(#frontHalf)">
+      <ellipse cx="610" cy="400" rx="438" ry="110" stroke="url(#outerBlue)" stroke-width="37" opacity=".42" filter="url(#blurLarge)"/>
+      <ellipse cx="610" cy="400" rx="438" ry="110" stroke="url(#diskSoft)" stroke-width="23" opacity=".82" filter="url(#blurSmall)"/>
+      <ellipse cx="610" cy="400" rx="438" ry="110" stroke="url(#disk)" stroke-width="8" opacity=".97"/>
+      <ellipse cx="610" cy="400" rx="386" ry="91" stroke="url(#outerBlue)" stroke-width="2" opacity=".75" stroke-dasharray="17 12 44 25"/>
+      <ellipse cx="610" cy="400" rx="330" ry="72" stroke="url(#disk)" stroke-width="2.4" opacity=".8" stroke-dasharray="61 18 14 28"/>
+      <path d="M246 397C385 460 465 464 565 439C694 406 803 374 969 414" stroke="#FF8A3D" stroke-width="15" stroke-opacity=".5" filter="url(#blurSmall)"/>
+      <path d="M246 397C385 460 465 464 565 439C694 406 803 374 969 414" stroke="#FFD6A4" stroke-width="2.4" stroke-opacity=".85"/>
+    </g>
+  </g>
+
+  <!-- Reassert the silhouette for a crisp, pitch-black center. -->
+  <circle cx="610" cy="400" r="124" fill="#010205"/>
+  <circle cx="610" cy="400" r="128" stroke="#FFE4C0" stroke-opacity=".75" stroke-width="2"/>
+</svg>
