@@ -1,0 +1,558 @@
+footer {
+  .bottom-bar {
+    .icons {
+      .socials {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+
+      .social {
+        --brand: #fff;
+        position: relative;
+        display: inline-flex;
+        color: #cfd6ea;
+        transition:
+          color 0.25s,
+          transform 0.35s cubic-bezier(0.3, 1.6, 0.5, 1);
+      }
+      .social svg {
+        width: 24px;
+        height: 24px;
+        display: block;
+        overflow: visible;
+        transition: filter 0.25s;
+      }
+      .social:is(:hover, :focus-visible) {
+        color: var(--brand);
+        transform: translateY(-5px) scale(1.22);
+      }
+      .social:is(:hover, :focus-visible) svg {
+        filter: drop-shadow(0 0 6px var(--brand));
+      }
+      .social:active {
+        transform: translateY(-1px) scale(0.94);
+      }
+      .social:focus-visible {
+        outline: 2px solid var(--cyan);
+        outline-offset: 8px;
+        border-radius: 8px;
+      }
+
+      /* Ripple ring behind the icon */
+      .social::before {
+        content: "";
+        position: absolute;
+        inset: -9px;
+        border-radius: 50%;
+        border: 1.5px solid var(--brand);
+        opacity: 0;
+        transform: scale(0.6);
+        pointer-events: none;
+      }
+      .social:is(:hover, :focus-visible)::before {
+        animation: ring 1.3s ease-out infinite;
+      }
+      @keyframes ring {
+        0% {
+          opacity: 0.7;
+          transform: scale(0.6);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(1.7);
+        }
+      }
+
+      /* Tooltip */
+      .social::after {
+        content: attr(data-label);
+        position: absolute;
+        left: 50%;
+        bottom: calc(100% + 14px);
+        transform: translate(-50%, 6px);
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        white-space: nowrap;
+        color: #fff;
+        background: rgba(18, 22, 40, 0.96);
+        background: color-mix(in srgb, var(--brand) 30%, #0b1020);
+        border: 1px solid color-mix(in srgb, var(--brand) 55%, transparent);
+        opacity: 0;
+        pointer-events: none;
+        transition:
+          opacity 0.2s,
+          transform 0.3s cubic-bezier(0.3, 1.6, 0.5, 1);
+      }
+      .social:is(:hover, :focus-visible)::after {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
+
+      /* --- Page-load: every icon draws itself, then fills in --- */
+      .ic,
+      .ic-s {
+        stroke: currentColor;
+        stroke-dasharray: 1;
+        stroke-dashoffset: 1;
+        animation: draw 1.1s ease-out var(--d, 0s) forwards;
+      }
+      .ic {
+        fill: currentColor;
+        fill-opacity: 0;
+        stroke-width: 0.6;
+        animation:
+          draw 1.1s ease-out var(--d, 0s) forwards,
+          fillin 0.5s ease-out calc(var(--d, 0s) + 0.8s) forwards;
+      }
+      .ic-s {
+        fill: transparent;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      @keyframes draw {
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+      @keyframes fillin {
+        to {
+          fill-opacity: 1;
+        }
+      }
+
+      .social:nth-child(1) {
+        --d: 0s;
+      }
+      .social:nth-child(2) {
+        --d: 0.12s;
+      }
+      .social:nth-child(3) {
+        --d: 0.24s;
+      }
+      .social:nth-child(4) {
+        --d: 0.36s;
+      }
+      .social:nth-child(5) {
+        --d: 0.48s;
+      }
+
+      /* Shared wrapper setup so transforms pivot on the shape's own center */
+      .tri-g,
+      .lens-g,
+      .dot-g,
+      .flash-ring,
+      .beat-g,
+      .bob-g,
+      .eye,
+      .spark,
+      .wob {
+        transform-box: fill-box;
+        transform-origin: center;
+      }
+
+      /* ---------- YouTube: red flood + shine sweep + beating play button ---------- */
+      .yt {
+        --brand: #ff2d3b;
+      }
+      .yt .box {
+        transition:
+          fill 0.3s,
+          stroke 0.3s;
+      }
+      .yt .shine {
+        opacity: 0;
+      }
+      .yt .tri-g {
+        animation: breathe 3.2s ease-in-out 2.2s infinite;
+      }
+      .yt:is(:hover, :focus-visible) .box {
+        fill: #ff0033;
+        stroke: #ff0033;
+      }
+      .yt:is(:hover, :focus-visible) .tri {
+        fill: #fff;
+        stroke: #fff;
+      }
+      .yt:is(:hover, :focus-visible) .tri-g {
+        animation: pop 0.7s ease-in-out infinite;
+      }
+      .yt:is(:hover, :focus-visible) .shine {
+        opacity: 1;
+        animation: sweep 1.3s ease-in-out infinite;
+      }
+      @keyframes breathe {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.14);
+        }
+      }
+      @keyframes pop {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.38);
+        }
+      }
+      @keyframes sweep {
+        0% {
+          transform: translateX(0);
+        }
+        70%,
+        100% {
+          transform: translateX(46px);
+        }
+      }
+
+      /* ---------- GitHub: holographic gradient + wobble, tiny idle wiggle ---------- */
+      .gh {
+        --brand: #b388ff;
+      }
+      .gh .wob {
+        transform-origin: 50% 90%;
+        animation: wiggle 6s ease-in-out 2.6s infinite;
+      }
+      .gh:is(:hover, :focus-visible) .cat {
+        fill: url(#ghGrad);
+        stroke: url(#ghGrad);
+      }
+      .gh:is(:hover, :focus-visible) .wob {
+        animation: wobble 0.8s ease-in-out;
+      }
+      @keyframes wiggle {
+        0%,
+        86%,
+        100% {
+          transform: rotate(0);
+        }
+        89% {
+          transform: rotate(-7deg);
+        }
+        93% {
+          transform: rotate(5deg);
+        }
+        97% {
+          transform: rotate(-2deg);
+        }
+      }
+      @keyframes wobble {
+        0% {
+          transform: rotate(0);
+        }
+        20% {
+          transform: rotate(-15deg);
+        }
+        40% {
+          transform: rotate(12deg);
+        }
+        60% {
+          transform: rotate(-7deg);
+        }
+        80% {
+          transform: rotate(4deg);
+        }
+        100% {
+          transform: rotate(0);
+        }
+      }
+
+      /* ---------- Instagram: spinning gradient, pulsing lens, flash burst ---------- */
+      .ig {
+        --brand: #ff4f9a;
+      }
+      .ig .flash-ring {
+        fill: none;
+        stroke: #fd9a2d;
+        stroke-width: 0.5;
+        opacity: 0;
+      }
+      .ig .dot-g {
+        animation: glimmer 2.6s ease-in-out 2.2s infinite;
+      }
+      .ig:is(:hover, :focus-visible) .frame,
+      .ig:is(:hover, :focus-visible) .lens {
+        stroke: url(#igGrad);
+      }
+      .ig:is(:hover, :focus-visible) .dot {
+        fill: #fd9a2d;
+        stroke: #fd9a2d;
+      }
+      .ig:is(:hover, :focus-visible) .lens-g {
+        animation: lens 1s ease-in-out infinite;
+      }
+      .ig:is(:hover, :focus-visible) .dot-g {
+        animation: flash 0.7s ease-in-out infinite;
+      }
+      .ig:is(:hover, :focus-visible) .flash-ring {
+        animation: burst 0.9s ease-out infinite;
+      }
+      @keyframes glimmer {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.4);
+        }
+      }
+      @keyframes lens {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(0.78);
+        }
+      }
+      @keyframes flash {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.8);
+          opacity: 0.5;
+        }
+      }
+      @keyframes burst {
+        0% {
+          transform: scale(1);
+          opacity: 0.9;
+        }
+        100% {
+          transform: scale(5);
+          opacity: 0;
+        }
+      }
+
+      /* ---------- TikTok: RGB glitch, beat, floating sparks ---------- */
+      .tk {
+        --brand: #25f4ee;
+      }
+      .tk .ghost {
+        fill: currentColor;
+        opacity: 0;
+        stroke: none;
+        mix-blend-mode: screen;
+      }
+      .tk .g1 {
+        color: #25f4ee;
+        animation: flickA 5s steps(1, end) 2.6s infinite;
+      }
+      .tk .g2 {
+        color: #fe2c55;
+        animation: flickB 5s steps(1, end) 2.6s infinite;
+      }
+      .tk .spark {
+        opacity: 0;
+      }
+      .tk .sp1 {
+        fill: #25f4ee;
+      }
+      .tk .sp2 {
+        fill: #fe2c55;
+      }
+      .tk:is(:hover, :focus-visible) .g1 {
+        opacity: 1;
+        animation: glitchA 0.45s steps(2, end) infinite;
+      }
+      .tk:is(:hover, :focus-visible) .g2 {
+        opacity: 1;
+        animation: glitchB 0.45s steps(2, end) infinite;
+      }
+      .tk:is(:hover, :focus-visible) .main {
+        fill: #fff;
+        stroke: #fff;
+      }
+      .tk:is(:hover, :focus-visible) .beat-g {
+        animation: beat 0.6s ease-in-out infinite;
+      }
+      .tk:is(:hover, :focus-visible) .sp1 {
+        animation: spark 1s ease-out infinite;
+      }
+      .tk:is(:hover, :focus-visible) .sp2 {
+        animation: spark 1s ease-out 0.45s infinite;
+      }
+      @keyframes beat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        20% {
+          transform: scale(1.1);
+        }
+        40% {
+          transform: scale(1);
+        }
+      }
+      @keyframes glitchA {
+        0% {
+          transform: translate(-1.4px, 0.6px);
+        }
+        50% {
+          transform: translate(-0.4px, -0.8px);
+        }
+        100% {
+          transform: translate(-1.6px, 0);
+        }
+      }
+      @keyframes glitchB {
+        0% {
+          transform: translate(1.4px, -0.6px);
+        }
+        50% {
+          transform: translate(0.4px, 0.8px);
+        }
+        100% {
+          transform: translate(1.6px, 0);
+        }
+      }
+      @keyframes flickA {
+        0%,
+        90% {
+          opacity: 0;
+          transform: translate(0);
+        }
+        91% {
+          opacity: 1;
+          transform: translate(-1.4px, 0.4px);
+        }
+        93% {
+          opacity: 0;
+        }
+        95% {
+          opacity: 1;
+          transform: translate(-0.8px, -0.4px);
+        }
+        97%,
+        100% {
+          opacity: 0;
+        }
+      }
+      @keyframes flickB {
+        0%,
+        90% {
+          opacity: 0;
+          transform: translate(0);
+        }
+        91% {
+          opacity: 1;
+          transform: translate(1.4px, -0.4px);
+        }
+        93% {
+          opacity: 0;
+        }
+        95% {
+          opacity: 1;
+          transform: translate(0.8px, 0.4px);
+        }
+        97%,
+        100% {
+          opacity: 0;
+        }
+      }
+      @keyframes spark {
+        0% {
+          opacity: 0;
+          transform: translateY(2px) scale(0.4);
+        }
+        25% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-7px) scale(1.2);
+        }
+      }
+
+      /* ---------- Discord: soft idle sway, eyes glance + blink, big bob on hover ---------- */
+      .dc {
+        --brand: #7c8bff;
+      }
+      .dc .bob-g {
+        animation: sway 4.5s ease-in-out 2.2s infinite;
+      }
+      .dc .eyes {
+        opacity: 0;
+        animation:
+          eyesIn 0.3s ease-out 1.9s forwards,
+          look 7s ease-in-out 3s infinite;
+      }
+      .dc .eye {
+        fill: var(--bg);
+        animation: blink 4.5s ease-in-out 2.4s infinite;
+      }
+      .dc:is(:hover, :focus-visible) .bob-g {
+        animation: bob 0.6s ease-in-out infinite;
+      }
+      .dc:is(:hover, :focus-visible) .eyes {
+        opacity: 1;
+        animation: look 0.9s ease-in-out infinite;
+      }
+      .dc:is(:hover, :focus-visible) .eye {
+        animation: blink 0.9s ease-in-out infinite;
+      }
+      @keyframes eyesIn {
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes sway {
+        0%,
+        100% {
+          transform: rotate(0);
+        }
+        50% {
+          transform: rotate(2.5deg);
+        }
+      }
+      @keyframes bob {
+        0%,
+        100% {
+          transform: rotate(0) translateY(0);
+        }
+        25% {
+          transform: rotate(-9deg) translateY(-2px);
+        }
+        75% {
+          transform: rotate(9deg) translateY(-2px);
+        }
+      }
+      @keyframes look {
+        0%,
+        40%,
+        100% {
+          transform: translateX(0);
+        }
+        50%,
+        65% {
+          transform: translateX(-0.8px);
+        }
+        75%,
+        90% {
+          transform: translateX(0.8px);
+        }
+      }
+      @keyframes blink {
+        0%,
+        90%,
+        100% {
+          transform: scaleY(1);
+        }
+        94% {
+          transform: scaleY(0.08);
+        }
+      }
+    }
+  }
+}

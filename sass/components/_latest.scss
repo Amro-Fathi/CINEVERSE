@@ -112,10 +112,10 @@ $card-tilts:
         display: inline-flex;
         gap: 25px;
         padding: 10px 17px;
-        border: 1px solid rgba(#20d7ff, 0.56);
+        border: 1px solid rgba(#a855f7, 0.56);
         border-radius: 10px;
-        color: #bcf5ff;
-        background: rgba(4, 22, 42, 0.7);
+        color: #e9d5ff;
+        background: rgba(25, 10, 48, 0.7);
         font-size: 10px;
         font-weight: 800;
         letter-spacing: 2px;
@@ -123,21 +123,21 @@ $card-tilts:
         transition: 0.5s;
         &:hover {
           transform: translateY(-4px) scale(1.025);
-          border-color: #20d7ff;
-          color: #fff;
-          background: linear-gradient(110deg, rgba(32, 215, 255, 0.12), rgba(64, 140, 255, 0.08), rgba(255, 179, 106, 0.08));
+          border-color: #c084fc;
+          color: #ffffff;
+          background: linear-gradient(110deg, rgba(168, 85, 247, 0.16), rgba(139, 92, 246, 0.12), rgba(192, 132, 252, 0.1));
           box-shadow:
-            0 8px 28px rgba(32, 164, 255, 0.16),
-            0 0 18px rgba(32, 215, 255, 0.16),
-            inset 0 0 18px rgba(32, 215, 255, 0.08);
+            0 8px 28px rgba(139, 92, 246, 0.18),
+            0 0 18px rgba(168, 85, 247, 0.2),
+            inset 0 0 18px rgba(192, 132, 252, 0.08);
         }
 
         .arrow {
           @include flex();
           @include dimensions(35px, 35px);
           border-radius: 50%;
-          color: #06101e;
-          background: linear-gradient(135deg, #9df3ff, #20caff 65%, #459dff);
+          color: #ffffff;
+          background: linear-gradient(135deg, #d8b4fe, #a855f7 65%, #7c3aed);
           font-size: 17px;
         }
       }
@@ -356,7 +356,7 @@ $card-tilts:
     display: block;
   }
   @include responsive(1050) {
-    display: none;
+    display: block;
   }
   position: relative;
   padding: 20px;
@@ -427,12 +427,11 @@ $card-tilts:
       @include flex();
       display: inline-flex;
       gap: 25px;
-
       padding: 10px 17px;
-      border: 1px solid rgba(#20d7ff, 0.56);
+      border: 1px solid rgba(#a855f7, 0.56);
       border-radius: 10px;
-      color: #bcf5ff;
-      background: rgba(4, 22, 42, 0.7);
+      color: #e9d5ff;
+      background: rgba(25, 10, 48, 0.7);
       font-size: 10px;
       font-weight: 800;
       letter-spacing: 2px;
@@ -440,21 +439,21 @@ $card-tilts:
       transition: 0.5s;
       &:hover {
         transform: translateY(-4px) scale(1.025);
-        border-color: #20d7ff;
-        color: #fff;
-        background: linear-gradient(110deg, rgba(32, 215, 255, 0.12), rgba(64, 140, 255, 0.08), rgba(255, 179, 106, 0.08));
+        border-color: #c084fc;
+        color: #ffffff;
+        background: linear-gradient(110deg, rgba(168, 85, 247, 0.16), rgba(139, 92, 246, 0.12), rgba(192, 132, 252, 0.1));
         box-shadow:
-          0 8px 28px rgba(32, 164, 255, 0.16),
-          0 0 18px rgba(32, 215, 255, 0.16),
-          inset 0 0 18px rgba(32, 215, 255, 0.08);
+          0 8px 28px rgba(139, 92, 246, 0.18),
+          0 0 18px rgba(168, 85, 247, 0.2),
+          inset 0 0 18px rgba(192, 132, 252, 0.08);
       }
 
       .arrow {
         @include flex();
         @include dimensions(35px, 35px);
         border-radius: 50%;
-        color: #06101e;
-        background: linear-gradient(135deg, #9df3ff, #20caff 65%, #459dff);
+        color: #ffffff;
+        background: linear-gradient(135deg, #d8b4fe, #a855f7 65%, #7c3aed);
         font-size: 17px;
       }
     }

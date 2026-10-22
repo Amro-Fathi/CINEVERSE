@@ -46,7 +46,8 @@ async function destination() {
    
    
    `;
-  mobile_Destination.innerHTML = ` <div class="card js-mobile-destination">
+  mobile_Destination.innerHTML = ` 
+
       <div class="head">
         <div class="right">
           <i class="fa-solid fa-crosshairs me-2" aria-hidden="true"></i>
@@ -82,7 +83,7 @@ async function destination() {
           <i class="fa-solid fa-plus" role="button" tabindex="0" aria-label="Add to list"></i>
         </div>
       </div>
-    </div>`;
+  `;
 }
 
 async function showTop() {
