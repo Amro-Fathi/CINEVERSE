@@ -4918,4 +4918,208 @@ footer .bottom-bar .icons .dc:is(:hover, :focus-visible) .eye {
   }
 }
 
+/* ===== SPACESHIP SCROLLBAR v2 (all browsers) ===== */
+:root {
+  --ss-w: 56px;
+  --ss-pad: 14px;
+  --ship-h: 64px;
+  --ss-cyan: #22d3ee;
+  --ss-fire: #ff7a18;
+  --ss-rail: rgba(34, 211, 238, 0.18);
+}
+
+/* hide the native bar only after the script has built the replacement */
+html.ss-on {
+  scrollbar-width: none;
+}
+
+html.ss-on::-webkit-scrollbar {
+  display: none;
+}
+
+.ss {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: var(--ss-w);
+  z-index: 9999;
+  touch-action: none;
+  user-select: none;
+  cursor: grab;
+  opacity: 0.4;
+  transition: opacity 0.4s;
+  padding-right: env(safe-area-inset-right, 0px);
+}
+
+.ss[hidden] {
+  display: none;
+}
+
+.ss.awake,
+.ss:hover,
+.ss.dragging {
+  opacity: 1;
+}
+
+.ss.dragging {
+  cursor: grabbing;
+}
+
+/* rail + glowing progress trail */
+.ss-rail {
+  position: absolute;
+  left: 50%;
+  width: 2px;
+  margin-left: -1px;
+  border-radius: 2px;
+  top: var(--r0, 20px);
+  bottom: var(--r1, 20px);
+  background: var(--ss-rail);
+}
+
+.ss-fill {
+  position: absolute;
+  inset: 0;
+  border-radius: 2px;
+  transform-origin: top;
+  transform: scaleY(0);
+  background: linear-gradient(to bottom, transparent, var(--ss-cyan) 55%, #fff);
+  box-shadow: 0 0 10px var(--ss-cyan);
+}
+
+/* section planets */
+.ss-mark {
+  position: absolute;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  background: radial-gradient(circle at 35% 30%, #bfefff, #2a4a7a 70%);
+  box-shadow: 0 0 0 2px #050816;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+}
+
+.ss-mark.on {
+  background: radial-gradient(circle at 35% 30%, #fff, var(--ss-cyan) 60%);
+  box-shadow: 0 0 0 2px #050816, 0 0 14px var(--ss-cyan);
+  transform: scale(1.25);
+}
+
+.ss-mark:hover {
+  transform: scale(1.5);
+}
+
+.ss-mark:focus-visible {
+  outline: 2px solid #ffb547;
+  outline-offset: 3px;
+}
+
+.ss-mark::after {
+  content: attr(data-label);
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translate(8px, -50%);
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  font: 600 12px/1 system-ui, sans-serif;
+  color: #dff;
+  background: #0a1230;
+  border: 1px solid rgba(34, 211, 238, 0.4);
+  padding: 7px 11px;
+  border-radius: 999px;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.ss-mark:hover::after,
+.ss-mark:focus-visible::after {
+  opacity: 1;
+  transform: translate(0, -50%);
+}
+
+/* the ship */
+.ss-ship {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: var(--ship-h);
+  pointer-events: none;
+  will-change: transform;
+}
+
+.ss-turn {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  transition: transform 0.7s cubic-bezier(0.3, 1.5, 0.5, 1); /* little overshoot when it flips */
+}
+
+.ss.up .ss-turn {
+  transform: rotate(180deg);
+}
+
+.ss-ship svg {
+  width: 36px;
+  height: 64px;
+  overflow: visible;
+  filter: drop-shadow(0 0 calc(3px + var(--boost, 0) * 12px) rgba(34, 211, 238, 0.75));
+}
+
+.ss.idle .ss-ship svg {
+  animation: ss-bob 2.4s ease-in-out infinite;
+}
+
+@keyframes ss-bob {
+  50% {
+    transform: translateY(3px);
+  }
+}
+/* flame grows with scroll speed */
+.flame {
+  transform-origin: 32px 26px;
+  transform-box: view-box;
+  transform: scaleY(calc(0.55 + var(--boost, 0) * 1.5));
+}
+
+.flame path {
+  transform-origin: 32px 26px;
+  transform-box: view-box;
+  animation: ss-flick 0.22s ease-in-out infinite alternate;
+}
+
+@keyframes ss-flick {
+  from {
+    transform: scale(0.92, 0.85);
+  }
+  to {
+    transform: scale(1.06, 1.18);
+  }
+}
+@media (max-width: 640px) {
+  :root {
+    --ss-w: 40px;
+    --ship-h: 52px;
+  }
+  .ss-ship svg {
+    width: 29px;
+    height: 52px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ss * {
+    animation: none !important;
+  }
+  .ss-turn {
+    transition: none;
+  }
+}
+
 /*# sourceMappingURL=index.css.map */

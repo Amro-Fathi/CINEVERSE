@@ -40,6 +40,67 @@
     <link rel="icon" type="image/x-icon" href="./images/Icon.png" />
   </head>
   <body>
+    <div class="ss idle">
+      <div class="ss-rail">
+        <div class="ss-fill"></div>
+      </div>
+      <div class="ss-ship">
+        <div class="ss-turn">
+          <svg viewBox="0 -6 64 116" aria-hidden="true">
+            <defs>
+              <linearGradient id="ss-hull" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#8fa3c7" />
+                <stop offset=".5" stop-color="#f4f8ff" />
+                <stop offset="1" stop-color="#6d7fa6" />
+              </linearGradient>
+
+              <linearGradient id="ss-fin" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#ff7a18" />
+                <stop offset="1" stop-color="#22d3ee" />
+              </linearGradient>
+
+              <radialGradient id="ss-glass" cx=".35" cy=".3" r=".8">
+                <stop offset="0" stop-color="#e0fbff" />
+                <stop offset=".5" stop-color="#22d3ee" />
+                <stop offset="1" stop-color="#0b3a73" />
+              </radialGradient>
+
+              <linearGradient id="ss-flame" x1="0" y1="1" x2="0" y2="0">
+                <stop offset="0" stop-color="#ffd54a" />
+                <stop offset=".5" stop-color="#ff7a18" />
+                <stop offset="1" stop-color="#ff7a18" stop-opacity="0" />
+              </linearGradient>
+            </defs>
+
+            <!-- Engine flame -->
+            <g class="flame">
+              <path fill="url(#ss-flame)" d="M24 26 Q32 -4 40 26 Z" />
+              <path fill="#fff6c8" opacity=".9" d="M28 26 Q32 8 36 26 Z" />
+            </g>
+
+            <!-- Side wings -->
+            <path fill="url(#ss-fin)" d="M22 44 L5 30 L9 64 L22 66 Z" />
+            <path fill="url(#ss-fin)" d="M42 44 L59 30 L55 64 L42 66 Z" />
+
+            <!-- Ship body -->
+            <rect x="24" y="23" width="16" height="7" rx="2" fill="#3b4a6b" />
+
+            <path fill="url(#ss-hull)" stroke="#4a5b82" d="M32 104 C19 86 17 54 22 28 L42 28 C47 54 45 86 32 104 Z" />
+
+            <rect x="22" y="40" width="20" height="4" fill="#7c5cff" opacity=".85" />
+
+            <!-- Cockpit -->
+            <circle cx="32" cy="64" r="7" fill="url(#ss-glass)" stroke="#2a3a5e" stroke-width="1.5" />
+
+            <circle cx="29.5" cy="61.5" r="2" fill="#fff" opacity=".7" />
+          </svg>
+        </div>
+      </div>
+      <button class="ss-mark" type="button" data-label="Top Rated" aria-label="Go to Top Rated"></button>
+      <button class="ss-mark" type="button" data-label="Latest" aria-label="Go to Latest"></button>
+
+    </div>
+
     <nav class="main-nav">
       <div class="container-fluid">
         <div class="row justify-content-between">
@@ -466,7 +527,7 @@
           </div>
         </div>
 
-        <div class="bottom-bar row ">
+        <div class="bottom-bar row">
           <div class="col-lg-1 col-12 d-flex justify-content-center align-items-center">
             <div class="logo">
               <img src="./images/Logo.png" alt="Logo" class="img-fluid" />
@@ -595,6 +656,7 @@
     <!-- <script src="js/plugins/jquery.js"></script> -->
     <script src="js/bootstrap.js"></script>
     <script src="js/components/navbar.js"></script>
+    <script src="js/components/spaceship.js"></script>
     <script src="js/api/fetch.js"></script>
     <script src="js/pages/home.js"></script>
   </body>
