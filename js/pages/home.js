@@ -162,7 +162,7 @@ async function showLatest() {
                 <div class="poster-box">
                   <img
                     class="poster" src="https://image.tmdb.org/t/p/original${movie.poster_path}" alt="${movie.title}" loading="lazy" />
-                  <span class="card-number">${i+1}</span>
+                  <span class="card-number">${i + 1}</span>
                   <span class="card-new">NEW</span>
                   <span class="card-rating">★ ${movie.vote_average}</span>
                   <span class="shine"></span>
@@ -179,3 +179,5 @@ async function showLatest() {
 showTop();
 destination();
 showLatest();
+setHeaderPadding();
+window.addEventListener("resize", setHeaderPadding);

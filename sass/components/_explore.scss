@@ -5,7 +5,7 @@ header#Explore {
 
   .content {
     position: relative;
-    min-height: 100vh;
+    min-height: 120vh;
 
     .planet {
       position: absolute;
@@ -101,6 +101,9 @@ header#Explore {
       &.active {
         top: 50%;
         left: 50%;
+        z-index: 20;
+        filter: brightness(1.5) drop-shadow(0 0 18px rgba(32, 215, 255, 0.5));
+        scale: 1.2;
       }
 
       &:hover {

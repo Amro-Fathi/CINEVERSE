@@ -5083,7 +5083,7 @@ header#Explore {
 }
 header#Explore .content {
   position: relative;
-  min-height: 100vh;
+  min-height: 120vh;
 }
 header#Explore .content .planet {
   position: absolute;
@@ -5171,6 +5171,9 @@ header#Explore .content .planet:nth-child(3n+1) {
 header#Explore .content .planet.active {
   top: 50%;
   left: 50%;
+  z-index: 20;
+  filter: brightness(1.5) drop-shadow(0 0 18px rgba(32, 215, 255, 0.5));
+  scale: 1.2;
 }
 header#Explore .content .planet:hover .name {
   transform: translate(-50%, -58%) scale(1.06);

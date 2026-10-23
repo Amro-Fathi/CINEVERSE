@@ -19,11 +19,7 @@ function toggleSearchActive() {
     document.querySelector("#SearchInput").focus();
   }
 }
-function setHeaderPadding() {
-  const nav = document.querySelector("nav.main-nav");
-  document.querySelector("header#Home").style.paddingTop = `${nav.offsetHeight}px`;
-}
-setHeaderPadding();
+
 document.addEventListener("click", function () {
   navbarAccountPopup.classList.remove("active");
   navbarAccountArrow.classList.remove("active");
@@ -34,7 +30,8 @@ window.addEventListener("resize", function () {
     navbarAccount.classList.remove("active");
   }
 });
-window.addEventListener("resize", setHeaderPadding);
 
-
-
+function setHeaderPadding() {
+  const nav = document.querySelector("nav.main-nav");
+  document.querySelector("header#Home").style.paddingTop = `${nav.offsetHeight}px`;
+}
