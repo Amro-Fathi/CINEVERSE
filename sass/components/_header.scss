@@ -1,6 +1,6 @@
 @use "../abstracts" as *;
 
-header {
+header#Home {
   @include bg-img("../images/mainBg.png");
   // background-attachment: fixed;
   position: relative;

@@ -21,7 +21,7 @@ function toggleSearchActive() {
 }
 function setHeaderPadding() {
   const nav = document.querySelector("nav.main-nav");
-  document.querySelector("header").style.paddingTop = `${nav.offsetHeight}px`;
+  document.querySelector("header#Home").style.paddingTop = `${nav.offsetHeight}px`;
 }
 setHeaderPadding();
 document.addEventListener("click", function () {

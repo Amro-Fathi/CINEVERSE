@@ -3,19 +3,14 @@
 @keyframes cosmic-Title {
   from {
     background-position: 0% center;
-    filter:
-      drop-shadow(0 0 3px rgba(180, 240, 255, 0.45))
-      drop-shadow(0 0 10px rgba(35, 190, 255, 0.32))
+    filter: drop-shadow(0 0 3px rgba(180, 240, 255, 0.45)) drop-shadow(0 0 10px rgba(35, 190, 255, 0.32))
       drop-shadow(0 0 22px rgba(75, 105, 255, 0.22));
   }
 
   to {
     background-position: 100% center;
-    filter:
-      drop-shadow(0 0 4px rgba(200, 245, 255, 0.6))
-      drop-shadow(0 0 13px rgba(35, 190, 255, 0.42))
-      drop-shadow(0 0 26px rgba(110, 80, 255, 0.28))
-      drop-shadow(0 0 34px rgba(190, 80, 255, 0.12));
+    filter: drop-shadow(0 0 4px rgba(200, 245, 255, 0.6)) drop-shadow(0 0 13px rgba(35, 190, 255, 0.42))
+      drop-shadow(0 0 26px rgba(110, 80, 255, 0.28)) drop-shadow(0 0 34px rgba(190, 80, 255, 0.12));
   }
 }
 
@@ -31,8 +26,12 @@
   }
 }
 
+@keyframes gradient-flow {
+  from {
+    background-position: 0% 50%;
+  }
 
-
-
-
-
+  to {
+    background-position: 100% 50%;
+  }
+}

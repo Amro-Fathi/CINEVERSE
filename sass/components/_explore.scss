@@ -1,0 +1,152 @@
+@use "../abstracts" as *;
+
+header#Explore {
+  @include bg-img("../images/exploreHeader.jpg");
+
+  .content {
+    position: relative;
+    min-height: 100vh;
+
+    .planet {
+      position: absolute;
+      width: clamp(200px, 8vw, 125px);
+      aspect-ratio: 1;
+      object-fit: contain;
+      transform: translate(-50%, -50%);
+      animation: planet-float 5s ease-in-out infinite;
+      transition-duration: 2s;
+      cursor: pointer;
+      .name {
+        @include position($t: 50%, $l: 50%);
+        transform: translate(-50%, -50%);
+        width: 70%;
+        padding: 10px;
+        color: #eaf8ff;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-align: center;
+        white-space: nowrap;
+        background: linear-gradient(135deg, rgba(4, 10, 23, 0.94), rgba(12, 18, 37, 0.9));
+        border: 1px solid rgba(110, 160, 210, 0.35);
+        border-radius: 8px;
+        backdrop-filter: blur(8px);
+        box-shadow:
+          0 4px 14px rgba(0, 0, 0, 0.3),
+          inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+        transition-duration: 0.6s;
+      }
+      &.action {
+        left: 50%;
+        top: 17%;
+      }
+
+      &.adventure {
+        left: 67.7%;
+        top: 22.2%;
+      }
+
+      &.animation {
+        left: 77.9%;
+        top: 33.2%;
+      }
+
+      &.comedy {
+        left: 82.9%;
+        top: 54.4%;
+      }
+
+      &.crime {
+        left: 75.5%;
+        top: 72.5%;
+      }
+
+      &.documentary {
+        left: 59.8%;
+        top: 82.2%;
+      }
+
+      &.drama {
+        left: 40.2%;
+        top: 82.2%;
+      }
+
+      &.family {
+        left: 24.5%;
+        top: 72.5%;
+      }
+
+      &.fantasy {
+        left: 17.1%;
+        top: 54.4%;
+      }
+
+      &.science {
+        left: 22.1%;
+        top: 33.2%;
+      }
+
+      &.horror {
+        left: 32.3%;
+        top: 22.2%;
+      }
+      &:nth-child(3n) {
+        animation-delay: -1.7s;
+      }
+
+      &:nth-child(3n + 1) {
+        animation-delay: -3.2s;
+      }
+      &.active {
+        top: 50%;
+        left: 50%;
+      }
+
+      &:hover {
+        .name {
+          transform: translate(-50%, -58%) scale(1.06);
+
+          color: #ffffff;
+          letter-spacing: 0.045em;
+
+          background: linear-gradient(135deg, rgba(12, 26, 48, 0.98), rgba(29, 17, 57, 0.97));
+
+          border-color: rgba(75, 220, 255, 0.85);
+
+          box-shadow:
+            0 8px 25px rgba(0, 0, 0, 0.4),
+            0 0 12px rgba(32, 215, 255, 0.22),
+            0 0 32px rgba(32, 215, 255, 0.12),
+            inset 0 0 18px rgba(95, 100, 255, 0.12),
+            inset 0 1px 0 rgba(255, 255, 255, 0.12);
+        }
+        scale: 1.1;
+      }
+    }
+  }
+}
+@keyframes planet-float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -12px;
+  }
+}
+
+/*
+action
+adventure
+animation
+comedy
+crime
+documentary
+drama
+family
+fantasy
+science
+horror
+*/

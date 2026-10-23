@@ -77,6 +77,9 @@ $card-tilts:
           color: transparent;
           background: linear-gradient(98deg, #e5f7ff 1%, #6fe6ff 29%, #36baff 53%, #ffc078 84%, #ff9868 100%);
           background-clip: text;
+          background-size: 200% 100%;
+          background-position: 0% 50%;
+          animation: gradient-flow 2s ease-in-out infinite alternate;
         }
       }
       .latest-text {
@@ -100,9 +103,27 @@ $card-tilts:
           column-gap: 15px;
           font-size: 14px;
           letter-spacing: 1.2px;
+          padding: 10px;
+          transition-duration: 0.5s;
+          background: linear-gradient(135deg, #05050b 0%, #100b20 50%, #07060d 100%);
+          box-shadow: 0 0 20px rgba(139, 92, 246, 0.12);
+          cursor: default;
+          border-radius: 10px;
           i {
             font-size: 16px;
             color: #8aeffd;
+          }
+
+          &:nth-of-type(1):hover {
+            box-shadow: 0 0 22px rgba(32, 215, 255, 0.52);
+          }
+
+          &:nth-of-type(2):hover {
+            box-shadow: 0 0 22px rgba(196, 154, 255, 0.52);
+          }
+
+          &:nth-of-type(3):hover {
+            box-shadow: 0 0 22px rgba(241, 138, 182, 0.52);
           }
         }
       }
