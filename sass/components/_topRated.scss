@@ -347,6 +347,9 @@
             color: #fff;
             border-radius: 50%;
             transition-duration: 0.5s;
+            @include responsive(350){
+              transform: translateX(7px);
+            }
           }
 
           &:hover {

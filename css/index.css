@@ -1959,6 +1959,11 @@ header .content .card:hover .body .right .info {
   border-radius: 50%;
   transition-duration: 0.5s;
 }
+@media (max-width: 1300px) {
+  #Top_Rated .body .top .content .view-details i {
+    transform: translateX(7px);
+  }
+}
 #Top_Rated .body .top .content .view-details:hover {
   filter: brightness(1.2);
   transform: translateY(-2px);
@@ -4931,6 +4936,8 @@ html.ss-on {
   z-index: 999;
   width: 60px;
   height: 100%;
+  touch-action: none;
+  user-select: none;
   opacity: 0.4;
   transition-duration: 0.4s;
 }
