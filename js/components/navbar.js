@@ -32,6 +32,6 @@ window.addEventListener("resize", function () {
 });
 
 function setHeaderPadding() {
-  const nav = document.querySelector("nav.main-nav");
-  document.querySelector("header#Home").style.paddingTop = `${nav.offsetHeight}px`;
+  let nav = document.querySelector("nav.main-nav");
+  document.querySelector("header").style.paddingTop = `${nav.offsetHeight}px`;
 }
