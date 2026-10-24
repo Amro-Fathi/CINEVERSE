@@ -140,7 +140,7 @@ async function showTop() {
   }, 1000);
 }
 
-holo.onclick = function () {
+holo.addEventListener("click", function () {
   topLoading.classList.add("active");
   setTimeout(() => {
     showTop();
@@ -148,8 +148,7 @@ holo.onclick = function () {
   setTimeout(() => {
     this.parentElement.querySelector('input[type="checkbox"]').checked = false;
   }, 1500);
-};
-
+});
 async function showLatest() {
   let data = await getAllMovies();
   data.sort((a, b) => new Date(b.release_date) - new Date(a.release_date));

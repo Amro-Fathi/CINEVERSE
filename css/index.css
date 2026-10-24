@@ -5088,6 +5088,33 @@ header#Explore .content {
 header#Explore .content .planet {
   position: absolute;
   width: clamp(270px, 8vw, 125px);
+}
+@media (max-width: 1300px) {
+  header#Explore .content .planet {
+    width: 100px;
+  }
+}
+@media (min-width: 371px) and (max-width: 1300px) {
+  header#Explore .content .planet {
+    width: 120px;
+  }
+}
+@media (min-width: 577px) and (max-width: 1300px) {
+  header#Explore .content .planet {
+    width: 140px;
+  }
+}
+@media (min-width: 769px) and (max-width: 1300px) {
+  header#Explore .content .planet {
+    width: 170px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1300px) {
+  header#Explore .content .planet {
+    width: 200px;
+  }
+}
+header#Explore .content .planet {
   aspect-ratio: 1;
   object-fit: contain;
   transform: translate(-50%, -50%);
@@ -5117,6 +5144,11 @@ header#Explore .content .planet .name {
   backdrop-filter: blur(8px);
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
   transition-duration: 0.6s;
+}
+@media (max-width: 1300px) {
+  header#Explore .content .planet .name {
+    font-size: 10px;
+  }
 }
 header#Explore .content .planet.action {
   left: 50%;
@@ -5162,6 +5194,468 @@ header#Explore .content .planet.horror {
   left: 32.3%;
   top: 22.2%;
 }
+@media (max-width: 1300px) {
+  header#Explore .content .planet.action {
+    left: 50%;
+    top: 20%;
+  }
+}
+@media (max-width: 1300px) and (max-width: 1300px) {
+  header#Explore .content .planet.action {
+    left: 50%;
+    top: 26.6%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 371px) and (max-width: 1300px) {
+  header#Explore .content .planet.action {
+    left: 50%;
+    top: 25.4%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 577px) and (max-width: 1300px) {
+  header#Explore .content .planet.action {
+    left: 50%;
+    top: 24.2%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 769px) and (max-width: 1300px) {
+  header#Explore .content .planet.action {
+    left: 50%;
+    top: 17%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 992px) and (max-width: 1300px) {
+  header#Explore .content .planet.action {
+    left: 50%;
+    top: 14%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 1181px) and (max-width: 1300px) {
+  header#Explore .content .planet.action {
+    left: 50%;
+    top: 5%;
+  }
+}
+@media (max-width: 1300px) {
+  header#Explore .content .planet.adventure {
+    left: 95%;
+    top: 30%;
+  }
+}
+@media (max-width: 1300px) and (max-width: 1300px) {
+  header#Explore .content .planet.adventure {
+    left: 85.1%;
+    top: 34.4%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 371px) and (max-width: 1300px) {
+  header#Explore .content .planet.adventure {
+    left: 86.9%;
+    top: 33.6%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 577px) and (max-width: 1300px) {
+  header#Explore .content .planet.adventure {
+    left: 88.7%;
+    top: 32.8%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 769px) and (max-width: 1300px) {
+  header#Explore .content .planet.adventure {
+    left: 86%;
+    top: 28%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 992px) and (max-width: 1300px) {
+  header#Explore .content .planet.adventure {
+    left: 86%;
+    top: 26%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 1181px) and (max-width: 1300px) {
+  header#Explore .content .planet.adventure {
+    left: 86%;
+    top: 20%;
+  }
+}
+@media (max-width: 1300px) {
+  header#Explore .content .planet.animation {
+    left: 90%;
+    top: 45%;
+  }
+}
+@media (max-width: 1300px) and (max-width: 1300px) {
+  header#Explore .content .planet.animation {
+    left: 81.2%;
+    top: 46.1%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 371px) and (max-width: 1300px) {
+  header#Explore .content .planet.animation {
+    left: 82.8%;
+    top: 45.9%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 577px) and (max-width: 1300px) {
+  header#Explore .content .planet.animation {
+    left: 84.4%;
+    top: 45.7%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 769px) and (max-width: 1300px) {
+  header#Explore .content .planet.animation {
+    left: 82%;
+    top: 44.5%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 992px) and (max-width: 1300px) {
+  header#Explore .content .planet.animation {
+    left: 82%;
+    top: 44%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 1181px) and (max-width: 1300px) {
+  header#Explore .content .planet.animation {
+    left: 82%;
+    top: 42.5%;
+  }
+}
+@media (max-width: 1300px) {
+  header#Explore .content .planet.comedy {
+    left: 95%;
+    top: 60%;
+  }
+}
+@media (max-width: 1300px) and (max-width: 1300px) {
+  header#Explore .content .planet.comedy {
+    left: 85.1%;
+    top: 57.8%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 371px) and (max-width: 1300px) {
+  header#Explore .content .planet.comedy {
+    left: 86.9%;
+    top: 58.2%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 577px) and (max-width: 1300px) {
+  header#Explore .content .planet.comedy {
+    left: 88.7%;
+    top: 58.6%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 769px) and (max-width: 1300px) {
+  header#Explore .content .planet.comedy {
+    left: 86%;
+    top: 61%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 992px) and (max-width: 1300px) {
+  header#Explore .content .planet.comedy {
+    left: 86%;
+    top: 62%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 1181px) and (max-width: 1300px) {
+  header#Explore .content .planet.comedy {
+    left: 86%;
+    top: 65%;
+  }
+}
+@media (max-width: 1300px) {
+  header#Explore .content .planet.crime {
+    left: 85%;
+    top: 75%;
+  }
+}
+@media (max-width: 1300px) and (max-width: 1300px) {
+  header#Explore .content .planet.crime {
+    left: 77.3%;
+    top: 69.5%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 371px) and (max-width: 1300px) {
+  header#Explore .content .planet.crime {
+    left: 78.7%;
+    top: 70.5%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 577px) and (max-width: 1300px) {
+  header#Explore .content .planet.crime {
+    left: 80.1%;
+    top: 71.5%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 769px) and (max-width: 1300px) {
+  header#Explore .content .planet.crime {
+    left: 78%;
+    top: 77.5%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 992px) and (max-width: 1300px) {
+  header#Explore .content .planet.crime {
+    left: 78%;
+    top: 80%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 1181px) and (max-width: 1300px) {
+  header#Explore .content .planet.crime {
+    left: 78%;
+    top: 87.5%;
+  }
+}
+@media (max-width: 1300px) {
+  header#Explore .content .planet.documentary {
+    left: 50%;
+    top: 85%;
+  }
+}
+@media (max-width: 1300px) and (max-width: 1300px) {
+  header#Explore .content .planet.documentary {
+    left: 50%;
+    top: 77.3%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 371px) and (max-width: 1300px) {
+  header#Explore .content .planet.documentary {
+    left: 50%;
+    top: 78.7%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 577px) and (max-width: 1300px) {
+  header#Explore .content .planet.documentary {
+    left: 50%;
+    top: 80.1%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 769px) and (max-width: 1300px) {
+  header#Explore .content .planet.documentary {
+    left: 50%;
+    top: 88.5%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 992px) and (max-width: 1300px) {
+  header#Explore .content .planet.documentary {
+    left: 50%;
+    top: 92%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 1181px) and (max-width: 1300px) {
+  header#Explore .content .planet.documentary {
+    left: 50%;
+    top: 102.5%;
+  }
+}
+@media (max-width: 1300px) {
+  header#Explore .content .planet.drama {
+    left: 50%;
+    top: 68.5%;
+  }
+}
+@media (max-width: 1300px) and (max-width: 1300px) {
+  header#Explore .content .planet.drama {
+    left: 50%;
+    top: 64.43%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 371px) and (max-width: 1300px) {
+  header#Explore .content .planet.drama {
+    left: 50%;
+    top: 65.17%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 577px) and (max-width: 1300px) {
+  header#Explore .content .planet.drama {
+    left: 50%;
+    top: 65.91%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 769px) and (max-width: 1300px) {
+  header#Explore .content .planet.drama {
+    left: 50%;
+    top: 70.35%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 992px) and (max-width: 1300px) {
+  header#Explore .content .planet.drama {
+    left: 50%;
+    top: 72.2%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 1181px) and (max-width: 1300px) {
+  header#Explore .content .planet.drama {
+    left: 50%;
+    top: 77.75%;
+  }
+}
+@media (max-width: 1300px) {
+  header#Explore .content .planet.family {
+    left: 15%;
+    top: 75%;
+  }
+}
+@media (max-width: 1300px) and (max-width: 1300px) {
+  header#Explore .content .planet.family {
+    left: 22.7%;
+    top: 69.5%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 371px) and (max-width: 1300px) {
+  header#Explore .content .planet.family {
+    left: 21.3%;
+    top: 70.5%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 577px) and (max-width: 1300px) {
+  header#Explore .content .planet.family {
+    left: 19.9%;
+    top: 71.5%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 769px) and (max-width: 1300px) {
+  header#Explore .content .planet.family {
+    left: 22%;
+    top: 77.5%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 992px) and (max-width: 1300px) {
+  header#Explore .content .planet.family {
+    left: 22%;
+    top: 80%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 1181px) and (max-width: 1300px) {
+  header#Explore .content .planet.family {
+    left: 22%;
+    top: 87.5%;
+  }
+}
+@media (max-width: 1300px) {
+  header#Explore .content .planet.fantasy {
+    left: 5%;
+    top: 60%;
+  }
+}
+@media (max-width: 1300px) and (max-width: 1300px) {
+  header#Explore .content .planet.fantasy {
+    left: 14.9%;
+    top: 57.8%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 371px) and (max-width: 1300px) {
+  header#Explore .content .planet.fantasy {
+    left: 13.1%;
+    top: 58.2%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 577px) and (max-width: 1300px) {
+  header#Explore .content .planet.fantasy {
+    left: 11.3%;
+    top: 58.6%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 769px) and (max-width: 1300px) {
+  header#Explore .content .planet.fantasy {
+    left: 14%;
+    top: 61%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 992px) and (max-width: 1300px) {
+  header#Explore .content .planet.fantasy {
+    left: 14%;
+    top: 62%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 1181px) and (max-width: 1300px) {
+  header#Explore .content .planet.fantasy {
+    left: 14%;
+    top: 65%;
+  }
+}
+@media (max-width: 1300px) {
+  header#Explore .content .planet.science {
+    left: 10%;
+    top: 45%;
+  }
+}
+@media (max-width: 1300px) and (max-width: 1300px) {
+  header#Explore .content .planet.science {
+    left: 18.8%;
+    top: 46.1%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 371px) and (max-width: 1300px) {
+  header#Explore .content .planet.science {
+    left: 17.2%;
+    top: 45.9%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 577px) and (max-width: 1300px) {
+  header#Explore .content .planet.science {
+    left: 15.6%;
+    top: 45.7%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 769px) and (max-width: 1300px) {
+  header#Explore .content .planet.science {
+    left: 18%;
+    top: 44.5%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 992px) and (max-width: 1300px) {
+  header#Explore .content .planet.science {
+    left: 18%;
+    top: 44%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 1181px) and (max-width: 1300px) {
+  header#Explore .content .planet.science {
+    left: 18%;
+    top: 42.5%;
+  }
+}
+@media (max-width: 1300px) {
+  header#Explore .content .planet.horror {
+    left: 5%;
+    top: 30%;
+  }
+}
+@media (max-width: 1300px) and (max-width: 1300px) {
+  header#Explore .content .planet.horror {
+    left: 14.9%;
+    top: 34.4%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 371px) and (max-width: 1300px) {
+  header#Explore .content .planet.horror {
+    left: 13.1%;
+    top: 33.6%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 577px) and (max-width: 1300px) {
+  header#Explore .content .planet.horror {
+    left: 11.3%;
+    top: 32.8%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 769px) and (max-width: 1300px) {
+  header#Explore .content .planet.horror {
+    left: 14%;
+    top: 28%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 992px) and (max-width: 1300px) {
+  header#Explore .content .planet.horror {
+    left: 14%;
+    top: 26%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 1181px) and (max-width: 1300px) {
+  header#Explore .content .planet.horror {
+    left: 14%;
+    top: 20%;
+  }
+}
 header#Explore .content .planet:nth-child(3n) {
   animation-delay: -1.7s;
 }
@@ -5196,18 +5690,5 @@ header#Explore .content .planet:hover {
     translate: 0 -12px;
   }
 }
-/*
-action
-adventure
-animation
-comedy
-crime
-documentary
-drama
-family
-fantasy
-science
-horror
-*/
 
 /*# sourceMappingURL=index.css.map */
