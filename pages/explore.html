@@ -118,18 +118,6 @@
               <div class="link">
                 <a class="nav-link" href="./pages/"><i class="fa-solid fa-bookmark"></i> Watch List</a>
               </div>
-              <div class="search-container ms-auto" id="SearchContainer">
-                <div class="input-group">
-                  <span class="input-group-text" id="HomeSearch" onclick="toggleSearchActive()"><i class="fa-solid fa-magnifying-glass"></i></span>
-                  <input
-                    type="text"
-                    id="SearchInput"
-                    class="form-control"
-                    placeholder="Search your movie..."
-                    aria-label="Username"
-                    aria-describedby="basic-addon1" />
-                </div>
-              </div>
             </div>
           </div>
           <div class="col-1 account-icon" onclick="stopPropagation(event)">
@@ -172,11 +160,11 @@
         </div>
         <div class="links">
           <div class="account-details-item">
-            <a class="nav-link active" href="#"><i class="fa-solid fa-house-user"></i> Home</a>
+            <a class="nav-link active" href="../index.html"><i class="fa-solid fa-house-user"></i> Home</a>
           </div>
 
           <div class="account-details-item">
-            <a class="nav-link" href="./pages/"><i class="fa-solid fa-rocket"></i> Explore</a>
+            <a class="nav-link" href="explore.html"><i class="fa-solid fa-rocket"></i> Explore</a>
           </div>
           <div class="account-details-item">
             <a class="nav-link" href="./pages/"><i class="fa-solid fa-heart"></i> Favourite</a>
@@ -184,10 +172,6 @@
           <div class="account-details-item">
             <a class="nav-link" href="./pages/"><i class="fa-solid fa-bookmark"></i> Watch List</a>
           </div>
-        </div>
-        <div class="account-details-search">
-          <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
-          <input type="text" class="search-input" placeholder="Search your movie..." aria-label="Username" aria-describedby="basic-addon1" />
         </div>
         <div class="account-icon">
           <div class="img"></div>
@@ -257,57 +241,46 @@
       <div class="container-fluid">
         <div class="content">
           <div data-genre="action" class="planet action active">
-            
             <img src="../images/genres/action.png" class="img-fluid" alt="Planet" />
             <div class="name">Action</div>
           </div>
           <div data-genre="adventure" class="planet adventure">
-            
             <img src="../images/genres/adventure.png" class="img-fluid" alt="Planet" />
             <div class="name">Adventure</div>
           </div>
           <div data-genre="animation" class="planet animation">
-            
             <img src="../images/genres/animation.png" class="img-fluid" alt="Planet" />
             <div class="name">Animation</div>
           </div>
           <div data-genre="comedy" class="planet comedy">
-            
             <img src="../images/genres/comedy.png" class="img-fluid" alt="Planet" />
             <div class="name">Comedy</div>
           </div>
           <div data-genre="crime" class="planet crime">
-            
             <img src="../images/genres/crime.png" class="img-fluid" alt="Planet" />
             <div class="name">Crime</div>
           </div>
           <div data-genre="documentary" class="planet documentary">
-            
             <img src="../images/genres/documentary.png" class="img-fluid" alt="Planet" />
             <div class="name">Documentary</div>
           </div>
           <div data-genre="drama" class="planet drama">
-            
             <img src="../images/genres/drama.png" class="img-fluid" alt="Planet" />
             <div class="name">Drama</div>
           </div>
           <div data-genre="family" class="planet family">
-            
             <img src="../images/genres/family.png" class="img-fluid" alt="Planet" />
             <div class="name">Family</div>
           </div>
           <div data-genre="fantasy" class="planet fantasy">
-            
             <img src="../images/genres/fantasy.png" class="img-fluid" alt="Planet" />
             <div class="name">Fantasy</div>
           </div>
           <div data-genre="science_fiction" class="planet science">
-            
             <img src="../images/genres/science fiction.png" class="img-fluid" alt="Planet" />
             <div class="name">Science Fiction</div>
           </div>
           <div data-genre="horror" class="planet horror">
-            
             <img src="../images/genres/horror.png" class="img-fluid" alt="Planet" />
             <div class="name">Horror</div>
           </div>
@@ -315,6 +288,67 @@
       </div>
     </header>
 
+    <section id="Movies">
+      <div class="frame"></div>
+      <div class="container-fluid px-5 h-100">
+        <div class="select">
+          <div class="show-type">
+            <button class="view active" data-view="grid">
+              <i class="fa-solid fa-table-cells-large"></i>
+            </button>
+            <button class="view" data-view="list">
+              <i class="fa-solid fa-list"></i>
+            </button>
+          </div>
+        </div>
+        <div class="content h-100" data-view="cards">
+          <div class="movies-section top-rated-movies">
+            <div class="head">
+              <div class="left">
+                <div class="title">
+                  <div class="img">
+                    <img src="../images/moviesPageIcons/top-rated.png" class="img-fluid" alt="Top Rated Icon" />
+                  </div>
+                  <div class="text">
+                    <h4>TOP <span>RATED</span></h4>
+                    <p class="mb-0">The highest rated movies</p>
+                  </div>
+                </div>
+              </div>
+              <div class="line"></div>
+            </div>
+            <div class="body">
+              <div class="wrap">
+                <div class="movies row">
+                  <div class="movie col-2">
+                    <div class="movie-inner">
+                      <div class="face front">
+                        <img src="../images/test.webp" alt="The Shawshank Redemption" />
+                        <div class="info">
+                          <p class="rate">9.3</p>
+                          <h3>The Shawshank Redemption</h3>
+                          <p class="year">1994</p>
+                        </div>
+                      </div>
+
+                      <div class="face back">
+                        <p class="rate">9.3</p>
+                        <h3>The Shawshank Redemption</h3>
+                        <p class="meta"><i class="fa-regular fa-clock"></i> 2h 22m &nbsp; Drama &nbsp; 1994</p>
+                        <p class="plot">
+                          Two imprisoned men bond over several years, finding solace and eventual redemption through acts of common decency.
+                        </p>
+                        <button class="btn btn-sm btn-info mt-auto"><i class="fa-solid fa-play"></i> Details</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <footer class="py-3">
       <div class="container-fluid px-5">
         <div class="row mb-4">

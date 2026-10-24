@@ -1,0 +1,236 @@
+<div class="body">
+  <div class="toolbar">
+    <div class="btn-group">
+      <button class="btn active" data-view="grid" title="Grid view" aria-label="Grid view">
+        <i class="fa-solid fa-table-cells-large"></i>
+      </button>
+      <button class="btn" data-view="list" title="List view" aria-label="List view">
+        <i class="fa-solid fa-list"></i>
+      </button>
+    </div>
+  </div>
+  <div class="wrap">
+    <button class="arrow prev"><i class="fa-solid fa-chevron-left"></i></button>
+    <div class="list">
+      <div class="movie" >
+        <div class="inner">
+          <div class="face front">
+            <img src="../images/test.webp" alt="The Shawshank Redemption" />
+            <div class="info">
+              <p class="rate">9.3</p>
+              <h3>The Shawshank Redemption</h3>
+              <p class="year">1994</p>
+            </div>
+          </div>
+
+          <div class="face back">
+            <p class="rate">9.3</p>
+            <h3>The Shawshank Redemption</h3>
+            <p class="meta"><i class="fa-regular fa-clock"></i> 2h 22m &nbsp; Drama &nbsp; 1994</p>
+            <p class="plot">Two imprisoned men bond over several years, finding solace and eventual redemption through acts of common decency.</p>
+            <button class="btn btn-sm btn-info mt-auto"><i class="fa-solid fa-play"></i> Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="arrow next"><i class="fa-solid fa-chevron-right"></i></button>
+  </div>
+</div>
+
+<style>
+      .body {
+
+    .wrap { position: relative; }
+
+    .list {
+      display: flex;
+      gap: 22px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      scroll-snap-type: x proximity;
+      padding: 28px 56px; // room for the float and the glow
+    }
+
+    .movie {
+      position: relative;
+      flex: 0 0 200px;
+      aspect-ratio: 200 / 285;
+      perspective: 900px;
+      scroll-snap-align: start;
+      color: #fff;
+      outline: none;
+    }
+
+    // ---------- float, then flip ----------
+    .inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.6s, translate 0.3s 0.4s, scale 0.3s 0.4s;
+    }
+    .movie:hover .inner,
+    .movie:focus .inner {
+      translate: 0 -12px;
+      scale: 1.04;
+      transform: rotateY(180deg);
+      transition: translate 0.25s, scale 0.25s, transform 0.6s 0.25s;
+    }
+
+    .face {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      border: 1px solid #22d3ee55;
+      border-radius: 12px;
+      backface-visibility: hidden;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .movie:hover .face,
+    .movie:focus .face {
+      border-color: #22d3ee;
+      box-shadow: 0 14px 30px #00000099, 0 0 22px #22d3ee66;
+    }
+
+    // ---------- front ----------
+    .front img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .info {
+      position: absolute;
+      inset: auto 0 0;
+      padding: 56px 14px 12px;
+      background: linear-gradient(transparent, #050816f2 65%);
+
+      h3 { margin: 0; font-size: 14px; font-weight: 600; line-height: 1.25; }
+    }
+
+    // ---------- back ----------
+    .back {
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 16px;
+      background:
+        radial-gradient(circle at 100% 0, #3b1d6e88, transparent 60%),
+        linear-gradient(160deg, #0e1a3a, #050816);
+
+      h3 { margin: 0; font-size: 15px; font-weight: 600; line-height: 1.25; }
+      .rate { order: -1; }
+    }
+    .meta { margin: 0; font-size: 12px; color: #22d3ee; }
+    .plot {
+      margin: 0;
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: #c3cfe3;
+      display: -webkit-box;
+      -webkit-line-clamp: 6;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .rate { margin: 0; font-size: 17px; font-weight: 700; }
+    .rate::before { content: "\f005"; font-family: "Font Awesome 6 Free"; font-weight: 900; color: #ffb547; margin-right: 6px; font-size: 14px; }
+    .year { margin: 4px 0 0; font-size: 12px; color: #8a9bb5; }
+
+    // ---------- arrows ----------
+    .arrow {
+      position: absolute;
+      top: 50%;
+      translate: 0 -50%;
+      z-index: 2;
+      width: 40px;
+      height: 40px;
+      border: 1px solid #22d3ee;
+      border-radius: 50%;
+      background: #050816;
+      color: #22d3ee;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+
+      &:hover {
+        background: #22d3ee;
+        color: #050816;
+        box-shadow: 0 0 16px #22d3ee99;
+      }
+    }
+    .prev { left: 6px; }
+    .next { right: 6px; }
+
+    // ---------- list view ----------
+    &.is-list {
+      .arrow { display: none; }
+
+      .list {
+        flex-direction: column;
+        overflow: visible;
+        gap: 16px;
+        padding: 14px 56px;
+      }
+
+      .movie {
+        flex: none;
+        aspect-ratio: auto;
+        perspective: none;
+      }
+
+      .inner,
+      .movie:hover .inner,
+      .movie:focus .inner {
+        display: flex;
+        gap: 18px;
+        height: auto;
+        transform: none;
+        translate: none;
+        scale: none;
+        transition: none;
+      }
+
+      .face {
+        position: relative;
+        inset: auto;
+        backface-visibility: visible;
+      }
+
+      .front {
+        flex: 0 0 110px;
+        aspect-ratio: 200 / 285;
+        .info { display: none; }
+      }
+
+      .back {
+        flex: 1;
+        transform: none;
+        justify-content: center;
+        .plot { -webkit-line-clamp: 3; }
+        .btn { align-self: flex-start; margin-top: 4px !important; }
+      }
+    }
+  }
+</style>
+
+<script>
+  const body = document.querySelector(".body");
+  const list = body.querySelector(".list");
+  const views = body.querySelectorAll("[data-view]");
+
+  // grid / list toggle
+  views.forEach((btn) => {
+    btn.onclick = () => {
+      body.classList.toggle("is-list", btn.dataset.view === "list");
+      views.forEach((b) => b.classList.toggle("active", b === btn));
+    };
+  });
+
+  // arrows scroll about 80% of the visible width
+  const step = () => list.clientWidth * 0.8;
+  body.querySelector(".prev").onclick = () => list.scrollBy({ left: -step(), behavior: "smooth" });
+  body.querySelector(".next").onclick = () => list.scrollBy({ left: step(), behavior: "smooth" });
+</script>

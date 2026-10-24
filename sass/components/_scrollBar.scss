@@ -9,7 +9,7 @@ html.ss-on {
   @include dimensions(60px, 100%);
   touch-action: none;
   user-select: none;
-  opacity: 0.4;
+  opacity: 0.2;
   transition-duration: 0.4s;
 }
 .ss:hover,

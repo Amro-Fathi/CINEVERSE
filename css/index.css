@@ -4964,7 +4964,7 @@ html.ss-on {
   height: 100%;
   touch-action: none;
   user-select: none;
-  opacity: 0.4;
+  opacity: 0.2;
   transition-duration: 0.4s;
 }
 
@@ -5443,7 +5443,7 @@ header#Explore .content .planet.horror {
 @media (max-width: 1300px) and (min-width: 1181px) and (max-width: 1300px) {
   header#Explore .content .planet.documentary {
     left: 50%;
-    top: 102.5%;
+    top: 90%;
   }
 }
 @media (max-width: 1300px) {
@@ -5485,7 +5485,7 @@ header#Explore .content .planet.horror {
 @media (max-width: 1300px) and (min-width: 1181px) and (max-width: 1300px) {
   header#Explore .content .planet.drama {
     left: 50%;
-    top: 77.75%;
+    top: 70%;
   }
 }
 @media (max-width: 1300px) {
@@ -5689,6 +5689,146 @@ header#Explore .content .planet:hover {
   50% {
     translate: 0 -12px;
   }
+}
+#Movies {
+  position: relative;
+  background: linear-gradient(#02030a, transparent 400px), radial-gradient(ellipse at 15% 10%, rgba(59, 29, 110, 0.6), transparent 50%), radial-gradient(ellipse at 85% 80%, rgba(14, 74, 122, 0.5333333333), transparent 45%), linear-gradient(#02030a, #050816 50%, #0a0f2e);
+}
+#Movies::before, #Movies::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+#Movies::before {
+  background-size: 200px 200px;
+  background-image: radial-gradient(1px 1px at 20px 30px, #fff, transparent), radial-gradient(1px 1px at 90px 120px, #fff, transparent), radial-gradient(2px 2px at 150px 60px, #bfefff, transparent), radial-gradient(1px 1px at 60px 170px, #fff, transparent), radial-gradient(1px 1px at 180px 150px, #fff, transparent), radial-gradient(1px 1px at 120px 20px, #fff, transparent), radial-gradient(1px 1px at 40px 100px, #fff, transparent), radial-gradient(2px 2px at 170px 100px, #fff, transparent), radial-gradient(1px 1px at 10px 180px, #bfefff, transparent), radial-gradient(1px 1px at 110px 80px, #fff, transparent);
+}
+#Movies::after {
+  background-size: 310px 310px;
+  background-image: radial-gradient(1px 1px at 30px 50px, #fff, transparent), radial-gradient(2px 2px at 240px 90px, #fff, transparent), radial-gradient(1px 1px at 130px 200px, #fff, transparent), radial-gradient(1px 1px at 280px 250px, #bfefff, transparent), radial-gradient(1px 1px at 70px 280px, #fff, transparent), radial-gradient(1px 1px at 200px 20px, #fff, transparent), radial-gradient(2px 2px at 160px 140px, #fff, transparent), radial-gradient(1px 1px at 290px 160px, #fff, transparent);
+}
+#Movies .frame {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  box-shadow: inset 0 0 0 3px #7f93b8, inset 0 0 0 17px #121a2e, inset 0 0 0 20px #22d3ee, inset 0 0 50px 26px rgba(34, 211, 238, 0.2);
+}
+#Movies .frame::after {
+  content: "";
+  position: absolute;
+  inset: 20px;
+  border-radius: 14px;
+  background: linear-gradient(115deg, rgba(255, 255, 255, 0.1215686275) 0 10%, transparent 10% 15%, rgba(255, 255, 255, 0.0588235294) 15% 18%, transparent 18%);
+}
+#Movies .select {
+  padding: 20px;
+  padding-top: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+#Movies .select .show-type {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px;
+  background: linear-gradient(145deg, rgba(10, 19, 35, 0.96), rgba(4, 9, 19, 0.96));
+  border: 1px solid rgba(88, 129, 172, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+#Movies .select .show-type .view {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 36px;
+  padding: 0;
+  color: #8195ae;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition-duration: 0.5s;
+}
+#Movies .select .show-type .view:hover {
+  color: #eaf8ff;
+  background: rgba(32, 215, 255, 0.07);
+  border-color: rgba(32, 215, 255, 0.18);
+}
+#Movies .select .show-type .view:active {
+  transform: scale(0.94);
+}
+#Movies .select .show-type .view.active {
+  color: #20d7ff;
+  background: linear-gradient(145deg, rgba(32, 215, 255, 0.16), rgba(30, 111, 255, 0.1));
+  border-color: rgba(32, 215, 255, 0.48);
+  box-shadow: 0 0 10px rgba(32, 215, 255, 0.1), inset 0 0 10px rgba(32, 215, 255, 0.05);
+}
+#Movies .select .show-type .view.active:hover {
+  box-shadow: 0 0 14px rgba(32, 215, 255, 0.2), inset 0 0 12px rgba(32, 215, 255, 0.08);
+}
+#Movies .content {
+  position: relative;
+  z-index: 20;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#Movies .content .movies-section {
+  width: 100%;
+  position: relative;
+}
+#Movies .content .movies-section .head {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+}
+#Movies .content .movies-section .head .left {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+#Movies .content .movies-section .head .left .title h4 {
+  letter-spacing: 2px;
+}
+#Movies .content .movies-section .head .left .title {
+  color: #f0f8ff;
+  column-gap: 10px;
+}
+#Movies .content .movies-section .head .left .title span {
+  color: #ffc247;
+}
+#Movies .content .movies-section .head .left .title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#Movies .content .movies-section .head .left .title .img {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#Movies .content .movies-section .head .line {
+  width: 50%;
+  height: 3px;
+  flex-grow: 1;
+  background: linear-gradient(90deg, rgba(255, 194, 71, 0.8), #ffc247 50%, rgba(255, 194, 71, 0.3));
+  border-radius: 20px;
+  box-shadow: 0 0 4px rgba(255, 194, 71, 0.4), 0 0 10px rgba(255, 194, 71, 0.28), 0 0 22px rgba(255, 194, 71, 0.12);
 }
 
 /*# sourceMappingURL=index.css.map */
