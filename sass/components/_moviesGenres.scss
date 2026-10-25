@@ -185,7 +185,7 @@ $horror: #ff382f;
             gap: 20px;
             overflow-x: auto;
             scrollbar-width: none;
-            padding: 28px;
+            padding: 50px;
             padding-left: 15px;
             .movie {
               position: relative;
@@ -348,6 +348,112 @@ $horror: #ff382f;
             }
             &.next {
               right: 6px;
+            }
+          }
+        }
+      }
+
+      &.genre-movies {
+        --Color: #ffc247;
+        .head {
+          .left {
+            .title {
+              span {
+                color: var(--Color);
+              }
+            }
+          }
+          .line {
+            background: var(--Color);
+            box-shadow: 0 0 10px var(--Color);
+          }
+        }
+
+        .body {
+          .wrap {
+            .movies {
+              .movie {
+                .movie-inner {
+                  .face {
+                    .genres {
+                      color: color-mix(in oklab, var(--Color) 50%, white);
+                    }
+                    .overview {
+                      color: #c3cfe3;
+                    }
+                    .year {
+                      color: #8a9bb5;
+                    }
+                    &.front {
+                      .info {
+                        background: linear-gradient(transparent, color-mix(in srgb, var(--Color) 40%, transparent) 25%);
+                      }
+                    }
+                    &.back {
+                      background:
+                        radial-gradient(circle at 100% 0, color-mix(in srgb, var(--Color) 35%, transparent), transparent 60%),
+                        linear-gradient(160deg, color-mix(in srgb, var(--Color) 30%, #0e1a3a), color-mix(in srgb, var(--Color) 10%, #050816));
+                      .view-detailes {
+                        background:
+                          radial-gradient(120% 90% at 100% 0%, color-mix(in oklab, var(--Color) 20%, transparent), transparent 60%),
+                          linear-gradient(
+                            135deg,
+                            color-mix(in oklab, var(--Color) 18%, rgba(12, 28, 49, 0.96)),
+                            color-mix(in oklab, var(--Color) 5%, rgba(7, 12, 28, 0.98))
+                          );
+                        border: 1px solid color-mix(in oklab, var(--Color) 50%, transparent);
+                        box-shadow:
+                          0 3px 12px rgba(0, 0, 0, 0.25),
+                          0 0 16px color-mix(in oklab, var(--Color) 20%, transparent),
+                          inset 0 1px 0 color-mix(in oklab, var(--Color) 25%, rgba(255, 255, 255, 0.05));
+                        i {
+                          color: var(--Color);
+                        }
+
+                        &:hover {
+                          background:
+                            radial-gradient(120% 90% at 100% 0%, color-mix(in oklab, var(--Color) 35%, transparent), transparent 65%),
+                            linear-gradient(
+                              135deg,
+                              color-mix(in oklab, var(--Color) 30%, rgba(13, 51, 78, 0.98)),
+                              color-mix(in oklab, var(--Color) 10%, rgba(13, 25, 50, 0.98))
+                            );
+                          border-color: color-mix(in oklab, var(--Color) 90%, transparent);
+                          box-shadow:
+                            0 5px 18px rgba(0, 0, 0, 0.3),
+                            0 0 22px color-mix(in oklab, var(--Color) 35%, transparent),
+                            inset 0 0 14px color-mix(in oklab, var(--Color) 12%, transparent);
+                          i {
+                            color: color-mix(in oklab, var(--Color) 80%, transparent);
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+                &:hover {
+                  .movie-inner {
+                    .face {
+                      border-color: color-mix(in oklab, var(--Color) 80%, transparent);
+                      box-shadow:
+                        0 14px 30px #00000099,
+                        0 0 22px color-mix(in oklab, var(--Color) 40%, transparent),
+                        0 0 48px color-mix(in oklab, var(--Color) 15%, transparent);
+                    }
+                  }
+                }
+              }
+            }
+            .arrow {
+              border: 1px solid var(--Color);
+              border-radius: 50%;
+              background: #050816;
+              color: var(--Color);
+              &:hover {
+                background: var(--Color);
+                color: #050816;
+                box-shadow: 0 0 16px var(--Color);
+              }
             }
           }
         }

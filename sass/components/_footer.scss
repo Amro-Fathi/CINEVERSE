@@ -292,9 +292,9 @@ footer {
 
       @include responsive(1050) {
         max-width: initial;
-        img{
-            max-width: initial ;
-            width: 100px ;
+        img {
+          max-width: initial;
+          width: 100px;
         }
       }
     }

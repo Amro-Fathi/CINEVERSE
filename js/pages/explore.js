@@ -4,8 +4,8 @@ let planets = planetsContainer.querySelectorAll(".planet"),
   topMoviesContent = moviesSection.querySelector(".content .movies-section.top-rated-movies .body .movies"),
   genreMoviesContet = moviesSection.querySelector(".content .movies-section.genre-movies"),
   genre = genreMoviesContet.closest(".content").dataset.genre,
-  prevBtn = moviesSection.querySelector(".content .prev");
-nextBtn = moviesSection.querySelector(".content .next");
+  prevBtn = moviesSection.querySelector(".content .prev"),
+  nextBtn = moviesSection.querySelector(".content .next");
 function changePlanet(planet) {
   let activePlanet = planetsContainer.querySelector(".planet.active");
 
@@ -17,7 +17,7 @@ function changePlanet(planet) {
   planet.classList.add("active");
   setTimeout(() => {
     moviesSection.scrollIntoView({
-      top: moviesSection.clientHeight(),
+      top: moviesSection.clientHeight,
       behavior: "smooth",
     });
   }, 1000);
@@ -63,6 +63,7 @@ async function showTopMoviesExplore() {
 }
 
 async function showGenreMoviesExplore(genre = "action") {
+  changeColor(genre);
   if (genre == "horror") {
     genreMoviesContet.innerHTML = `
         <div class="head">
@@ -105,8 +106,8 @@ async function showGenreMoviesExplore(genre = "action") {
                     <img src="../images/moviesPageIcons/${genre.toLocaleLowerCase()}.png" class="img-fluid" alt="${genre} Icon" />
                   </div>
                   <div class="text">
-                    <h4><span>${genre}</span></h4>
-                    <p class="mb-0">The highest rated movies</p>
+                    <h4><span>${genre.toUpperCase()}</span></h4>
+                    <p class="mb-0">The highest rated ${genre} movies</p>
                   </div>
                 </div>
               </div>
@@ -142,7 +143,7 @@ async function showGenreMoviesExplore(genre = "action") {
                       <div class="face back">
                         <p class="rate">${movie.vote_average} <i class="fa-solid fa-star"></i></p>
                         <h3>${movie.title}</h3>
-                        <p class="genres"><i class="fa-regular fa-clock"></i> ${movie.runtime}m &nbsp; ${movie.genres[0]} &nbsp; ${movie.year}</p>
+                        <p class="genres"><i class="fa-regular fa-clock"></i> ${movie.runtime}m &nbsp; ${genre} &nbsp; ${movie.year}</p>
                         <p class="overview">
                           ${movie.overview.slice(0, 120)}...
                         </p>
@@ -165,7 +166,35 @@ function toggleScrollCards(dire, that) {
     behavior: "smooth",
   });
 }
+function changeColor(genre) {
+  let color = "";
 
+  if (genre === "action") {
+    color = "#ff4b2b";
+  } else if (genre === "adventure") {
+    color = "#26d6a0";
+  } else if (genre === "animation") {
+    color = "#ff9a35";
+  } else if (genre === "comedy") {
+    color = "#ffd166";
+  } else if (genre === "crime") {
+    color = "#ff3e52";
+  } else if (genre === "documentary") {
+    color = "#38bdf8";
+  } else if (genre === "drama") {
+    color = "#e8a24a";
+  } else if (genre === "family") {
+    color = "#f6b94a";
+  } else if (genre === "fantasy") {
+    color = "#d45bff";
+  } else if (genre === "horror") {
+    color = "#ff382f";
+  } else {
+    color = "#2b4a6f";
+  }
+
+  genreMoviesContet.style.setProperty("--Color", color);
+}
 showGenreMoviesExplore();
 showTopMoviesExplore();
 setHeaderPadding();
