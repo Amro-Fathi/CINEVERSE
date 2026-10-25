@@ -531,7 +531,7 @@ nav {
     width: 90%;
   }
 
-  @include position($p: fixed, $t: 20px, $l: 50%, $z: 999);
+  @include position($p: fixed, $t: 20px, $l: 50%, $z: 900);
   transform: translateX(-50%);
   background: rgba(2, 6, 16, 0.62);
   backdrop-filter: blur(12px);

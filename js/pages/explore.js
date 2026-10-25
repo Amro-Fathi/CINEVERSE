@@ -39,14 +39,14 @@ async function showTopMoviesExplore() {
                       <div class="face front">
                         <img src="${baseImgUrl}${movie.poster_path}" alt="${movie.title}" />
                         <div class="info">
-                          <p class="rate">${movie.vote_average}<i class="fa-solid fa-star"></i></p>
+                          <p class="rate">${movie.vote_average.toFixed(1)}<i class="fa-solid fa-star"></i></p>
                           <h3>${movie.title}</h3>
                           <p class="year">${movie.year}</p>
                         </div>
                       </div>
 
                       <div class="face back">
-                        <p class="rate">${movie.vote_average} <i class="fa-solid fa-star"></i></p>
+                        <p class="rate">${movie.vote_average.toFixed(1)} <i class="fa-solid fa-star"></i></p>
                         <h3>${movie.title}</h3>
                         <p class="genres"><i class="fa-regular fa-clock"></i> ${movie.runtime}m &nbsp; ${movie.genres[0]} &nbsp; ${movie.year}</p>
                         <p class="overview">
@@ -134,14 +134,14 @@ async function showGenreMoviesExplore(genre = "action") {
                       <div class="face front">
                         <img src="${baseImgUrl}${movie.poster_path}" alt="${movie.title}" />
                         <div class="info">
-                          <p class="rate">${movie.vote_average}<i class="fa-solid fa-star"></i></p>
+                          <p class="rate">${movie.vote_average.toFixed(1)}<i class="fa-solid fa-star"></i></p>
                           <h3>${movie.title}</h3>
                           <p class="year">${movie.year}</p>
                         </div>
                       </div>
 
                       <div class="face back">
-                        <p class="rate">${movie.vote_average} <i class="fa-solid fa-star"></i></p>
+                        <p class="rate">${movie.vote_average.toFixed(1)} <i class="fa-solid fa-star"></i></p>
                         <h3>${movie.title}</h3>
                         <p class="genres"><i class="fa-regular fa-clock"></i> ${movie.runtime}m &nbsp; ${genre} &nbsp; ${movie.year}</p>
                         <p class="overview">

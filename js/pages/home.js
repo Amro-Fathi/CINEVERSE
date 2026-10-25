@@ -32,7 +32,7 @@ async function destination() {
                   <span class="dot">•</span>
                   <span>${movie.genres[0]}</span>
                   <span class="dot">•</span>
-                  <span class="rate"><i class="fa-solid fa-star"></i>${movie.vote_average}</span>
+                  <span class="rate"><i class="fa-solid fa-star"></i>${movie.vote_average.toFixed(1)}</span>
                 </div>
                 <div class="desc">${movie.overview.slice(0, 150)}...</div>
                 <div class="icons">
@@ -71,7 +71,7 @@ async function destination() {
               <span class="dot">•</span>
               <span>${movie.genres[0]}</span>
               <span class="dot">•</span>
-              <span class="rate"><i class="fa-solid fa-star" aria-hidden="true"></i>${movie.vote_average}</span>
+              <span class="rate"><i class="fa-solid fa-star" aria-hidden="true"></i>${movie.vote_average.toFixed(1)}</span>
             </div>
             <div class="desc">${movie.overview.slice(0, 110)}...</div>
           </div>
@@ -97,7 +97,7 @@ async function showTop() {
       randomMovies.push(movie);
     }
   }
-  randomMovies.sort((a, b) => b.vote_average - a.vote_average);
+  randomMovies.sort((a, b) => b.vote_average.toFixed(1) - a.vote_average.toFixed(1));
   Top_Rated_Container.innerHTML = "";
 
   randomMovies.forEach((movie, index) => {
@@ -116,7 +116,7 @@ async function showTop() {
                   <h4 class="title">${movie.title}</h4>
                   <div class="info">
                     <span>${movie.year}</span><span class="dot">•</span> <span>${movie.genres[0]}</span><span class="dot">•</span>
-                    <span class="rate"><i class="fa-solid fa-star"></i>${movie.vote_average}</span>
+                    <span class="rate"><i class="fa-solid fa-star"></i>${movie.vote_average.toFixed(1)}</span>
                   </div>
                   <div class="desc">
                      ${movie.overview.slice(0, 120)}...
@@ -163,7 +163,7 @@ async function showLatest() {
                     class="poster" src="https://image.tmdb.org/t/p/original${movie.poster_path}" alt="${movie.title}" loading="lazy" />
                   <span class="card-number">${i + 1}</span>
                   <span class="card-new">NEW</span>
-                  <span class="card-rating">★ ${movie.vote_average}</span>
+                  <span class="card-rating">★ ${movie.vote_average.toFixed(1)}</span>
                   <span class="shine"></span>
                 </div>
                 <div class="card-text">
