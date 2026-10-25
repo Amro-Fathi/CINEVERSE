@@ -5849,7 +5849,7 @@ header#Explore .content .planet:hover {
   overflow-x: auto;
   scrollbar-width: none;
   padding: 28px;
-  padding-left: 0px;
+  padding-left: 15px;
 }
 #Movies .content .movies-section .body .wrap .movies .movie {
   position: relative;

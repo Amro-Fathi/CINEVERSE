@@ -178,15 +178,15 @@ $horror: #ff382f;
 
         .wrap {
           position: relative;
-        //   overflow-x: auto;
-            width: 100%;
+          //   overflow-x: auto;
+          width: 100%;
           .movies {
-              @include flex($jc: start);
-              gap: 20px;
-              overflow-x: auto;
-              scrollbar-width: none;
+            @include flex($jc: start);
+            gap: 20px;
+            overflow-x: auto;
+            scrollbar-width: none;
             padding: 28px;
-            padding-left: 0px;
+            padding-left: 15px;
             .movie {
               position: relative;
               flex: 0 0 200px;
@@ -269,7 +269,7 @@ $horror: #ff382f;
                     padding: 15px;
                     background: radial-gradient(circle at 100% 0, #3b1d6e88, transparent 60%), linear-gradient(160deg, #0e1a3a, #050816);
                     .view-detailes {
-                        text-decoration: none;
+                      text-decoration: none;
                       @include flex();
                       display: inline-flex;
                       gap: 10px;

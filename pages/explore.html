@@ -240,55 +240,56 @@
     <header id="Explore">
       <div class="container-fluid">
         <div class="content">
-          <div data-genre="action" class="planet action active">
+          <div onclick="showGenreMoviesExplore(this.dataset.genre)" data-genre="action" class="planet action active">
             <img src="../images/genres/action.png" class="img-fluid" alt="Planet" />
             <div class="name">Action</div>
           </div>
-          <div data-genre="adventure" class="planet adventure">
+          <div onclick="showGenreMoviesExplore(this.dataset.genre)" data-genre="adventure" class="planet adventure">
             <img src="../images/genres/adventure.png" class="img-fluid" alt="Planet" />
             <div class="name">Adventure</div>
           </div>
-          <div data-genre="animation" class="planet animation">
+          <div onclick="showGenreMoviesExplore(this.dataset.genre)" data-genre="animation" class="planet animation">
             <img src="../images/genres/animation.png" class="img-fluid" alt="Planet" />
             <div class="name">Animation</div>
           </div>
-          <div data-genre="comedy" class="planet comedy">
+          <div onclick="showGenreMoviesExplore(this.dataset.genre)" data-genre="comedy" class="planet comedy">
             <img src="../images/genres/comedy.png" class="img-fluid" alt="Planet" />
             <div class="name">Comedy</div>
           </div>
-          <div data-genre="crime" class="planet crime">
+          <div onclick="showGenreMoviesExplore(this.dataset.genre)" data-genre="crime" class="planet crime">
             <img src="../images/genres/crime.png" class="img-fluid" alt="Planet" />
             <div class="name">Crime</div>
           </div>
-          <div data-genre="documentary" class="planet documentary">
+          <div onclick="showGenreMoviesExplore(this.dataset.genre)" data-genre="documentary" class="planet documentary">
             <img src="../images/genres/documentary.png" class="img-fluid" alt="Planet" />
             <div class="name">Documentary</div>
           </div>
-          <div data-genre="drama" class="planet drama">
+          <div onclick="showGenreMoviesExplore(this.dataset.genre)" data-genre="drama" class="planet drama">
             <img src="../images/genres/drama.png" class="img-fluid" alt="Planet" />
             <div class="name">Drama</div>
           </div>
-          <div data-genre="family" class="planet family">
+          <div onclick="showGenreMoviesExplore(this.dataset.genre)" data-genre="family" class="planet family">
             <img src="../images/genres/family.png" class="img-fluid" alt="Planet" />
             <div class="name">Family</div>
           </div>
-          <div data-genre="fantasy" class="planet fantasy">
+          <div onclick="showGenreMoviesExplore(this.dataset.genre)" data-genre="fantasy" class="planet fantasy">
             <img src="../images/genres/fantasy.png" class="img-fluid" alt="Planet" />
             <div class="name">Fantasy</div>
           </div>
-          <div data-genre="science_fiction" class="planet science">
+          <div onclick="showGenreMoviesExplore(this.dataset.genre)" data-genre="science_fiction" class="planet science">
             <img src="../images/genres/science fiction.png" class="img-fluid" alt="Planet" />
             <div class="name">Science Fiction</div>
           </div>
-          <div data-genre="horror" class="planet horror">
+          <div onclick="showGenreMoviesExplore(this.dataset.genre)" data-genre="horror" class="planet horror">
             <img src="../images/genres/horror.png" class="img-fluid" alt="Planet" />
             <div class="name">Horror</div>
           </div>
         </div>
       </div>
-    </header>
 
-    <section id="Movies">
+     
+    </header>
+    <section id="Movies" class="py-5">
       <div class="frame"></div>
       <div class="container-fluid px-5 h-100">
         <div class="select">
@@ -301,7 +302,7 @@
             </button>
           </div>
         </div>
-        <div class="content h-100" data-view="cards">
+        <div class="content h-100" data-view="cards" data-genre="action">
           <div class="movies-section top-rated-movies">
             <div class="head">
               <div class="left">
@@ -319,7 +320,7 @@
             </div>
             <div class="body">
               <div class="wrap">
-                <button class="arrow prev"><i class="fa-solid fa-chevron-left"></i></button>
+                <button onclick="toggleScrollCards(-1, this)" class="arrow prev"><i class="fa-solid fa-chevron-left"></i></button>
                 <div class="movies">
                   <div class="movie">
                     <div class="movie-inner">
@@ -344,10 +345,11 @@
                     </div>
                   </div>
                 </div>
-                <button class="arrow next"><i class="fa-solid fa-chevron-right"></i></button>
+                <button onclick="toggleScrollCards(1, this)" class="arrow next"><i class="fa-solid fa-chevron-right"></i></button>
               </div>
             </div>
           </div>
+          <div class="movies-section genre-movies"></div>
         </div>
       </div>
     </section>
