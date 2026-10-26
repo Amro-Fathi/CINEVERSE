@@ -39,7 +39,6 @@ footer {
         border-radius: 8px;
       }
 
-      /* Ripple ring behind the icon */
       .social::before {
         content: "";
         position: absolute;
@@ -64,7 +63,6 @@ footer {
         }
       }
 
-      /* Tooltip */
       .social::after {
         content: attr(data-label);
         position: absolute;
@@ -92,7 +90,6 @@ footer {
         transform: translate(-50%, 0);
       }
 
-      /* --- Page-load: every icon draws itself, then fills in --- */
       .ic,
       .ic-s {
         stroke: currentColor;
@@ -141,7 +138,6 @@ footer {
         --d: 0.48s;
       }
 
-      /* Shared wrapper setup so transforms pivot on the shape's own center */
       .tri-g,
       .lens-g,
       .dot-g,
@@ -155,7 +151,6 @@ footer {
         transform-origin: center;
       }
 
-      /* ---------- YouTube: red flood + shine sweep + beating play button ---------- */
       .yt {
         --brand: #ff2d3b;
       }
@@ -213,7 +208,6 @@ footer {
         }
       }
 
-      /* ---------- GitHub: holographic gradient + wobble, tiny idle wiggle ---------- */
       .gh {
         --brand: #b388ff;
       }
@@ -265,7 +259,6 @@ footer {
         }
       }
 
-      /* ---------- Instagram: spinning gradient, pulsing lens, flash burst ---------- */
       .ig {
         --brand: #ff4f9a;
       }
@@ -335,7 +328,6 @@ footer {
         }
       }
 
-      /* ---------- TikTok: RGB glitch, beat, floating sparks ---------- */
       .tk {
         --brand: #25f4ee;
       }
@@ -475,7 +467,6 @@ footer {
         }
       }
 
-      /* ---------- Discord: soft idle sway, eyes glance + blink, big bob on hover ---------- */
       .dc {
         --brand: #7c8bff;
       }

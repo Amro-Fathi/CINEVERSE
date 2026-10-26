@@ -9,8 +9,6 @@ async function destination() {
   let data = await getAllMovies(),
     random = Math.floor(Math.random() * data.length);
   let movie = data[random];
-  header_Destination.innerHTML = "";
-  mobile_Destination.innerHTML = "";
   header_Destination.innerHTML = `
                 <div class="head">
               <div class="right">
@@ -88,7 +86,8 @@ async function destination() {
 
 async function showTop() {
   let res = await getData("top_rated"),
-    data = res.movies;
+    data = res.movies,
+    moviesIn = "";
   let randomMovies = [];
   while (randomMovies.length < 3 && randomMovies.length < data.length) {
     let movie = data[Math.floor(Math.random() * data.length)];
@@ -104,7 +103,7 @@ async function showTop() {
     let rank = ["top-one", "top-two", "top-three"][index];
     let order = ["order-lg-2", "order-lg-1", "order-lg-3"][index];
 
-    Top_Rated_Container.innerHTML += `
+    moviesIn += `
             <div class="col-12 col-lg-4 order-2 ${order}">
               <div class="top  ${rank}">
                 <img src="./images/genres/${movie.genres[0].toLowerCase()}.png" class="planet" alt="${movie.genres[index]}" />
@@ -135,6 +134,7 @@ async function showTop() {
     
     `;
   });
+  Top_Rated_Container.innerHTML = moviesIn;
   setTimeout(() => {
     topLoading.classList.remove("active");
   }, 1000);
@@ -152,10 +152,10 @@ holo.addEventListener("click", function () {
 async function showLatest() {
   let data = await getAllMovies();
   data.sort((a, b) => new Date(b.release_date) - new Date(a.release_date));
-  movieCards.innerHTML = "";
+  moviesIn = "";
   for (let i = 0; i < 10; i++) {
     let movie = data[i];
-    movieCards.innerHTML += `
+    moviesIn += `
     
             <div class="movie-card" >
                 <div class="poster-box">
@@ -174,6 +174,7 @@ async function showLatest() {
     
     `;
   }
+  movieCards.innerHTML = moviesIn;
 }
 showTop();
 destination();

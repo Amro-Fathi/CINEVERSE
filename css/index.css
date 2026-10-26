@@ -4454,9 +4454,6 @@ footer .bottom-bar .icons .social:focus-visible {
   outline-offset: 8px;
   border-radius: 8px;
 }
-footer .bottom-bar .icons {
-  /* Ripple ring behind the icon */
-}
 footer .bottom-bar .icons .social::before {
   content: "";
   position: absolute;
@@ -4479,9 +4476,6 @@ footer .bottom-bar .icons .social:is(:hover, :focus-visible)::before {
     opacity: 0;
     transform: scale(1.7);
   }
-}
-footer .bottom-bar .icons {
-  /* Tooltip */
 }
 footer .bottom-bar .icons .social::after {
   content: attr(data-label);
@@ -4506,9 +4500,6 @@ footer .bottom-bar .icons .social::after {
 footer .bottom-bar .icons .social:is(:hover, :focus-visible)::after {
   opacity: 1;
   transform: translate(-50%, 0);
-}
-footer .bottom-bar .icons {
-  /* --- Page-load: every icon draws itself, then fills in --- */
 }
 footer .bottom-bar .icons .ic,
 footer .bottom-bar .icons .ic-s {
@@ -4554,9 +4545,6 @@ footer .bottom-bar .icons .social:nth-child(4) {
 footer .bottom-bar .icons .social:nth-child(5) {
   --d: 0.48s;
 }
-footer .bottom-bar .icons {
-  /* Shared wrapper setup so transforms pivot on the shape's own center */
-}
 footer .bottom-bar .icons .tri-g,
 footer .bottom-bar .icons .lens-g,
 footer .bottom-bar .icons .dot-g,
@@ -4568,9 +4556,6 @@ footer .bottom-bar .icons .spark,
 footer .bottom-bar .icons .wob {
   transform-box: fill-box;
   transform-origin: center;
-}
-footer .bottom-bar .icons {
-  /* ---------- YouTube: red flood + shine sweep + beating play button ---------- */
 }
 footer .bottom-bar .icons .yt {
   --brand: #ff2d3b;
@@ -4623,9 +4608,6 @@ footer .bottom-bar .icons .yt:is(:hover, :focus-visible) .shine {
     transform: translateX(46px);
   }
 }
-footer .bottom-bar .icons {
-  /* ---------- GitHub: holographic gradient + wobble, tiny idle wiggle ---------- */
-}
 footer .bottom-bar .icons .gh {
   --brand: #b388ff;
 }
@@ -4673,9 +4655,6 @@ footer .bottom-bar .icons .gh:is(:hover, :focus-visible) .wob {
   100% {
     transform: rotate(0);
   }
-}
-footer .bottom-bar .icons {
-  /* ---------- Instagram: spinning gradient, pulsing lens, flash burst ---------- */
 }
 footer .bottom-bar .icons .ig {
   --brand: #ff4f9a;
@@ -4741,9 +4720,6 @@ footer .bottom-bar .icons .ig:is(:hover, :focus-visible) .flash-ring {
     transform: scale(5);
     opacity: 0;
   }
-}
-footer .bottom-bar .icons {
-  /* ---------- TikTok: RGB glitch, beat, floating sparks ---------- */
 }
 footer .bottom-bar .icons .tk {
   --brand: #25f4ee;
@@ -4877,9 +4853,6 @@ footer .bottom-bar .icons .tk:is(:hover, :focus-visible) .sp2 {
     opacity: 0;
     transform: translateY(-7px) scale(1.2);
   }
-}
-footer .bottom-bar .icons {
-  /* ---------- Discord: soft idle sway, eyes glance + blink, big bob on hover ---------- */
 }
 footer .bottom-bar .icons .dc {
   --brand: #7c8bff;

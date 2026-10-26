@@ -29,10 +29,11 @@ planets.forEach((planet) => {
 
 async function showTopMoviesExplore() {
   let res = await getData("top_rated"),
-    data = res.movies;
+    data = res.movies,
+    moviesIn = "";
   topMoviesContent.innerHTML = "";
   data.forEach(function (movie) {
-    topMoviesContent.innerHTML += `
+    moviesIn += `
       
                <div class="movie">
                     <div class="movie-inner">
@@ -60,10 +61,12 @@ async function showTopMoviesExplore() {
       
       `;
   });
+  topMoviesContent.innerHTML = moviesIn;
 }
 
 async function showGenreMoviesExplore(genre = "action") {
   changeColor(genre);
+  moviesIn = "";
   if (genre == "horror") {
     genreMoviesContet.innerHTML = `
         <div class="head">
@@ -128,7 +131,7 @@ async function showGenreMoviesExplore(genre = "action") {
   
   `;
   data.forEach(function (movie) {
-    genreMoviesContet.querySelector(".movies").innerHTML += `
+    moviesIn += `
                  <div class="movie">
                     <div class="movie-inner">
                       <div class="face front">
@@ -158,6 +161,7 @@ async function showGenreMoviesExplore(genre = "action") {
     
     `;
   });
+  genreMoviesContet.querySelector(".movies").innerHTML = moviesIn;
 }
 
 function toggleScrollCards(dire, that) {
