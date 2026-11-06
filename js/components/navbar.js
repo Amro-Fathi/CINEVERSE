@@ -32,6 +32,12 @@ window.addEventListener("resize", function () {
 });
 
 function setHeaderPadding() {
+  let header = document.querySelector("header");
   let nav = document.querySelector("nav.main-nav");
-  document.querySelector("header").style.paddingTop = `${nav.offsetHeight}px`;
+
+  if (header.id == "Movie") {
+    header.style.paddingBlock = `${nav.offsetHeight + 60}px`;
+    return;
+  }
+  header.style.paddingTop = `${nav.offsetHeight - 10}px`;
 }

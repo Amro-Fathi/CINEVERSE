@@ -1,60 +1,60 @@
-let ship = document.querySelector(".ss"),
-  sections = document.querySelectorAll("section"),
-  marks = ship.querySelectorAll(".ss-mark"),
-  lastY = scrollY,
-  timer;
+let ship = document.querySelector(".ss");
+let sections = document.querySelectorAll("section");
+let marks = document.querySelectorAll(".ss-mark");
+let lastY = 0;
+let timer;
 
-function maxScroll() {
-  return Math.max(1, document.documentElement.scrollHeight - innerHeight);
+function getMax() {
+  return document.documentElement.scrollHeight - innerHeight || 1;
 }
 
 function placeMarks() {
-  sections.forEach((section, index) => {
-    marks[index].style.setProperty("--mp", Math.min(1, section.offsetTop / maxScroll()));
-  });
+  for (let i = 0; i < marks.length; i++) {
+    marks[i].style.setProperty("--mp", sections[i].offsetTop / getMax());
+  }
 }
 
 function update() {
-  ship.style.setProperty("--p", Math.min(1, scrollY / maxScroll()));
+  ship.style.setProperty("--p", scrollY / getMax());
 }
 
 function wake() {
   ship.classList.add("awake");
   ship.classList.remove("idle");
   clearTimeout(timer);
-  timer = setTimeout(() => {
+  timer = setTimeout(function () {
     ship.classList.remove("awake");
     ship.classList.add("idle");
   }, 1400);
 }
 
-marks.forEach((mark, index) => {
-  mark.addEventListener("click", () => {
-    sections[index].scrollIntoView({ behavior: "smooth" });
+for (let i = 0; i < marks.length; i++) {
+  marks[i].addEventListener("click", function () {
+    sections[i].scrollIntoView({ behavior: "smooth" });
   });
-});
-
-function seek(e) {
-  let percent = (e.clientY - 32) / (innerHeight - 64);
-  scrollTo({ top: percent * maxScroll(), behavior: "instant" });
 }
 
-ship.addEventListener("pointerdown", (e) => {
+function seek(e) {
+  let percent = e.clientY / innerHeight;
+  scrollTo(0, percent * getMax());
+}
+
+ship.addEventListener("pointerdown", function (e) {
   if (e.target.closest(".ss-mark")) return;
   ship.setPointerCapture(e.pointerId);
   seek(e);
 });
 
-ship.addEventListener("pointermove", (e) => {
+ship.addEventListener("pointermove", function (e) {
   if (ship.hasPointerCapture(e.pointerId)) {
     seek(e);
   }
 });
 
-addEventListener("scroll", () => {
+addEventListener("scroll", function () {
   if (scrollY < lastY) {
     ship.classList.add("up");
-  } else if (scrollY > lastY) {
+  } else {
     ship.classList.remove("up");
   }
   lastY = scrollY;
@@ -66,12 +66,12 @@ addEventListener("resize", function () {
   placeMarks();
   update();
 });
+
 addEventListener("load", function () {
   placeMarks();
   update();
 });
 
-document.documentElement.classList.add("ss-on");
 placeMarks();
 update();
 wake();

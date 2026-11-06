@@ -1,6 +1,6 @@
 @use "../abstracts" as *;
 
-nav {
+nav.main-nav {
   @include position($p: fixed, $t: 20px, $l: 50%, $z: 999);
   transform: translateX(-50%);
   width: 75%;
@@ -27,14 +27,19 @@ nav {
       display: block;
     }
   }
+  &.movie-page{
+    width: 70%;
+  }
+
+
   .logo {
     @include flex();
     width: 10%;
-    @include responsive(350){
+    @include responsive(350) {
       display: none;
     }
-    @include responsive(1250){
-      display:flex;
+    @include responsive(1250) {
+      display: flex;
       width: 14%;
     }
   }
@@ -125,10 +130,9 @@ nav {
       min-width: 0;
 
       @include flex($jc: end);
-      @include responsive(1050){
+      @include responsive(1050) {
         display: none;
       }
-
 
       &.active .input-group {
         width: 80%;
@@ -197,7 +201,7 @@ nav {
 
   .account-icon {
     @include flex();
-    @include responsive(1050){
+    @include responsive(1050) {
       justify-content: end;
     }
     flex-grow: 1;

@@ -1,9 +1,5 @@
 @use "../abstracts" as *;
 
-html.ss-on {
-  scrollbar-width: none;
-}
-
 .ss {
   @include position(fixed, $t: 0, $r: 0, $z: 999);
   @include dimensions(60px, 100%);
@@ -28,33 +24,29 @@ html.ss-on {
   height: 100%;
   background: #22d3ee;
   transform-origin: top;
-  transform: scaleY(var(--p));
+  transform: scaleY(min(var(--p), 1));
 }
 
 .ss-mark {
   position: absolute;
   left: 50%;
-  top: calc(var(--mp) * 100%);
+  top: calc(min(var(--mp), 1) * 100%);
   @include dimensions(15px, 15px);
   margin: -7.5px;
   border: 2px #000 solid;
   border-radius: 50%;
-  background: #2a4a7a;
-  cursor: pointer;
   background: #22d3ee;
+  cursor: pointer;
 }
-
 .ss-mark:hover {
   box-shadow:
     0 0 5px #22d3ee,
-    0 0 15px rgba(34, 211, 238, 0.8),
-    0 0 30px rgba(34, 211, 238, 0.6),
-    0 0 60px rgba(34, 211, 238, 0.3),
-    inset 0 0 10px rgba(34, 211, 238, 0.15);
+    0 0 20px #22d3eecc,
+    0 0 40px #22d3ee66;
 }
 
 .ss-mark::after {
-  content: "";
+  content: attr(data-label);
   position: absolute;
   right: calc(100% + 12px);
   top: 50%;
@@ -66,23 +58,18 @@ html.ss-on {
   border: 1px solid #22d3ee66;
   padding: 7px 11px;
   border-radius: 100px;
-  transition-duration: 0.4s;
   font-size: 14px;
-}
-.ss-mark:nth-of-type(1)::after {
-  content: "Top Rated";
-}
-.ss-mark:nth-of-type(2)::after {
-  content: "Latest";
+  transition-duration: 0.4s;
 }
 .ss-mark:hover::after {
   opacity: 1;
   transform: translate(0, -50%);
 }
+
 .ss-ship {
   @include position($l: 0);
   @include dimensions(100%, 64px);
-  top: calc(var(--p) * (100% - 64px));
+  top: calc(min(var(--p), 1) * (100% - 64px));
   @include flex();
 }
 .ss-ship svg {

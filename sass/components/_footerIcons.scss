@@ -14,7 +14,7 @@ footer {
         color: #cfd6ea;
         transition:
           color 0.25s,
-          transform 0.35s cubic-bezier(0.3, 1.6, 0.5, 1);
+          transform 0.35s;
       }
       .social svg {
         width: 24px;
@@ -83,7 +83,7 @@ footer {
         pointer-events: none;
         transition:
           opacity 0.2s,
-          transform 0.3s cubic-bezier(0.3, 1.6, 0.5, 1);
+          transform 0.3s ;
       }
       .social:is(:hover, :focus-visible)::after {
         opacity: 1;

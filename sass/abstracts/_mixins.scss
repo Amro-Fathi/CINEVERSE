@@ -18,6 +18,12 @@
   justify-content: $jc;
   align-items: $ai;
 }
+@mixin bg-img($url: "") {
+  background-image: url($url);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
 
 @mixin responsive($w) {
   @if ($w == 350) {
@@ -46,12 +52,3 @@
     }
   }
 }
-
-@mixin bg-img($url: "") {
-  background-image: url($url);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-
-

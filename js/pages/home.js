@@ -16,7 +16,7 @@ async function destination() {
                 <span>TODAYS'S DESTINATION</span>
               </div>
               <div class="left">
-                <i class="fa-solid fa-angle-right"></i>
+                <i class="fa-solid fa-angle-right" onclick="goToMovieIndex(${movie.id})"></i>
               </div>
             </div>
             <div class="body">
@@ -48,11 +48,11 @@ async function destination() {
 
       <div class="head">
         <div class="right">
-          <i class="fa-solid fa-crosshairs me-2" aria-hidden="true"></i>
+          <i class="fa-solid fa-crosshairs me-2" ></i>
           <span>TODAY'S DESTINATION</span>
         </div>
         <div class="left" role="button" tabindex="0" aria-label="Open today's destination">
-          <i class="fa-solid fa-angle-right" aria-hidden="true"></i>
+          <i class="fa-solid fa-angle-right" onclick="goToMovieIndex(${movie.id})"></i>
         </div>
       </div>
  
@@ -69,7 +69,7 @@ async function destination() {
               <span class="dot">•</span>
               <span>${movie.genres[0]}</span>
               <span class="dot">•</span>
-              <span class="rate"><i class="fa-solid fa-star" aria-hidden="true"></i>${movie.vote_average.toFixed(1)}</span>
+              <span class="rate"><i class="fa-solid fa-star" ></i>${movie.vote_average.toFixed(1)}</span>
             </div>
             <div class="desc">${movie.overview.slice(0, 110)}...</div>
           </div>
@@ -121,7 +121,7 @@ async function showTop() {
                      ${movie.overview.slice(0, 120)}...
                   </div>
                   <div class="actions">
-                    <div class="view-details"><i class="fa-solid fa-play"></i><span>View Details</span></div>
+                    <div class="view-details" onclick="goToMovieIndex(${movie.id})"><i class="fa-solid fa-play"></i><span>View Details</span></div>
                     <div class="bookmark"><i class="fa-regular fa-bookmark"></i></div>
                   </div>
                 </div>
@@ -149,7 +149,7 @@ holo.addEventListener("click", function () {
     this.parentElement.querySelector('input[type="checkbox"]').checked = false;
   }, 1500);
 });
-async function showLatest() {
+async function showLatest() { 
   let data = await getAllMovies();
   data.sort((a, b) => new Date(b.release_date) - new Date(a.release_date));
   moviesIn = "";
@@ -157,7 +157,7 @@ async function showLatest() {
     let movie = data[i];
     moviesIn += `
     
-            <div class="movie-card" >
+            <div class="movie-card" onclick="goToMovieIndex(${movie.id})">
                 <div class="poster-box">
                   <img
                     class="poster" src="https://image.tmdb.org/t/p/original${movie.poster_path}" alt="${movie.title}" loading="lazy" />
