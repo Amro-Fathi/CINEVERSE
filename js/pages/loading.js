@@ -19,6 +19,8 @@ if (where) {
     }
     window.location.href = destination;
   }, 3000);
+} else {
+  window.location.href = "pages/home.html";
 }
 
 let space = document.querySelector("#Space");
@@ -32,3 +34,7 @@ galaxies.forEach(function (star) {
     }, 4000);
   });
 });
+
+setTimeout(() => {
+  window.location.href = "pages/home.html";
+}, 10000);
