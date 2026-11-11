@@ -45,7 +45,7 @@ async function getNeededMovie() {
     
       <div class="col-12 col-xl-4 left">
               <div class="explosion-planet ">
-                <img src="../images/signal-lost/planet-${movie.genres[0] != "Science Fiction" ? movie.genres[0] : "science-fiction"}.svg" alt="Explosion Planet" class="img-fluid" />
+                <img src="../images/signal-lost/planet-${movie.genres[0].toLowerCase() != "Science Fiction" ? movie.genres[0].toLowerCase() : "science-fiction"}.svg" alt="Explosion Planet" class="img-fluid" />
               </div>
               <div class="img">
                 <div id="FloatingImg" class="float explosion">

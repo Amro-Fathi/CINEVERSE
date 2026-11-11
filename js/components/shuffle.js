@@ -49,8 +49,8 @@ function initShuffling() {
     el.textContent = mix(el.textContent);
   });
 }
-function playSound(name, volume = 0.5) {
-  let sound = new Audio(`../../audio/${name}.mp3`);
+function playSound(name, volume = 0.35) {
+  let sound = new Audio(`../audio/${name}.mp3`);
   sound.volume = volume;
   sound.play();
   return sound;
