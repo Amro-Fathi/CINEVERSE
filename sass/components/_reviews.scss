@@ -1,0 +1,206 @@
+@use "../abstracts" as *;
+
+.reviews {
+  position: relative;
+  overflow: hidden;
+  padding: 90px 0 110px;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  @include bg-img("../images/reviewss.png");
+
+  .head {
+    position: relative;
+    p {
+      letter-spacing: 1px;
+      font-size: 14px;
+      color: #b9b6d8;
+    }
+
+    .title {
+      margin: 10px 0;
+      font-style: italic;
+      font-weight: 900;
+      font-size: 120px;
+      @include responsive(350){
+        font-size: 50px;
+      }
+      @include responsive(650){
+        font-size: 80px;
+      }
+      background: linear-gradient(90deg, #19c9ff, #fff 50%, #8a3dff);
+      background-clip: text;
+      color: transparent;
+      filter: drop-shadow(0 0 25px rgba(25, 201, 255, 0.5));
+    }
+    .stars {
+      margin-top: 25px;
+      color: #19c9ff;
+      font-size: 18px;
+      @include flex();
+      gap: 15px;
+
+      i.big {
+        font-size: 28px;
+      }
+    }
+  }
+
+  .slider {
+    position: relative;
+    max-width: 80%;
+    margin: auto;
+    padding-top: 70px;
+
+    .swiper {
+      overflow: visible;
+      padding: 40px 0;
+      .swiper-slide {
+        @include flex();
+        transition-duration: 0.5s;
+        transform: scale(0.88);
+        opacity: 0.75;
+
+        &-active {
+          transform: scale(1.1);
+          opacity: 1;
+          z-index: 2;
+
+          .card {
+            border-color: #19c9ff;
+            box-shadow:
+              0 0 35px rgba(25, 201, 255, 0.45),
+              inset 0 0 25px rgba(138, 61, 255, 0.25);
+          }
+        }
+
+        .card {
+          width: 100%;
+          padding: 25px 28px;
+          text-align: left;
+          border-radius: 24px;
+          border: 1px solid #8a3dff;
+          background: rgba(10, 14, 45, 0.75);
+          backdrop-filter: blur(8px);
+          box-shadow: 0 0 20px rgba(138, 61, 255, 0.3);
+
+          .top {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+          }
+
+          .avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #8a3dff;
+          }
+
+          .info {
+            flex: 1;
+          }
+
+          .name {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0;
+            color: #f0f8ff;
+          }
+
+          .date {
+            font-size: 14px;
+            color: #8a3dff;
+          }
+
+          .rating {
+            color: #19c9ff;
+            font-size: 14px;
+            display: flex;
+            gap: 4px;
+            @include responsive(350) {
+              display: none;
+            }
+          }
+
+          .body {
+            display: flex;
+            gap: 14px;
+            margin-top: 22px;
+            .text {
+              margin: 0;
+              font-size: 17px;
+              line-height: 1.6;
+              color: #e6e4ff;
+            }
+          }
+        }
+      }
+
+      .no-reviews {
+        width: 100%;
+        min-height: 220px;
+        @include flex($dir: column);
+        gap: 15px;
+        background: rgba(255, 255, 255, 0.025);
+        border: 1px dashed rgba(34, 211, 238, 0.25);
+        border-radius: 15px;
+        color: #a5b4c8;
+        text-align: center;
+      }
+
+      .no-reviews i {
+        font-size: 42px;
+        color: #22d3ee;
+        filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.45));
+      }
+    }
+
+    .arrow {
+      @include position($t: 50%, $z: 5);
+      transform: translateY(-50%);
+      @include dimensions(55px, 55px);
+      @include responsive(350) {
+        @include dimensions(40px, 40px);
+        font-size: 10px;
+        @include position($t: 110%, $z: 5);
+      }
+      border-radius: 50%;
+      border: 1px solid #19c9ff;
+      background: rgba(10, 14, 45, 0.6);
+      color: #ffffff;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+        background: #19c9ff;
+        color: #04050f;
+      }
+
+      &.reviews-arrow-prev {
+        left: 0;
+      }
+      &.reviews-arrow-next {
+        right: 0;
+      }
+    }
+
+    .dots {
+      position: static;
+      margin-top: 20px;
+
+      .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+        margin: 0 8px !important;
+        background: #3a3f6b;
+        opacity: 1;
+      }
+      .swiper-pagination-bullet-active {
+        background: #19c9ff;
+        box-shadow: 0 0 12px #19c9ff;
+      }
+    }
+  }
+}

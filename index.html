@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>CINEVERSE | Movies Universe</title>
+    <title>CINEVERSE | Explore</title>
     <meta name="author" content="Amr Fathi Mohammed" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -33,619 +33,87 @@
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="en_US" />
 
-    <link rel="stylesheet" href="css/all.min.css" />
-    <link rel="stylesheet" href="css/bootstrap.css" />
-    <link rel="stylesheet" href="css/font.css" />
-    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="./css/all.min.css" />
+    <link rel="stylesheet" href="./css/bootstrap.css" />
+    <link rel="stylesheet" href="./css/font.css" />
+    <link rel="stylesheet" href="./css/plugins/animate.css" />
+    <link rel="stylesheet" href="./css/plugins/swiper.css" />
+    <link rel="stylesheet" href="./css/index.css" />
     <link rel="icon" type="image/x-icon" href="./images/Icon.png" />
   </head>
   <body>
-     <div class="ss idle">
-      <div class="ss-rail">
-        <div class="ss-fill"></div>
-      </div>
+    <section id="Space">
+      <div id="index" class="star">
+        <i class="ray"></i>
+        <i class="ray v"></i>
+        <i class="ray d"></i>
+        <i class="ray e"></i>
+        <div class="core"></div>
 
-      <div class="ss-ship">
-        <svg viewBox="0 -6 64 116" aria-hidden="true">
-          <defs>
-            <linearGradient id="ss-hull" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0" stop-color="#8fa3c7" />
-              <stop offset=".5" stop-color="#f4f8ff" />
-              <stop offset="1" stop-color="#6d7fa6" />
-            </linearGradient>
-            <linearGradient id="ss-fin" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#ff7a18" />
-              <stop offset="1" stop-color="#22d3ee" />
-            </linearGradient>
-            <radialGradient id="ss-glass" cx=".35" cy=".3" r=".8">
-              <stop offset="0" stop-color="#e0fbff" />
-              <stop offset=".5" stop-color="#22d3ee" />
-              <stop offset="1" stop-color="#0b3a73" />
-            </radialGradient>
-            <linearGradient id="ss-flame" x1="0" y1="1" x2="0" y2="0">
-              <stop offset="0" stop-color="#ffd54a" />
-              <stop offset=".5" stop-color="#ff7a18" />
-              <stop offset="1" stop-color="#ff7a18" stop-opacity="0" />
-            </linearGradient>
-          </defs>
-
-          <path fill="url(#ss-flame)" d="M24 26 Q32 -4 40 26 Z" />
-          <path fill="#fff6c8" opacity=".9" d="M28 26 Q32 8 36 26 Z" />
-
-          <!-- Wings -->
-          <path fill="url(#ss-fin)" d="M22 44 L5 30 L9 64 L22 66 Z" />
-          <path fill="url(#ss-fin)" d="M42 44 L59 30 L55 64 L42 66 Z" />
-
-          <rect x="24" y="23" width="16" height="7" rx="2" fill="#3b4a6b" />
-          <path fill="url(#ss-hull)" stroke="#4a5b82" d="M32 104 C19 86 17 54 22 28 L42 28 C47 54 45 86 32 104 Z" />
-          <rect x="22" y="40" width="20" height="4" fill="#7c5cff" opacity=".85" />
-
-          <circle cx="32" cy="64" r="7" fill="url(#ss-glass)" stroke="#2a3a5e" stroke-width="1.5" />
-          <circle cx="29.5" cy="61.5" r="2" fill="#fff" opacity=".7" />
-        </svg>
-      </div>
-
-      <button class="ss-mark " data-label="Top Rated"></button>
-      <button class="ss-mark " data-label="Latest"></button>
-    </div>
-
-    <nav class="main-nav">
-      <div class="container-fluid">
-        <div class="row justify-content-between">
-          <div class="col-2 logo">
-            <img src="./images/Logo.png" alt="Logo" class="img-fluid cursor-pointer" />
-          </div>
-          <div class="col-9 d-flex justify-content-center align-items-center">
-            <div class="links list-unstyled">
-              <div class="link">
-                <a class="nav-link active" href="./index.html"><i class="fa-solid fa-house-user"></i> Home</a>
-              </div>
-              <div class="link">
-                <a class="nav-link" href="./pages/explore.html"><i class="fa-solid fa-rocket"></i> Explore</a>
-              </div>
-              <div class="link">
-                <a class="nav-link" href="./pages/"><i class="fa-solid fa-heart"></i> Favourite</a>
-              </div>
-              <div class="link">
-                <a class="nav-link" href="./pages/"><i class="fa-solid fa-bookmark"></i> Watch List</a>
-              </div>
-              <div class="search-container ms-auto" id="SearchContainer">
-                <div class="input-group">
-                  <span class="input-group-text" id="HomeSearch" onclick="toggleSearchActive()"><i class="fa-solid fa-magnifying-glass"></i></span>
-                  <input
-                    type="text"
-                    id="SearchInput"
-                    class="form-control"
-                    placeholder="Search your movie..."
-                    aria-label="Username"
-                    aria-describedby="basic-addon1" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-1 account-icon" onclick="stopPropagation(event)">
-            <div class="img" onclick="OpenAccountPopup()"></div>
-            <i class="fa-solid fa-chevron-left account-arrow" onclick="OpenAccountPopup()"></i>
-          </div>
-        </div>
-
-        <div class="account-detailes" onclick="stopPropagation(event)">
-          <div class="group">
-            <div class="account-details-item">My profile</div>
-            <div class="account-details-item">Watch History</div>
-            <div class="account-details-item">Settings</div>
-          </div>
-          <div class="group">
-            <div class="account-details-item logout">Log Out</div>
-          </div>
-        </div>
-      </div>
-    </nav>
-
-    <div class="topbar">
-      <a href="./index.html" class="topbar-logo">
-        <img src="./images/Logo.png" class="img-fluid cursor-pointer" alt="CINEVERSE" />
-      </a>
-      <div class="topbar-brand">
-        <span>YOUR CINEMATIC UNIVERSE</span>
-        <p>EXPLORE • DISCOVER • BELONG</p>
-      </div>
-      <div class="navbar-button" onclick="stopPropagation(event)">
-        <div class="account-icon" onclick="OpenAccountPopupRight()">
-          <div class="img"></div>
-        </div>
-      </div>
-    </div>
-    <div class="account-detailes-popup" onclick="stopPropagation(event)">
-      <div class="content">
-        <i class="fa-solid fa-xmark close" onclick="OpenAccountPopupRight()"></i>
-        <div class="logo">
-          <img src="./images/Logo.png" alt="Logo" class="img-fluid cursor-pointer" />
-        </div>
-        <div class="links">
-          <div class="account-details-item">
-            <a class="nav-link active" href="#"><i class="fa-solid fa-house-user"></i> Home</a>
-          </div>
-
-          <div class="account-details-item">
-            <a class="nav-link" href="./pages/explore.html"><i class="fa-solid fa-rocket"></i> Explore</a>
-          </div>
-          <div class="account-details-item">
-            <a class="nav-link" href="./pages/"><i class="fa-solid fa-heart"></i> Favourite</a>
-          </div>
-          <div class="account-details-item">
-            <a class="nav-link" href="./pages/"><i class="fa-solid fa-bookmark"></i> Watch List</a>
-          </div>
-        </div>
-        <div class="account-details-search">
-          <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
-          <input type="text" class="search-input" placeholder="Search your movie..." aria-label="Username" aria-describedby="basic-addon1" />
-        </div>
-        <div class="account-icon">
-          <div class="img"></div>
-          <p class="muted">
-            <a href="#" data-bs-toggle="tooltip" data-bs-title="Log Out"><i class="fa-solid fa-right-from-bracket"></i></a>
-          </p>
-          <div class="settings">
-            <h4>CINEVERSE</h4>
-            <p class="mb-0 profile">View Profile</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <header id="Home">
-      <div class="img">
-        <img src="./images/mainHeader.png" alt="Cineverse" class="img-fluid" />
-      </div>
-      <div class="container-fluid h-100 px-5">
-        <div class="content h-100">
-          <div class="top mb-4">
-            <h1>CINEVERSE</h1>
-            <h4>A UNIVERSE OF STORIES</h4>
-            <p>Explore Galaxies of movies. From Epic Adventure to HeartFull stories , find your next world.</p>
-            <a class="home-link" href="#Top_Rated">Start Exploring<i class="fa-solid fa-caret-right"></i></a>
-          </div>
-          <div class="card js-header-destination"></div>
-        </div>
-      </div>
-      <div class="random">
-        <i class="fa-solid fa-dice dice"></i>
-        <span>
-          <h4>Random World</h4>
-          <h6>Let fate decide</h6>
-        </span>
-        <i class="fa-solid fa-angle-right right"></i>
-      </div>
-    </header>
-    <div class="destination">
-      <div class="card js-mobile-destination"></div>
-    </div>
-
-    <section id="Top_Rated" class="py-5 position-relative">
-      <div class="container-fluid py-3">
-        <div class="head">
-          <div class="row">
-            <div class="col-7 left">
-              <div class="img" onclick="showTop()">
-                <img src="./images/TopRatedIcon.png" class="img-fluid" alt="Top" />
-              </div>
-              <div class="title">
-                <h2>TOP <span>MOVIES</span></h2>
-                <p class="mb-0">The most loved movies in Cineverse right now</p>
-              </div>
-            </div>
-            <div class="col-5 right position-relative">
-              <div class="checkbox-container">
-                <input class="holo-checkbox-input" id="holo-check" type="checkbox" />
-                <label class="holo-checkbox" for="holo-check">
-                  <div class="holo-box">
-                    <div class="holo-inner"></div>
-                    <div class="scan-effect"></div>
-                    <div class="holo-particles">
-                      <div class="holo-particle"></div>
-                      <div class="holo-particle"></div>
-                      <div class="holo-particle"></div>
-                      <div class="holo-particle"></div>
-                      <div class="holo-particle"></div>
-                      <div class="holo-particle"></div>
-                    </div>
-
-                    <div class="activation-rings">
-                      <div class="activation-ring"></div>
-                      <div class="activation-ring"></div>
-                      <div class="activation-ring"></div>
-                    </div>
-
-                    <div class="cube-transform">
-                      <div class="cube-face"></div>
-                      <div class="cube-face"></div>
-                      <div class="cube-face"></div>
-                      <div class="cube-face"></div>
-                      <div class="cube-face"></div>
-                      <div class="cube-face"></div>
-                    </div>
-                  </div>
-
-                  <div class="corner-accent"></div>
-                  <div class="corner-accent"></div>
-                  <div class="corner-accent"></div>
-                  <div class="corner-accent"></div>
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="body">
-          <div class="container m-auto position-relative">
-            <div class="row" id="Top_Rated_Container">
-              <!-- <div class="col-12 col-lg-4 order-2 order-lg-1">
-              <div class="top top-two">
-                <img src="./images/genres/sci-fi.png" class="planet" alt="" />
-                <span class="rank">2</span>
-                <div class="img">
-                  <img src="./images/test.pnh.jpg" alt="Dune" />
-                </div>
-                <div class="content">
-                  <h4 class="title">Dune</h4>
-                  <div class="info">
-                    <span>2021</span><span class="dot">•</span> <span>Sci-Fi</span><span class="dot">•</span>
-                    <span class="rate"><i class="fa-solid fa-star"></i>8.0</span>
-                  </div>
-                  <div class="desc">
-                    A brilliant young man journeys to the most dangerous planet in the universe to secure the future of his people.
-                  </div>
-                  <div class="actions">
-                    <div class="view-details"><i class="fa-solid fa-play"></i><span>View Details</span></div>
-                    <div class="bookmark"><i class="fa-regular fa-bookmark"></i></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-lg-4 order-1 order-lg-2">
-              <div class="top top-one">
-                <img src="./images/genres/adventure.png" class="planet" alt="" />
-                <span class="rank">1</span>
-                <div class="img">
-                  <img src="./images/test.pnh.jpg" alt="Interstellar" />
-                </div>
-                <div class="content">
-                  <h4 class="title">Interstellar</h4>
-                  <div class="info">
-                    <span>2014</span><span class="dot">•</span> <span>Sci-Fi</span><span class="dot">•</span>
-                    <span class="rate"><i class="fa-solid fa-star"></i>8.6</span>
-                  </div>
-                  <div class="desc">A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.</div>
-                  <div class="actions">
-                    <div class="view-details"><i class="fa-solid fa-play"></i><span>View Details</span></div>
-                    <div class="bookmark"><i class="fa-regular fa-bookmark"></i></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-lg-4 order-3 order-lg-3">
-              <div class="top top-three">
-                <img src="./images/genres/action.png" class="planet" alt="" />
-                <span class="rank">3</span>
-                <div class="img">
-                  <img src="./images/test.pnh.jpg" alt="The Dark Knight" />
-                </div>
-                <div class="content">
-                  <h4 class="title">The Dark Knight</h4>
-                  <div class="info">
-                    <span>2008</span><span class="dot">•</span> <span>Action</span><span class="dot">•</span>
-                    <span class="rate"><i class="fa-solid fa-star"></i>9.0</span>
-                  </div>
-                  <div class="desc">Batman faces his greatest challenge yet as the Joker unleashes chaos on Gotham City.</div>
-                  <div class="actions">
-                    <div class="view-details"><i class="fa-solid fa-play"></i><span>View Details</span></div>
-                    <div class="bookmark"><i class="fa-regular fa-bookmark"></i></div>
-                  </div>
-                </div>
-              </div>
-            </div> -->
-            </div>
-            <div class="loadingPage active">
-              <div class="wrapper-grid">
-                <div class="cube">
-                  <div class="face face-front">L</div>
-                  <div class="face face-back"></div>
-                  <div class="face face-right"></div>
-                  <div class="face face-left"></div>
-                  <div class="face face-top"></div>
-                  <div class="face face-bottom"></div>
-                </div>
-
-                <div class="cube">
-                  <div class="face face-front">O</div>
-                  <div class="face face-back"></div>
-                  <div class="face face-right"></div>
-                  <div class="face face-left"></div>
-                  <div class="face face-top"></div>
-                  <div class="face face-bottom"></div>
-                </div>
-
-                <div class="cube">
-                  <div class="face face-front">A</div>
-                  <div class="face face-back"></div>
-                  <div class="face face-right"></div>
-                  <div class="face face-left"></div>
-                  <div class="face face-top"></div>
-                  <div class="face face-bottom"></div>
-                </div>
-
-                <div class="cube">
-                  <div class="face face-front">D</div>
-                  <div class="face face-back"></div>
-                  <div class="face face-right"></div>
-                  <div class="face face-left"></div>
-                  <div class="face face-top"></div>
-                  <div class="face face-bottom"></div>
-                </div>
-
-                <div class="cube">
-                  <div class="face face-front">I</div>
-                  <div class="face face-back"></div>
-                  <div class="face face-right"></div>
-                  <div class="face face-left"></div>
-                  <div class="face face-top"></div>
-                  <div class="face face-bottom"></div>
-                </div>
-
-                <div class="cube">
-                  <div class="face face-front">N</div>
-                  <div class="face face-back"></div>
-                  <div class="face face-right"></div>
-                  <div class="face face-left"></div>
-                  <div class="face face-top"></div>
-                  <div class="face face-bottom"></div>
-                </div>
-
-                <div class="cube">
-                  <div class="face face-front">G</div>
-                  <div class="face face-back"></div>
-                  <div class="face face-right"></div>
-                  <div class="face face-left"></div>
-                  <div class="face face-top"></div>
-                  <div class="face face-bottom"></div>
-                </div>
-              </div>
-
-              <div class="loader">
-                <span></span>
-
-                <div id="dot-1" class="dot"></div>
-                <div id="dot-2" class="dot"></div>
-                <div id="dot-3" class="dot"></div>
-                <div id="dot-4" class="dot"></div>
-                <div id="dot-5" class="dot"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <a class="go-to-top" href="./pages/explore.html"> See All<i class="fa-solid fa-angle-right"></i> </a>
-      </div>
-    </section>
-    <div class="latest-continue">
-      <div class="content">
-        <h2>LATEST <span>RELEASES</span></h2>
-        <p class="latest-text">New worlds. Untold stories. <span>Ten fresh arrivals</span> being pulled into the CINEVERSE singularity.</p>
-        <div class="info">
-          <div class="item">
-            <i class="fa-solid fa-diamond"></i>
-            FRESH
-          </div>
-          <div class="item">
-            <i class="fa-solid fa-globe"></i>
-            GENRES
-          </div>
-          <div class="item">
-            <i class="fa-solid fa-bolt"></i>
-            2026
-          </div>
-        </div>
-        <a href="#Top_Rated">
+        <div class="star-label">
+          <strong>CINEVERSE</strong>
           <span>EXPLORE THE UNIVERSE</span>
-          <i class="fa-solid fa-location-arrow"></i>
-        </a>
+        </div>
       </div>
-    </div>
-    <section id="Latest">
-      <div class="container-fluid px-5">
-        <div class="row flex-column flex-md-row">
-          <div class="col-12 col-md-6 left">
-            <div class="content">
-              <h2>LATEST <span>RELEASES</span></h2>
-              <p class="latest-text">New worlds. Untold stories. <span>Ten fresh arrivals</span> being pulled into the CINEVERSE singularity.</p>
-              <div class="info">
-                <div class="item">
-                  <i class="fa-solid fa-diamond"></i>
-                  FRESH <br />
-                  ARRIVALS
-                </div>
-                <div class="item">
-                  <i class="fa-solid fa-globe"></i>
-                  DIVERSE <br />
-                  GENRES
-                </div>
-                <div class="item">
-                  <i class="fa-solid fa-bolt"></i>
-                  2026 <br />
-                  SEASON
-                </div>
-              </div>
-              <a href="./pages/explore.html">
-                <span>EXPLORE THE UNIVERSE</span>
-                <i class="fa-solid fa-location-arrow"></i>
-              </a>
-            </div>
-          </div>
-          <div class="col-12 col-md-6 right">
-            <span class="ring ring-big"></span>
-            <span class="ring ring-small"></span>
-            <img class="black-hole" src="./images/blackhole-animated-v2.svg" alt="BlackHole" draggable="false" />
-            <div class="cards" id="Movie_Cards"></div>
-          </div>
+
+      <div id="home" class="star">
+        <i class="ray"></i>
+        <i class="ray v"></i>
+        <i class="ray d"></i>
+        <i class="ray e"></i>
+        <div class="core"></div>
+
+        <div class="star-label">
+          <i class="star-icon">⌂</i>
+          <strong>HOME</strong>
+          <span>Return to the stars</span>
+        </div>
+      </div>
+
+      <div id="explore" class="star">
+        <i class="ray"></i>
+        <i class="ray v"></i>
+        <i class="ray d"></i>
+        <i class="ray e"></i>
+        <div class="core"></div>
+
+        <div class="star-label">
+          <i class="star-icon">⌕</i>
+          <strong>EXPLORE</strong>
+          <span>Discover more</span>
+        </div>
+      </div>
+
+      <div id="movie" class="star">
+        <i class="ray"></i>
+        <i class="ray v"></i>
+        <i class="ray d"></i>
+        <i class="ray e"></i>
+        <div class="core"></div>
+
+        <div class="star-label">
+          <i class="star-icon">▣</i>
+          <strong>MOVIE</strong>
+          <span>Dive into movies</span>
+        </div>
+      </div>
+
+      <div id="login" class="star ">
+        <i class="ray"></i>
+        <i class="ray v"></i>
+        <i class="ray d"></i>
+        <i class="ray e"></i>
+        <div class="core"></div>
+
+        <div class="star-label">
+          <i class="star-icon">◇</i>
+          <strong>LOGIN</strong>
+          <span>Enter your universe</span>
         </div>
       </div>
     </section>
-
-    <footer class="py-3">
-      <div class="container-fluid px-5">
-        <div class="row mb-4">
-          <div class="col-3 d-none d-xl-block"></div>
-          <div class="col-12 col-lg-5 col-xl-4 left">
-            <h4>Join CINEVERSE</h4>
-            <p>Be part of a universe of movies lovers. Create your watch list, explore new words and never miss a story.</p>
-            <a class="home-link" href="">Create Your Account <i class="fa-solid fa-arrow-right"></i></a>
-          </div>
-          <div class="col-12 col-lg-7 col-xl-5 right row">
-            <div class="col-12 col-sm-6 icon">
-              <div class="item"><i class="fa-solid fa-bookmark"></i> Save Your Own List</div>
-            </div>
-            <div class="col-12 col-sm-6 icon">
-              <div class="item"><i class="fa-solid fa-star"></i> Save Your Favourites</div>
-            </div>
-            <div class="col-12 col-sm-6 icon">
-              <div class="item"><i class="fa-regular fa-clock"></i> Track Your Watch List</div>
-            </div>
-            <div class="col-12 col-sm-6 icon">
-              <div class="item"><i class="fa-solid fa-border-all"></i> Explore New Genres</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="bottom-bar row">
-          <div class="col-lg-1 col-12 d-flex justify-content-center align-items-center">
-            <div class="logo">
-              <img src="./images/Logo.png" alt="Logo" class="img-fluid cursor-pointer" />
-            </div>
-          </div>
-          <div class="col-lg-8 col-12">
-            <div class="links">
-              <div class="link"><a href="./index.html">Home</a></div>
-              <div class="link"><a href="./pages/explore.html">Explore</a></div>
-              <div class="link"><a href="#Top_Rated">Popular</a></div>
-              <div class="link"><a href="#Latest">New Releases</a></div>
-              <div class="link"><a href="">Watch List</a></div>
-            </div>
-          </div>
-          <div class="col-lg-2 col-12 d-flex justify-content-center align-items-center">
-            <div class="icons">
-              <!-- YouTube -->
-              <a class="social yt" target="_blank" href="https://www.youtube.com" aria-label="YouTube" data-label="YouTube">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <defs>
-                    <clipPath id="ytClip"><rect x="1.5" y="4.5" width="21" height="15" rx="4.5" /></clipPath>
-                    <linearGradient id="ytShine">
-                      <stop offset="0" stop-color="#fff" stop-opacity="0" />
-                      <stop offset=".5" stop-color="#fff" stop-opacity=".55" />
-                      <stop offset="1" stop-color="#fff" stop-opacity="0" />
-                    </linearGradient>
-                  </defs>
-                  <rect class="ic-s box" pathLength="1" x="1.5" y="4.5" width="21" height="15" rx="4.5" />
-                  <g clip-path="url(#ytClip)">
-                    <g transform="skewX(-20)"><rect class="shine" x="-12" y="3" width="6" height="18" fill="url(#ytShine)" /></g>
-                  </g>
-                  <g class="tri-g"><polygon class="ic tri" pathLength="1" points="10,8.8 16,12 10,15.2" /></g>
-                </svg>
-              </a>
-
-              <!-- GitHub -->
-              <a class="social gh" target="_blank" href="https://github.com/Amro-Fathi" aria-label="GitHub" data-label="GitHub">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <defs>
-                    <linearGradient id="ghGrad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="24" y2="24" spreadMethod="repeat">
-                      <stop offset="0" stop-color="#b388ff" />
-                      <stop offset=".5" stop-color="#6ee7ff" />
-                      <stop offset="1" stop-color="#b388ff" />
-                      <animateTransform
-                        attributeName="gradientTransform"
-                        type="translate"
-                        from="0 0"
-                        to="24 24"
-                        dur="1.6s"
-                        repeatCount="indefinite" />
-                    </linearGradient>
-                  </defs>
-                  <g class="wob">
-                    <path
-                      class="ic cat"
-                      pathLength="1"
-                      d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
-                  </g>
-                </svg>
-              </a>
-
-              <!-- Instagram -->
-              <a class="social ig" href="#TOP" aria-label="Instagram" data-label="Instagram">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <defs>
-                    <linearGradient id="igGrad" gradientUnits="userSpaceOnUse" x1="2" y1="22" x2="22" y2="2">
-                      <stop offset="0" stop-color="#fd9a2d" />
-                      <stop offset=".45" stop-color="#f1337b" />
-                      <stop offset="1" stop-color="#8a3ab9" />
-                      <animateTransform
-                        attributeName="gradientTransform"
-                        type="rotate"
-                        from="0 12 12"
-                        to="360 12 12"
-                        dur="4s"
-                        repeatCount="indefinite" />
-                    </linearGradient>
-                  </defs>
-                  <rect class="ic-s frame" pathLength="1" x="2.5" y="2.5" width="19" height="19" rx="5.5" />
-                  <g class="lens-g"><circle class="ic-s lens" pathLength="1" cx="12" cy="12" r="4.3" /></g>
-                  <circle class="flash-ring" cx="17.6" cy="6.4" r="1.1" />
-                  <g class="dot-g"><circle class="ic dot" pathLength="1" cx="17.6" cy="6.4" r="1.1" /></g>
-                </svg>
-              </a>
-
-              <!-- TikTok -->
-              <a class="social tk" href="#TOP" aria-label="TikTok" data-label="TikTok">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <defs>
-                    <path
-                      id="tkPath"
-                      pathLength="1"
-                      d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
-                  </defs>
-                  <g class="beat-g">
-                    <use href="#tkPath" class="ghost g1" />
-                    <use href="#tkPath" class="ghost g2" />
-                    <use href="#tkPath" class="ic main" />
-                  </g>
-                  <circle class="spark sp1" cx="21.5" cy="7" r=".8" />
-                  <circle class="spark sp2" cx="2.5" cy="15" r=".8" />
-                </svg>
-              </a>
-
-              <!-- Discord -->
-              <a class="social dc" target="_blank" href="https://discord.com/" aria-label="Discord" data-label="Discord">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <g class="bob-g">
-                    <path
-                      class="ic"
-                      pathLength="1"
-                      d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286z" />
-                    <g class="eyes">
-                      <ellipse class="eye" cx="8.02" cy="12.9" rx="2.16" ry="2.42" />
-                      <ellipse class="eye" cx="15.99" cy="12.9" rx="2.16" ry="2.42" />
-                    </g>
-                  </g>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <!-- <script src="js/plugins/jquery.js"></script> -->
-    <script src="js/bootstrap.js"></script>
-    <script src="js/components/navbar.js"></script>
-    <script src="js/components/spaceship.js"></script>
-    <script src="js/api/fetch.js"></script>
-    <script src="js/pages/home.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/api/fetch.js"></script>
+    <script src="./js/pages/loading.js"></script>
   </body>
 </html>

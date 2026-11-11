@@ -37,6 +37,11 @@ function setHeaderPadding() {
 
   if (header.id == "Movie") {
     header.style.paddingBlock = `${nav.offsetHeight + 60}px`;
+    if (window.innerWidth < 1050) {
+      header.querySelector(".padding-row").style.paddingTop = `${nav.offsetHeight + 100}px`;
+    } else {
+      header.querySelector(".padding-row").style.paddingTop = ``;
+    }
     return;
   }
   header.style.paddingTop = `${nav.offsetHeight - 10}px`;

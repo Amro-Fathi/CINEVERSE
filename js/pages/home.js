@@ -16,7 +16,7 @@ async function destination() {
                 <span>TODAYS'S DESTINATION</span>
               </div>
               <div class="left">
-                <i class="fa-solid fa-angle-right" onclick="goToMovieIndex(${movie.id})"></i>
+                <i class="fa-solid fa-angle-right" onclick="goToMovie(${movie.id})"></i>
               </div>
             </div>
             <div class="body">
@@ -52,7 +52,7 @@ async function destination() {
           <span>TODAY'S DESTINATION</span>
         </div>
         <div class="left" role="button" tabindex="0" aria-label="Open today's destination">
-          <i class="fa-solid fa-angle-right" onclick="goToMovieIndex(${movie.id})"></i>
+          <i class="fa-solid fa-angle-right" onclick="goToMovie(${movie.id})"></i>
         </div>
       </div>
  
@@ -106,7 +106,7 @@ async function showTop() {
     moviesIn += `
             <div class="col-12 col-lg-4 order-2 ${order}">
               <div class="top  ${rank}">
-                <img src="./images/genres/${movie.genres[0].toLowerCase()}.png" class="planet" alt="${movie.genres[index]}" />
+                <img src="../images/genres/${movie.genres[0].toLowerCase()}.png" class="planet" alt="${movie.genres[index]}" />
                 <span class="rank">${index + 1}</span>
                 <div class="img ">
                   <img src="${baseImgUrl}${movie.poster_path}" alt="${movie.title}" />
@@ -121,7 +121,7 @@ async function showTop() {
                      ${movie.overview.slice(0, 120)}...
                   </div>
                   <div class="actions">
-                    <div class="view-details" onclick="goToMovieIndex(${movie.id})"><i class="fa-solid fa-play"></i><span>View Details</span></div>
+                    <div class="view-details" onclick="goToMovie(${movie.id})"><i class="fa-solid fa-play"></i><span>View Details</span></div>
                     <div class="bookmark"><i class="fa-regular fa-bookmark"></i></div>
                   </div>
                 </div>
@@ -157,7 +157,7 @@ async function showLatest() {
     let movie = data[i];
     moviesIn += `
     
-            <div class="movie-card" onclick="goToMovieIndex(${movie.id})">
+            <div class="movie-card" onclick="goToMovie(${movie.id})">
                 <div class="poster-box">
                   <img
                     class="poster" src="https://image.tmdb.org/t/p/original${movie.poster_path}" alt="${movie.title}" loading="lazy" />

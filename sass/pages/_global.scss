@@ -42,3 +42,72 @@ html {
 .cursor-pointer {
   cursor: pointer;
 }
+
+.repeat-animation {
+  @include position($p: fixed, $t: 35px, $r: 70px, $z: 400);
+  @include responsive(350) {
+    @include position($p: fixed ,$b: 20px , $r:20px ,  $z: 400);
+  }
+  @include flex();
+  @include dimensions(55px, 55px);
+  padding: 0;
+  border: 1.5px solid rgba(34, 211, 238, 0.55);
+  border-radius: 50%;
+  background: rgba(10, 20, 26, 0.55);
+  color: #22d3ee;
+  font-size: 18px;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition-duration: 0.5s;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: -1.5px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(34, 211, 238, 0.6);
+    opacity: 0;
+    transform: scale(1);
+    pointer-events: none;
+  }
+
+  i {
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  &:hover {
+    background: #22d3ee;
+    color: #06222a;
+    transform: scale(1.08);
+    box-shadow: 0 0 24px rgba(34, 211, 238, 0.45);
+
+    i {
+      transform: rotate(360deg);
+    }
+
+    &::after {
+      animation: repeat-pulse 1s ease-out infinite;
+    }
+  }
+
+  &:active {
+    transform: scale(0.94);
+    transition-duration: 0.1s;
+  }
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+@keyframes repeat-pulse {
+  from {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+}

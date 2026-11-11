@@ -15,17 +15,32 @@ async function getData(category) {
   let data = await response.json();
   return data;
 }
-
-function goToMovieExplore(id) {
-  window.location.href = "movie.html?id=" + id;
-}
-function goToMovieIndex(id) {
-  window.location.href = "pages/movie.html?id=" + id;
-}
-function goToIndex() {
-  window.location.href = "../index.html";
+async function getReviews(id) {
+  let response = await fetch(`${baseURL}reviews.json`);
+  let data = await response.json();
+  return data[id];
 }
 
+function getRootPath() {
+  return window.location.pathname.includes("/pages/") ? "../" : "./";
+}
+
+function goToPage(page) {
+  window.location.href = `${getRootPath()}index.html?where=${page}`;
+}
+function goToMovie(id) {
+  window.location.href = `${getRootPath()}index.html?id=${id}&where=movie`;
+}
+function goToHome() {
+  goToPage("home");
+}
+
+async function goToRandomMovie() {
+  let movies = await getAllMovies(),
+    randomMovie = movies[Math.floor(Math.random() * movies.length)];
+  goToMovie(randomMovie.id);
+
+}
 /*
 {
   "id": 166428,

@@ -36,29 +36,79 @@
     <link rel="stylesheet" href="../css/all.min.css" />
     <link rel="stylesheet" href="../css/bootstrap.css" />
     <link rel="stylesheet" href="../css/font.css" />
+    <link rel="stylesheet" href="../css/plugins/animate.css" />
+    <link rel="stylesheet" href="../css/plugins/swiper.css" />
     <link rel="stylesheet" href="../css/index.css" />
     <link rel="icon" type="image/x-icon" href="../images/Icon.png" />
   </head>
   <body>
+    <div class="ss idle">
+      <div class="ss-rail">
+        <div class="ss-fill"></div>
+      </div>
+
+      <div class="ss-ship">
+        <svg viewBox="0 -6 64 116" aria-hidden="true">
+          <defs>
+            <linearGradient id="ss-hull" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#8fa3c7" />
+              <stop offset=".5" stop-color="#f4f8ff" />
+              <stop offset="1" stop-color="#6d7fa6" />
+            </linearGradient>
+            <linearGradient id="ss-fin" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#ff7a18" />
+              <stop offset="1" stop-color="#22d3ee" />
+            </linearGradient>
+            <radialGradient id="ss-glass" cx=".35" cy=".3" r=".8">
+              <stop offset="0" stop-color="#e0fbff" />
+              <stop offset=".5" stop-color="#22d3ee" />
+              <stop offset="1" stop-color="#0b3a73" />
+            </radialGradient>
+            <linearGradient id="ss-flame" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0" stop-color="#ffd54a" />
+              <stop offset=".5" stop-color="#ff7a18" />
+              <stop offset="1" stop-color="#ff7a18" stop-opacity="0" />
+            </linearGradient>
+          </defs>
+
+          <!-- Flame -->
+          <path fill="url(#ss-flame)" d="M24 26 Q32 -4 40 26 Z" />
+          <path fill="#fff6c8" opacity=".9" d="M28 26 Q32 8 36 26 Z" />
+
+          <!-- Wings -->
+          <path fill="url(#ss-fin)" d="M22 44 L5 30 L9 64 L22 66 Z" />
+          <path fill="url(#ss-fin)" d="M42 44 L59 30 L55 64 L42 66 Z" />
+
+          <!-- Body -->
+          <rect x="24" y="23" width="16" height="7" rx="2" fill="#3b4a6b" />
+          <path fill="url(#ss-hull)" stroke="#4a5b82" d="M32 104 C19 86 17 54 22 28 L42 28 C47 54 45 86 32 104 Z" />
+          <rect x="22" y="40" width="20" height="4" fill="#7c5cff" opacity=".85" />
+
+          <!-- Cockpit -->
+          <circle cx="32" cy="64" r="7" fill="url(#ss-glass)" stroke="#2a3a5e" stroke-width="1.5" />
+          <circle cx="29.5" cy="61.5" r="2" fill="#fff" opacity=".7" />
+        </svg>
+      </div>
+    </div>
     <nav class="main-nav movie-page">
       <div class="container-fluid">
         <div class="row justify-content-between">
           <div class="col-2 logo">
-            <img onclick="goToIndex()" src="../images/Logo.png" alt="Logo" class="img-fluid cursor-pointer" />
+            <img onclick="goToHome()" src="../images/Logo.png" alt="Logo" class="img-fluid cursor-pointer" />
           </div>
           <div class="col-9 d-flex justify-content-center align-items-center">
             <div class="links list-unstyled">
               <div class="link">
-                <a class="nav-link" href="../index.html"><i class="fa-solid fa-house-user"></i> Home</a>
+                <a class="nav-link" href="../index.html?where=home"><i class="fa-solid fa-house-user"></i> Home</a>
               </div>
               <div class="link">
-                <a class="nav-link" href="./explore.html"><i class="fa-solid fa-rocket"></i> Explore</a>
+                <a class="nav-link" href="../index.html?where=explore"><i class="fa-solid fa-rocket"></i> Explore</a>
               </div>
               <div class="link">
-                <a class="nav-link" href="./pages/"><i class="fa-solid fa-heart"></i> Favourite</a>
+                <a class="nav-link" href="#"><i class="fa-solid fa-heart"></i> Favourite</a>
               </div>
               <div class="link">
-                <a class="nav-link" href="./pages/"><i class="fa-solid fa-bookmark"></i> Watch List</a>
+                <a class="nav-link" href="#"><i class="fa-solid fa-bookmark"></i> Watch List</a>
               </div>
             </div>
           </div>
@@ -70,7 +120,7 @@
 
         <div class="account-detailes" onclick="stopPropagation(event)">
           <div class="group">
-            <div class="account-details-item">My profile</div>
+            <div onclick="goToPage('login')" class="account-details-item">My profile</div>
             <div class="account-details-item">Watch History</div>
             <div class="account-details-item">Settings</div>
           </div>
@@ -81,8 +131,8 @@
       </div>
     </nav>
     <div class="topbar">
-      <a href="../index.html" class="topbar-logo">
-        <img onclick="goToIndex()" src="../images/Logo.png" class="img-fluid cursor-pointer" alt="CINEVERSE" />
+      <a href="../index.html?where=home" class="topbar-logo">
+        <img onclick="goToHome()" src="../images/Logo.png" class="img-fluid cursor-pointer" alt="CINEVERSE" />
       </a>
       <div class="topbar-brand">
         <span>YOUR CINEMATIC UNIVERSE</span>
@@ -98,21 +148,21 @@
       <div class="content">
         <i class="fa-solid fa-xmark close" onclick="OpenAccountPopupRight()"></i>
         <div class="logo">
-          <img onclick="goToIndex()" src="../images/Logo.png" alt="Logo" class="img-fluid cursor-pointer" />
+          <img onclick="goToHome()" src="../images/Logo.png" alt="Logo" class="img-fluid cursor-pointer" />
         </div>
         <div class="links">
           <div class="account-details-item">
-            <a class="nav-link active" href="../index.html"><i class="fa-solid fa-house-user"></i> Home</a>
+            <a class="nav-link active" href="../index.html?where=home"><i class="fa-solid fa-house-user"></i> Home</a>
           </div>
 
           <div class="account-details-item">
-            <a class="nav-link" href="explore.html"><i class="fa-solid fa-rocket"></i> Explore</a>
+            <a class="nav-link" href="../index.html?where=explore"><i class="fa-solid fa-rocket"></i> Explore</a>
           </div>
           <div class="account-details-item">
-            <a class="nav-link" href="./pages/"><i class="fa-solid fa-heart"></i> Favourite</a>
+            <a class="nav-link" href="#"><i class="fa-solid fa-heart"></i> Favourite</a>
           </div>
           <div class="account-details-item">
-            <a class="nav-link" href="./pages/"><i class="fa-solid fa-bookmark"></i> Watch List</a>
+            <a class="nav-link" href="#"><i class="fa-solid fa-bookmark"></i> Watch List</a>
           </div>
         </div>
         <div class="account-icon">
@@ -122,14 +172,14 @@
           </p>
           <div class="settings">
             <h4>CINEVERSE</h4>
-            <p class="mb-0 profile">View Profile</p>
+            <p onclick="goToPage('login')" class="mb-0 profile">View Profile</p>
           </div>
         </div>
       </div>
     </div>
     <div class="topbar">
-      <a href="../index.html" class="topbar-logo">
-        <img onclick="goToIndex()" src="../images/Logo.png" class="img-fluid cursor-pointer" alt="CINEVERSE" />
+      <a href="../index.html?where=home" class="topbar-logo">
+        <img onclick="goToHome()" src="../images/Logo.png" class="img-fluid cursor-pointer" alt="CINEVERSE" />
       </a>
       <div class="topbar-brand">
         <span>YOUR CINEMATIC UNIVERSE</span>
@@ -145,21 +195,21 @@
       <div class="content">
         <i class="fa-solid fa-xmark close" onclick="OpenAccountPopupRight()"></i>
         <div class="logo">
-          <img onclick="goToIndex()" src="../images/Logo.png" alt="Logo" class="img-fluid cursor-pointer" />
+          <img onclick="goToHome()" src="../images/Logo.png" alt="Logo" class="img-fluid cursor-pointer" />
         </div>
         <div class="links">
           <div class="account-details-item">
-            <a class="nav-link active" href="#"><i class="fa-solid fa-house-user"></i> Home</a>
+            <a class="nav-link active" href="../index.html?where=home"><i class="fa-solid fa-house-user"></i> Home</a>
           </div>
 
           <div class="account-details-item">
-            <a class="nav-link" href="./pages/"><i class="fa-solid fa-rocket"></i> Explore</a>
+            <a class="nav-link" href="../index.html?where=explore"><i class="fa-solid fa-rocket"></i> Explore</a>
           </div>
           <div class="account-details-item">
-            <a class="nav-link" href="./pages/"><i class="fa-solid fa-heart"></i> Favourite</a>
+            <a class="nav-link" href="#"><i class="fa-solid fa-heart"></i> Favourite</a>
           </div>
           <div class="account-details-item">
-            <a class="nav-link" href="./pages/"><i class="fa-solid fa-bookmark"></i> Watch List</a>
+            <a class="nav-link" href="#"><i class="fa-solid fa-bookmark"></i> Watch List</a>
           </div>
         </div>
         <div class="account-details-search">
@@ -173,7 +223,7 @@
           </p>
           <div class="settings">
             <h4>CINEVERSE</h4>
-            <p class="mb-0 profile">View Profile</p>
+            <p onclick="goToPage('login')" class="mb-0 profile">View Profile</p>
           </div>
         </div>
       </div>
@@ -182,167 +232,63 @@
     <header id="Movie">
       <div class="container-fluid px-5">
         <div class="content d-flex justify-content-center align-items-center flex-column">
-          <div class="row w-100 mb-5">
-            <div class="col-4 left">
-              <div class="img">
-                <div class="float">
-                  <div class="card3d">
-                    <div class="frame">
-                      <img src="../images/testPoster.webp" alt="Movie Name" class="img-fluid" />
-                    </div>
-                  </div>
-                </div>
-                <div class="stage">
-                  <i class="pool"></i>
-                  <i class="r1"></i>
-                  <i class="r2"></i>
-                  <i class="r3"></i>
-                </div>
-              </div>
-            </div>
-            <div class="col-8 right">
-              <div class="logo special-effect">
-                <div class="logo-img">
-                  <img draggable="false" src="../images/testLogo.webp" alt="Logo Movie" class="img-fluid" />
-                </div>
-                <div class="verticle-line"></div>
-                <div class="text">
-                  <div class="tagline">Fly on your own. Find your way home</div>
-                  <div class="genres">
-                    <i>animation</i>
-                    <i>family</i>
-                    <i>adventure</i>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row infos">
-                <div class="col-3">
-                  <div class="year item">
-                    <div class="orb"><i class="fa-solid fa-calendar-days"></i></div>
-                    <div class="panel">
-                      <span class="text">Release year</span>
-                      <span class="value">2019</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-3">
-                  <div class="time item">
-                    <div class="orb"><i class="fa-solid fa-stopwatch"></i></div>
-                    <div class="panel">
-                      <span class="text">Runtime</span>
-                      <span class="value">1h 44m</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-3">
-                  <div class="rate item">
-                    <div class="orb"><i class="fa-solid fa-star"></i></div>
-                    <div class="panel">
-                      <span class="text">Rating</span>
-                      <span class="value">7.8</span>
-                      <div class="percent">
-                        <span class="ring"><span class="number">78%</span></span>
-                        <span class="count">7317 votes</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-3">
-                  <div class="popularity item">
-                    <div class="orb"><i class="fa-solid fa-arrow-trend-up"></i></div>
-                    <div class="panel">
-                      <span class="text">Popularity</span>
-                      <span class="value">21.5</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-8">
-                  <div class="overview special-effect encrypted">
-                    As Hiccup fulfills his dream of creating a peaceful dragon utopia, Toothless’ discovery of an untamed, elusive mate draws the
-                    Night Fury away. When danger mounts at home and Hiccup’s reign as village chief is tested, both dragon and rider must make
-                    impossible decisions to save their kind.
-                  </div>
-                </div>
-                <div class="col-4 lists">
-                  <div class="item special-effect">
-                    <div class="list date">3 Jan 2019</div>
-                    <div class="list imdb"><img src="../images/imdbLogo.svg.webp" draggable="false" alt="IMDB" class="img-fluid" /></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div id="NeededMovie" class="row padding-row w-100"></div>
 
           <div id="MovieControl" class="buttons">
-            <button class="trailer" id="testDecode"><i class="fa-solid fa-play"></i> Watch Trailer</button>
+            <button class="trailer" id="trailer"><i class="fa-solid fa-play"></i> Watch Trailer</button>
             <button class="watch-list"><i class="fa-solid fa-bookmark"></i> Add to Watch Later</button>
             <button class="like"><i class="fa-solid fa-heart"></i></button>
             <button class="watched"><i class="fa-solid fa-eye"></i> Mark As Watched</button>
             <button class="rate"><i class="fa-solid fa-star"></i> Rate</button>
             <button class="share"><i class="fa-solid fa-share-from-square"></i></button>
           </div>
-
-          <div class="gallary">
-            <div class="frame">
-              <div class="head">
-                <i class="fa-regular fa-image"></i>
-                <h3>Media Signal</h3>
-                <span class="count">12 Frames</span>
-              </div>
-
-              <div class="slider">
-                <button class="arrow prev"><i class="fa-solid fa-chevron-left"></i></button>
-
-                <div class="track">
-                  <img src="../images/testBG.webp" alt="" />
-                  <img src="../images/testBG.webp" alt="" />
-                  <img src="../images/testBG.webp" alt="" />
-                  <img src="../images/testBG.webp" alt="" />
-                  <img src="../images/testBG.webp" alt="" />
-                  <img src="../images/testBG.webp" alt="" />
-                  <img src="../images/testBG.webp" alt="" />
-                  <img src="../images/testBG.webp" alt="" />
-                  <img src="../images/testBG.webp" alt="" />
-                  <img src="../images/testBG.webp" alt="" />
-                  <img src="../images/testBG.webp" alt="" />
-                  <img src="../images/testBG.webp" alt="" />
-                  <img src="../images/testBG.webp" alt="" />
-                  <img src="../images/testBG.webp" alt="" />
-                  <img src="../images/testBG.webp" alt="" />
-                  <img src="../images/testBG.webp" alt="" />
-                  <img src="../images/testBG.webp" alt="" />
-                  <img src="../images/testBG.webp" alt="" />
-                </div>
-
-                <button class="arrow next"><i class="fa-solid fa-chevron-right"></i></button>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </header>
 
+    <section id="Gallary" class="gallary"></section>
+
+    <section class="reviews">
+      <div class="head">
+        <h2 class="title">REVIEWS</h2>
+        <p>WHAT OUR COMMUNITY SAYS</p>
+
+        <div class="stars">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star big"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+      </div>
+
+      <div class="slider">
+        <div id="reviewsSwiper" class="swiper reviews-swiper">
+          <div class="swiper-wrapper"></div>
+        </div>
+        <button class="arrow reviews-arrow-prev"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="arrow reviews-arrow-next"><i class="fa-solid fa-chevron-right"></i></button>
+
+        <div class="dots"></div>
+      </div>
+    </section>
+    <button id="repeatAnimation" class="repeat-animation">
+      <i class="fa-solid fa-rotate-right"></i>
+    </button>
     <footer class="py-3">
       <div class="container-fluid px-5">
         <div class="bottom-bar row">
           <div class="col-lg-1 col-12 d-flex justify-content-center align-items-center">
             <div class="logo">
-              <img onclick="goToIndex()" src="../images/Logo.png" alt="Logo" class="img-fluid cursor-pointer" />
+              <img onclick="goToHome()" src="../images/Logo.png" alt="Logo" class="img-fluid cursor-pointer" />
             </div>
           </div>
           <div class="col-lg-8 col-12">
             <div class="links">
-              <div class="link"><a href="../index.html">Home</a></div>
-              <div class="link"><a href="explore.html">Explore</a></div>
-              <div class="link"><a href="../index.html#Top_Rated">Popular</a></div>
-              <div class="link"><a href="../index.html#Latest">New Releases</a></div>
+              <div class="link"><a href="../index.html?where=home">Home</a></div>
+              <div class="link"><a href="../index.html?where=explore">Explore</a></div>
+              <div class="link"><a href="../index.html?where=home">Popular</a></div>
+              <div class="link"><a href="../index.html?where=home">New Releases</a></div>
               <div class="link"><a href="">Watch List</a></div>
             </div>
           </div>
@@ -456,10 +402,11 @@
         </div>
       </div>
     </footer>
-    <!-- <script src="js/plugins/jquery.js"></script> -->
     <script src="../js/bootstrap.js"></script>
     <script src="../js/components/navbar.js"></script>
+    <script src="../js/components/spaceship.js"></script>
     <script src="../js/api/fetch.js"></script>
+    <script src="../js/plugins/swiper.js"></script>
     <script src="../js/components/shuffle.js"></script>
     <script src="../js/pages/movie.js"></script>
   </body>

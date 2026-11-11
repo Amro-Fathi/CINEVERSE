@@ -52,7 +52,7 @@ async function showTopMoviesExplore() {
                         <p class="overview">
                           ${movie.overview.slice(0, 120)}...
                         </p>
-                        <a class="view-detailes" onclick="goToMovieExplore(${movie.id})"><i class="fa-solid fa-play"></i> Details</a>
+                        <a class="view-detailes" onclick="goToMovie(${movie.id})"><i class="fa-solid fa-play"></i> Details</a>
                       </div>
                     </div>
                   </div>
@@ -149,7 +149,7 @@ async function showGenreMoviesExplore(genre = "action") {
                         <p class="overview">
                           ${movie.overview.slice(0, 120)}...
                         </p>
-                        <a class="view-detailes" onclick="goToMovieExplore(${movie.id})"><i class="fa-solid fa-play"></i> Details</a>
+                        <a class="view-detailes" onclick="goToMovie(${movie.id})"><i class="fa-solid fa-play"></i> Details</a>
                       </div>
                     </div>
                   </div>
