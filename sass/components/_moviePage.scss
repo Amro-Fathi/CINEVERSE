@@ -10,6 +10,13 @@ header#Movie {
   .content {
     position: relative;
     row-gap: 40px;
+    .no-data {
+      @include position($t: 50%, $l: 50%, $z: 200);
+      transform: translate(-50%, -50%);
+      @include dimensions(100%, 100%);
+      border-radius: 20px;
+      overflow: hidden;
+    }
     .meteorite {
       @include position($t: 50%, $l: 50%, $z: 20);
       @include dimensions(0px, 0px);

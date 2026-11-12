@@ -145,8 +145,18 @@ function resetAnimation() {
 
   document.querySelector(".explosion-planet").classList.remove("d-none");
   document.querySelector("#FloatingImg").classList.add("explosion");
-
-  initAnimation();
+  if (window.innerWidth > 1450) {
+    document.querySelector("#noData").classList.remove("d-none");
+  }
+  document.querySelector("#noData img").src = `${document.querySelector("#noData img").src.split("?")[0]}?t=${Date.now()}`;
+  if (window.innerWidth > 1450) {
+    setTimeout(() => {
+      document.querySelector("#noData").classList.add("d-none");
+      initAnimation();
+    }, 6000);
+  } else {
+    initAnimation();
+  }
 }
 
 document.querySelector("#repeatAnimation").addEventListener("click", resetAnimation);

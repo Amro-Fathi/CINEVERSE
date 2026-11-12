@@ -7232,6 +7232,19 @@ header#Movie .content {
   position: relative;
   row-gap: 40px;
 }
+header#Movie .content .no-data {
+  position: absolute;
+  top: 50%;
+  right: initial;
+  bottom: initial;
+  left: 50%;
+  z-index: 200;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+}
 header#Movie .content .meteorite {
   position: absolute;
   top: 50%;
