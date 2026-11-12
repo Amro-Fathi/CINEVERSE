@@ -5,7 +5,7 @@ let lastY = 0;
 let timer;
 
 function getMax() {
-  return document.documentElement.scrollHeight - innerHeight || 1;
+  return document.documentElement.scrollHeight - innerHeight;
 }
 
 function placeMarks() {
