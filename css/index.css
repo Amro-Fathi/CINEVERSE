@@ -2976,11 +2976,6 @@ header#Home .content .card:hover .body .right .info {
     display: none;
   }
 }
-@media (min-width: 992px) and (max-width: 1300px) {
-  #Latest .left {
-    display: block;
-  }
-}
 #Latest .left .content {
   position: relative;
   top: initial;
@@ -3095,17 +3090,6 @@ header#Home .content .card:hover .body .right .info {
   #Latest .right {
     right: 0;
     width: 100%;
-  }
-}
-@media (min-width: 992px) and (max-width: 1300px) {
-  #Latest .right {
-    right: -6%;
-    width: 60%;
-  }
-}
-@media (min-width: 1181px) and (max-width: 1300px) {
-  #Latest .right {
-    width: 72%;
   }
 }
 #Latest .right {

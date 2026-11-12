@@ -32,9 +32,7 @@
     @include responsive(350) {
       display: none;
     }
-    @include responsive(1050) {
-      display: block;
-    }
+
     .content {
       @include position(relative, $z: 8);
       h2 {
@@ -137,13 +135,7 @@
       right: 0;
       width: 100%;
     }
-    @include responsive(1050) {
-      right: -6%;
-      width: 60%;
-    }
-    @include responsive(1250) {
-      width: 72%;
-    }
+
 
     transform: translateY(-50%);
     .ring {
