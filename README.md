@@ -134,37 +134,69 @@ npm install --global sass
 sass --watch sass/index.scss:css/index.css
 The compiled CSS is already included in the repository, so Sass is only needed when you want to modify the styling source.
 📁 Project structure
+
 CINEVERSE/
+
 ├── audio/                 # Explosion and meteorite sound effects
+
 ├── css/                   # Compiled styles and local vendor stylesheets
+
 ├── images/                # Logos, backgrounds, planets, posters, and UI artwork
+
 ├── index.html             # Galaxy navigation gateway
+
 ├── js/
+
 │   ├── api/
+
 │   │   └── fetch.js       # Movie data requests and navigation helpers
+
 │   ├── components/
+
 │   │   ├── navbar.js      # Shared navigation interactions
+
 │   │   ├── shuffle.js     # Text reveal and cinematic effects
+
 │   │   ├── spaceship.js   # Scroll-linked spaceship navigation
+
 │   │   └── spinner.js     # Interactive movie roulette
+
 │   ├── pages/
+
 │   │   ├── explore.js     # Genre and Explore page behavior
+
 │   │   ├── home.js        # Home page movie sections
+
 │   │   ├── loading.js     # Gateway routing and transitions
+
 │   │   ├── login.js       # Login/Register interface behavior
+
 │   │   └── movie.js       # Dynamic movie details and gallery
+
 │   └── plugins/           # Local JavaScript plugins
+
 ├── pages/
 │   ├── explore.html       # Movie discovery page
+
 │   ├── home.html          # Main movie homepage
+
 │   ├── login.html         # Login and registration page
+
 │   └── movie.html         # Movie details page
+
 ├── sass/
+
 │   ├── abstracts/         # Variables and reusable mixins
+
 │   ├── components/        # Component and page-section styles
+
 │   ├── pages/             # Global page styles
+
 │   └── index.scss         # Main Sass entry point
+
 └── webfonts/              # Locally hosted Font Awesome fonts
+
+
 ⚙️ Notes
 - Static hosting: the project is designed to run on GitHub Pages or another static web host.
 - Remote data: movie lists, genre/category data, reviews, and TMDB artwork need an active internet connection.
